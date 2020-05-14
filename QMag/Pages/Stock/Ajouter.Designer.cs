@@ -54,7 +54,7 @@
 			this.panel1.Location = new System.Drawing.Point(0, 0);
 			this.panel1.MaximumSize = new System.Drawing.Size(0, 220);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(1856, 220);
+			this.panel1.Size = new System.Drawing.Size(1439, 220);
 			this.panel1.TabIndex = 5;
 			// 
 			// flatLabelTitre
@@ -87,7 +87,7 @@
 			this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panel2.Location = new System.Drawing.Point(0, 0);
 			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(1856, 893);
+			this.panel2.Size = new System.Drawing.Size(1439, 893);
 			this.panel2.TabIndex = 6;
 			// 
 			// flatButtonAjouter
@@ -222,7 +222,7 @@
 			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.panel2);
 			this.Name = "Ajouter";
-			this.Size = new System.Drawing.Size(1856, 893);
+			this.Size = new System.Drawing.Size(1439, 893);
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
 			this.panel2.ResumeLayout(false);

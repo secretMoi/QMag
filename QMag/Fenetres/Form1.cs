@@ -2,6 +2,8 @@
 using System.Drawing;
 using System.Windows.Forms;
 using Controls;
+using Projet_magasin.Classes;
+using Projet_magasin.Gestion;
 using QMag.Controls;
 using QMag.Pages;
 

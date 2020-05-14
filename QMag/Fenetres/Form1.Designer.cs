@@ -1,4 +1,4 @@
-﻿using Controls.Buttons;
+﻿using  QMag.Controls.Buttons;
 
 namespace QMag.Fenetres
 {
@@ -33,12 +33,13 @@ namespace QMag.Fenetres
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 			this.panelMenu = new System.Windows.Forms.Panel();
-			this.menuFlatButtonClose = new MenuFlatButton();
+			this.menuFlatButtonClients = new Controls.Buttons.MenuFlatButton();
+			this.menuFlatButtonClose = new Controls.Buttons.MenuFlatButton();
 			this.panelSousMenuDisques = new System.Windows.Forms.Panel();
-			this.menu_Disques_Repartition = new MenuFlatButton();
-			this.menu_Stock_Ajouter = new MenuFlatButton();
-			this.menu_Disques = new MenuFlatButton();
-			this.menu_Accueil = new MenuFlatButton();
+			this.menu_Stock_Consulter = new Controls.Buttons.MenuFlatButton();
+			this.menu_Stock_Ajouter = new Controls.Buttons.MenuFlatButton();
+			this.menu_Disques = new Controls.Buttons.MenuFlatButton();
+			this.menu_Accueil = new Controls.Buttons.MenuFlatButton();
 			this.panelContainer = new System.Windows.Forms.Panel();
 			this.panelHeader = new System.Windows.Forms.Panel();
 			this.pictureBoxReduce = new System.Windows.Forms.PictureBox();
@@ -46,7 +47,6 @@ namespace QMag.Fenetres
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.timerMenuDeroulant = new System.Windows.Forms.Timer(this.components);
 			this.pictureBoxResize = new System.Windows.Forms.PictureBox();
-			this.menuFlatButtonClients = new MenuFlatButton();
 			this.panelMenu.SuspendLayout();
 			this.panelSousMenuDisques.SuspendLayout();
 			this.panelHeader.SuspendLayout();
@@ -71,6 +71,24 @@ namespace QMag.Fenetres
 			this.panelMenu.Size = new System.Drawing.Size(275, 599);
 			this.panelMenu.TabIndex = 3;
 			// 
+			// menuFlatButtonClients
+			// 
+			this.menuFlatButtonClients.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(211)))));
+			this.menuFlatButtonClients.Dock = System.Windows.Forms.DockStyle.Top;
+			this.menuFlatButtonClients.FlatAppearance.BorderSize = 0;
+			this.menuFlatButtonClients.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.menuFlatButtonClients.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.menuFlatButtonClients.ForeColor = System.Drawing.Color.White;
+			this.menuFlatButtonClients.Image = ((System.Drawing.Image)(resources.GetObject("menuFlatButtonClients.Image")));
+			this.menuFlatButtonClients.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.menuFlatButtonClients.Location = new System.Drawing.Point(0, 280);
+			this.menuFlatButtonClients.Name = "menuFlatButtonClients";
+			this.menuFlatButtonClients.Size = new System.Drawing.Size(275, 70);
+			this.menuFlatButtonClients.TabIndex = 9;
+			this.menuFlatButtonClients.Text = "   Clients";
+			this.menuFlatButtonClients.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+			this.menuFlatButtonClients.UseVisualStyleBackColor = false;
+			// 
 			// menuFlatButtonClose
 			// 
 			this.menuFlatButtonClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(211)))));
@@ -92,7 +110,7 @@ namespace QMag.Fenetres
 			// 
 			// panelSousMenuDisques
 			// 
-			this.panelSousMenuDisques.Controls.Add(this.menu_Disques_Repartition);
+			this.panelSousMenuDisques.Controls.Add(this.menu_Stock_Consulter);
 			this.panelSousMenuDisques.Controls.Add(this.menu_Stock_Ajouter);
 			this.panelSousMenuDisques.Dock = System.Windows.Forms.DockStyle.Top;
 			this.panelSousMenuDisques.Location = new System.Drawing.Point(0, 140);
@@ -101,22 +119,22 @@ namespace QMag.Fenetres
 			this.panelSousMenuDisques.Size = new System.Drawing.Size(275, 140);
 			this.panelSousMenuDisques.TabIndex = 8;
 			// 
-			// menu_Disques_Repartition
+			// menu_Stock_Consulter
 			// 
-			this.menu_Disques_Repartition.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(245)))));
-			this.menu_Disques_Repartition.FlatAppearance.BorderSize = 0;
-			this.menu_Disques_Repartition.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.menu_Disques_Repartition.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.menu_Disques_Repartition.ForeColor = System.Drawing.Color.White;
-			this.menu_Disques_Repartition.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.menu_Disques_Repartition.Location = new System.Drawing.Point(0, 70);
-			this.menu_Disques_Repartition.Name = "menu_Disques_Repartition";
-			this.menu_Disques_Repartition.Size = new System.Drawing.Size(275, 70);
-			this.menu_Disques_Repartition.TabIndex = 1;
-			this.menu_Disques_Repartition.Text = "   Répartition";
-			this.menu_Disques_Repartition.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-			this.menu_Disques_Repartition.UseVisualStyleBackColor = false;
-			this.menu_Disques_Repartition.Click += new System.EventHandler(this.Menu_Click);
+			this.menu_Stock_Consulter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(245)))));
+			this.menu_Stock_Consulter.FlatAppearance.BorderSize = 0;
+			this.menu_Stock_Consulter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.menu_Stock_Consulter.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.menu_Stock_Consulter.ForeColor = System.Drawing.Color.White;
+			this.menu_Stock_Consulter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.menu_Stock_Consulter.Location = new System.Drawing.Point(0, 70);
+			this.menu_Stock_Consulter.Name = "menu_Stock_Consulter";
+			this.menu_Stock_Consulter.Size = new System.Drawing.Size(275, 70);
+			this.menu_Stock_Consulter.TabIndex = 1;
+			this.menu_Stock_Consulter.Text = "   Consulter";
+			this.menu_Stock_Consulter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+			this.menu_Stock_Consulter.UseVisualStyleBackColor = false;
+			this.menu_Stock_Consulter.Click += new System.EventHandler(this.Menu_Click);
 			// 
 			// menu_Stock_Ajouter
 			// 
@@ -256,24 +274,6 @@ namespace QMag.Fenetres
 			this.pictureBoxResize.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBoxResize_MouseMove);
 			this.pictureBoxResize.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBoxResize_MouseUp);
 			// 
-			// menuFlatButtonClients
-			// 
-			this.menuFlatButtonClients.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(211)))));
-			this.menuFlatButtonClients.Dock = System.Windows.Forms.DockStyle.Top;
-			this.menuFlatButtonClients.FlatAppearance.BorderSize = 0;
-			this.menuFlatButtonClients.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.menuFlatButtonClients.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.menuFlatButtonClients.ForeColor = System.Drawing.Color.White;
-			this.menuFlatButtonClients.Image = ((System.Drawing.Image)(resources.GetObject("menuFlatButtonClients.Image")));
-			this.menuFlatButtonClients.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.menuFlatButtonClients.Location = new System.Drawing.Point(0, 280);
-			this.menuFlatButtonClients.Name = "menuFlatButtonClients";
-			this.menuFlatButtonClients.Size = new System.Drawing.Size(275, 70);
-			this.menuFlatButtonClients.TabIndex = 9;
-			this.menuFlatButtonClients.Text = "   Clients";
-			this.menuFlatButtonClients.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-			this.menuFlatButtonClients.UseVisualStyleBackColor = false;
-			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -317,7 +317,7 @@ namespace QMag.Fenetres
         private System.Windows.Forms.PictureBox pictureBoxClose;
         private System.Windows.Forms.PictureBox pictureBoxReduce;
         private System.Windows.Forms.Panel panelSousMenuDisques;
-        private MenuFlatButton menu_Disques_Repartition;
+        private MenuFlatButton menu_Stock_Consulter;
         private MenuFlatButton menu_Stock_Ajouter;
         private System.Windows.Forms.PictureBox pictureBoxResize;
         private System.Windows.Forms.Timer timerMenuDeroulant;

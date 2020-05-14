@@ -27,13 +27,14 @@ namespace QMag.Pages.Stock
 				return;
 			}
 
+			string nom = flatTextBoxNom.Texte;
 			int quantiteActuelle = Convert.ToInt32(flatTextBoxQuantiteActuelle.Texte);
 			int quantiteMin = Convert.ToInt32(flatTextBoxQuantiteMin.Texte);
 			decimal prixAchat = Convert.ToInt32(flatTextBoxPrixAchat.Texte);
 			decimal prixVente = Convert.ToInt32(flatTextBoxPrixVente.Texte);
 
 			new G_Stock(Connexion).Ajouter(
-				flatTextBoxNom.Text,
+				nom,
 				quantiteActuelle,
 				quantiteMin,
 				prixAchat,

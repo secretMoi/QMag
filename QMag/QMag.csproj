@@ -127,6 +127,7 @@
     <Compile Include="Core\Figures\RectangleArrondi.cs" />
     <Compile Include="Core\Figures\Rotation.cs" />
     <Compile Include="Core\Figures\Texte.cs" />
+    <Compile Include="Core\UseGridView.cs" />
     <Compile Include="Fenetres\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
