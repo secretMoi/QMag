@@ -35,7 +35,7 @@ namespace QMag.Pages.Stock
 				);
 			}
 
-			dataGridView.DataSource = useGridView.Liens;
+			flatDataGridView1.DataSource = useGridView.Liens;
 		}
 	}
 }
