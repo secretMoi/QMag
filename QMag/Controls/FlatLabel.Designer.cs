@@ -1,4 +1,4 @@
-﻿namespace Controls
+﻿namespace QMag.Controls
 {
     partial class FlatLabel
     {

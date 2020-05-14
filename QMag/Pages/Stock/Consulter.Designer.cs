@@ -1,6 +1,6 @@
-﻿namespace QMag.Controls.Buttons
+﻿namespace QMag.Pages.Stock
 {
-	partial class FlatButton
+	partial class Consulter
 	{
 		/// <summary> 
 		/// Variable nécessaire au concepteur.
@@ -28,7 +28,16 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			components = new System.ComponentModel.Container();
+			this.SuspendLayout();
+			// 
+			// Consulter
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.Name = "Consulter";
+			this.Size = new System.Drawing.Size(1856, 893);
+			this.ResumeLayout(false);
+
 		}
 
 		#endregion

@@ -1,4 +1,4 @@
-﻿using Controls.Buttons;
+﻿using QMag.Controls.Buttons;
 
 namespace QMag.Pages
 {
@@ -32,7 +32,7 @@ namespace QMag.Pages
         {
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Accueil));
 			this.panel1 = new System.Windows.Forms.Panel();
-			this.buttonConnexion = new FlatButton();
+			this.buttonConnexion = new QMag.Controls.Buttons.FlatButton();
 			this.labelConnexion = new System.Windows.Forms.Label();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.button1 = new System.Windows.Forms.Button();
@@ -102,7 +102,7 @@ namespace QMag.Pages
 			this.button1.ForeColor = System.Drawing.Color.White;
 			this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
 			this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-			this.button1.Location = new System.Drawing.Point(54, 189);
+			this.button1.Location = new System.Drawing.Point(54, 249);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(175, 175);
 			this.button1.TabIndex = 1;
@@ -120,7 +120,7 @@ namespace QMag.Pages
 			this.button2.ForeColor = System.Drawing.Color.White;
 			this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
 			this.button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-			this.button2.Location = new System.Drawing.Point(841, 189);
+			this.button2.Location = new System.Drawing.Point(844, 249);
 			this.button2.Name = "button2";
 			this.button2.Size = new System.Drawing.Size(175, 175);
 			this.button2.TabIndex = 2;
@@ -138,7 +138,7 @@ namespace QMag.Pages
 			this.button3.ForeColor = System.Drawing.Color.White;
 			this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
 			this.button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-			this.button3.Location = new System.Drawing.Point(1634, 189);
+			this.button3.Location = new System.Drawing.Point(1634, 249);
 			this.button3.Name = "button3";
 			this.button3.Size = new System.Drawing.Size(175, 175);
 			this.button3.TabIndex = 3;
@@ -154,7 +154,7 @@ namespace QMag.Pages
 			this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panel2.Location = new System.Drawing.Point(0, 220);
 			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(1856, 553);
+			this.panel2.Size = new System.Drawing.Size(1856, 673);
 			this.panel2.TabIndex = 4;
 			// 
 			// Accueil
@@ -166,7 +166,7 @@ namespace QMag.Pages
 			this.Controls.Add(this.panel1);
 			this.DoubleBuffered = true;
 			this.Name = "Accueil";
-			this.Size = new System.Drawing.Size(1856, 773);
+			this.Size = new System.Drawing.Size(1856, 893);
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

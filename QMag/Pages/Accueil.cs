@@ -1,5 +1,4 @@
 ﻿using Controls;
-using QMag.Controls;
 
 namespace QMag.Pages
 {

@@ -33,6 +33,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Projet_magasin.Acces">
+      <HintPath>..\..\Projet_magasin.Gestion\Projet_magasin.Gestion\bin\Debug\Projet_magasin.Acces.dll</HintPath>
+    </Reference>
+    <Reference Include="Projet_magasin.Classes">
+      <HintPath>..\..\Projet_magasin.Gestion\Projet_magasin.Gestion\bin\Debug\Projet_magasin.Classes.dll</HintPath>
+    </Reference>
+    <Reference Include="Projet_magasin.Gestion">
+      <HintPath>..\..\Projet_magasin.Gestion\Projet_magasin.Gestion\bin\Debug\Projet_magasin.Gestion.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -124,17 +133,29 @@
     <Compile Include="Fenetres\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Fenetres\FormSsh.cs">
+    <Compile Include="Fenetres\FormBdd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Fenetres\FormSsh.designer.cs">
-      <DependentUpon>FormSsh.cs</DependentUpon>
+    <Compile Include="Fenetres\FormBdd.Designer.cs">
+      <DependentUpon>FormBdd.cs</DependentUpon>
     </Compile>
     <Compile Include="Pages\Accueil.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Pages\Accueil.Designer.cs">
       <DependentUpon>Accueil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Stock\Ajouter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\Stock\Ajouter.Designer.cs">
+      <DependentUpon>Ajouter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Stock\Consulter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\Stock\Consulter.Designer.cs">
+      <DependentUpon>Consulter.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -165,6 +186,12 @@
     <EmbeddedResource Include="Pages\Accueil.resx">
       <DependentUpon>Accueil.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Stock\Ajouter.resx">
+      <DependentUpon>Ajouter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Stock\Consulter.resx">
+      <DependentUpon>Consulter.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -173,6 +200,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -202,5 +230,6 @@
     <Content Include="Ressources\Images\tick.png" />
     <Content Include="Ressources\Images\up-arrow.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

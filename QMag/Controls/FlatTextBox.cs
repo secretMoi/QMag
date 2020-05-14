@@ -2,9 +2,10 @@
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
+using Controls;
 using Core;
 
-namespace Controls
+namespace QMag.Controls
 {
     public partial class FlatTextBox : UserControl
     {

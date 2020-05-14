@@ -1,6 +1,7 @@
 ﻿using System.Windows.Forms;
+using Controls;
 
-namespace Controls
+namespace QMag.Controls
 {
     public partial class FlatLabel : Label
     {

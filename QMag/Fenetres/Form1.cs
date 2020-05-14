@@ -8,7 +8,7 @@ using QMag.Pages;
 // todo système de maj avec dernier client sur nas
 namespace QMag.Fenetres
 {
-    public partial class Form1 : FormSsh
+    public partial class Form1 : FormBdd
     {
         private bool _isResizing;
         private Point _anciennePositionCurseur;
@@ -24,7 +24,7 @@ namespace QMag.Fenetres
 
             //Ssh = new SSH("82.212.177.233", "Quentin", "ee6f4e2b02", 3232);
 
-            ThemePanel.SetConnection(/*Ssh*/);
+            ThemePanel.SetConnection(Connexion);
             Accueil accueil = new Accueil();
             //Ssh.Connect(accueil.ChangeEtatConnection);
 
@@ -62,16 +62,20 @@ namespace QMag.Fenetres
             string nom = ((Button)sender).Name; // récupère le nom du controle appelant
             string[] chaine = nom.Split('_'); // scinde le nom pour avoir les 2 parties
 
+            String espaceNom = typeof(Form1).Namespace;
+            string[] espaceNoms = espaceNom?.Split('.');
+            espaceNom = espaceNoms?[0];
+
             string @namespace, @class;
 
             if (chaine.Length == 3) // si c'est un bouton de sous-menu
             {
-                @namespace = "MySyno.Pages." + chaine[1];
+                @namespace = espaceNom + ".Pages." + chaine[1];
                 @class = chaine[2];
             }
             else // si c'est un bouton de menu
             {
-                @namespace = "MySyno.Pages";
+                @namespace = espaceNom + ".Pages";
                 @class = chaine[1];
 
                 // trouve le panel correspondant

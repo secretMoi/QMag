@@ -5,12 +5,14 @@ namespace Controls
 {
     public partial class ThemePanel : UserControl
     {
-        //protected static SSH Ssh;
+        protected static string Connexion;
         public ThemePanel()
         {
             InitializeComponent();
 
             Dock = DockStyle.Fill;
+            AutoScaleMode = AutoScaleMode.Dpi;
+            DoubleBuffered = true;
         }
 
         protected void Invoque(/*EventHandler<CommandEventArgs> listePartitions, object sender, CommandEventArgs e*/)
@@ -21,9 +23,9 @@ namespace Controls
             });*/
         }
 
-        public static void SetConnection(/*SSH ssh*/)
+        public static void SetConnection(string connexion)
         {
-            //Ssh = ssh;
+            Connexion = connexion;
         }
     }
 }

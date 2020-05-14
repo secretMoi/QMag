@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
 
-namespace Controls.Buttons
+namespace QMag.Controls.Buttons
 {
     public partial class FlatButton : Button
     {

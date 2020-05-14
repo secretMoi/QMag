@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
-using Controls.Buttons;
+using QMag.Controls.Buttons;
 
 namespace Controls
 {
