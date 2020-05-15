@@ -52,7 +52,6 @@ namespace QMag.Pages.Stock
 				"Prix de vente"
 			);
 
-			
 			flatDataGridView1.SetColonnesCliquables(
 				_useGridView.CreateImageColumn("Editer", "Supprimer")
 				);
@@ -83,7 +82,15 @@ namespace QMag.Pages.Stock
 			{
 				//MessageBox.Show(flatDataGridView1.Get(new Couple(ligne, colonne-1)));
 
-				((Form1)Form.ActiveForm)?.LoadPage("QMag.Pages.Stock.Ajouter", ligne + 1); // charge la page Ajouter
+
+
+				((Form1)Form.ActiveForm)?.LoadPage("QMag.Pages.Stock.Ajouter",  _stocks[ligne]); // charge la page Ajouter
+			}
+			else if (colonne == flatDataGridView1.Column["Supprimer"]?.DisplayIndex)
+			{
+				new G_Stock(Connexion).Supprimer(_stocks[ligne].id);
+
+				((Form1)Form.ActiveForm)?.LoadPage("QMag.Pages.Stock.Consulter"); // rafraichit la page
 			}
 		}
 	}

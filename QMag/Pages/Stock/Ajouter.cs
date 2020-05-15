@@ -25,7 +25,10 @@ namespace QMag.Pages.Stock
 		{
 			base.Hydrate(args);
 
-			C_Stock stock = new G_Stock(Connexion).Lire_ID((int) args[0]);
+			C_Stock stock = args[0] as C_Stock;
+
+			if(stock == null)
+				return;
 
 			flatLabelTitre.Text = @"Modification de l'article " + stock.nom;
 			flatButtonAjouter.Text = @"Modifier";
