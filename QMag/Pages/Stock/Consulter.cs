@@ -79,18 +79,13 @@ namespace QMag.Pages.Stock
 			int ligne = e.RowIndex;
 
 			if (colonne == flatDataGridView1.Column["Editer"]?.DisplayIndex)
-			{
-				//MessageBox.Show(flatDataGridView1.Get(new Couple(ligne, colonne-1)));
+				LoadPage("Stock.Ajouter",  _stocks[ligne]); // charge la page Ajouter
 
-
-
-				((Form1)Form.ActiveForm)?.LoadPage("QMag.Pages.Stock.Ajouter",  _stocks[ligne]); // charge la page Ajouter
-			}
 			else if (colonne == flatDataGridView1.Column["Supprimer"]?.DisplayIndex)
 			{
 				new G_Stock(Connexion).Supprimer(_stocks[ligne].id);
 
-				((Form1)Form.ActiveForm)?.LoadPage("QMag.Pages.Stock.Consulter"); // rafraichit la page
+				LoadPage("Stock.Consulter"); // rafraichit la page
 			}
 		}
 	}

@@ -226,6 +226,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Ressources\Images\box.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <Content Include="Ressources\Images\close.png" />
     <Content Include="Ressources\Images\diagonal-arrows.png" />
     <Content Include="Ressources\Images\down-arrow.png" />
@@ -243,7 +246,11 @@
     <EmbeddedResource Include="Ressources\Images\supprimer.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ressources\Images\signs.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <Content Include="Ressources\Images\tick.png" />
+    <Content Include="Ressources\Images\tools-and-utensils.png" />
     <Content Include="Ressources\Images\up-arrow.png" />
   </ItemGroup>
   <ItemGroup />

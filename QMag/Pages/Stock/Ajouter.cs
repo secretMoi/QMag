@@ -25,6 +25,9 @@ namespace QMag.Pages.Stock
 		{
 			base.Hydrate(args);
 
+			if(args.Length < 1)
+				return;
+
 			C_Stock stock = args[0] as C_Stock;
 
 			if(stock == null)

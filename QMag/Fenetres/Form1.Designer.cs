@@ -33,13 +33,13 @@ namespace QMag.Fenetres
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 			this.panelMenu = new System.Windows.Forms.Panel();
-			this.menuFlatButtonClients = new Controls.Buttons.MenuFlatButton();
-			this.menuFlatButtonClose = new Controls.Buttons.MenuFlatButton();
+			this.menuFlatButtonClients = new QMag.Controls.Buttons.MenuFlatButton();
+			this.menuFlatButtonClose = new QMag.Controls.Buttons.MenuFlatButton();
 			this.panelSousMenuDisques = new System.Windows.Forms.Panel();
-			this.menu_Stock_Consulter = new Controls.Buttons.MenuFlatButton();
-			this.menu_Stock_Ajouter = new Controls.Buttons.MenuFlatButton();
-			this.menu_Disques = new Controls.Buttons.MenuFlatButton();
-			this.menu_Accueil = new Controls.Buttons.MenuFlatButton();
+			this.menu_Stock_Consulter = new QMag.Controls.Buttons.MenuFlatButton();
+			this.menu_Stock_Ajouter = new QMag.Controls.Buttons.MenuFlatButton();
+			this.menu_Disques = new QMag.Controls.Buttons.MenuFlatButton();
+			this.menu_Accueil = new QMag.Controls.Buttons.MenuFlatButton();
 			this.panelContainer = new System.Windows.Forms.Panel();
 			this.panelHeader = new System.Windows.Forms.Panel();
 			this.pictureBoxReduce = new System.Windows.Forms.PictureBox();
@@ -126,6 +126,7 @@ namespace QMag.Fenetres
 			this.menu_Stock_Consulter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.menu_Stock_Consulter.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.menu_Stock_Consulter.ForeColor = System.Drawing.Color.White;
+			this.menu_Stock_Consulter.Image = ((System.Drawing.Image)(resources.GetObject("menu_Stock_Consulter.Image")));
 			this.menu_Stock_Consulter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.menu_Stock_Consulter.Location = new System.Drawing.Point(0, 70);
 			this.menu_Stock_Consulter.Name = "menu_Stock_Consulter";

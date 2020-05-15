@@ -66,9 +66,9 @@
 			this.flatLabelTitre.ForeColor = System.Drawing.Color.White;
 			this.flatLabelTitre.Location = new System.Drawing.Point(52, 99);
 			this.flatLabelTitre.Name = "flatLabelTitre";
-			this.flatLabelTitre.Size = new System.Drawing.Size(73, 37);
+			this.flatLabelTitre.Size = new System.Drawing.Size(229, 37);
 			this.flatLabelTitre.TabIndex = 0;
-			this.flatLabelTitre.Text = "Titre";
+			this.flatLabelTitre.Text = "Ajouter un article";
 			this.flatLabelTitre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// panel2

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Forms;
+using QMag.Fenetres;
 
 namespace Controls
 {
@@ -21,8 +22,16 @@ namespace Controls
 
         public virtual void Hydrate(params object[] args)
         {
-	        foreach (object arg in args)
-		        _arguments.Add(arg);
+	        if (args.Length > 0)
+                foreach (object arg in args)
+					_arguments.Add(arg);
+        }
+
+        protected void LoadPage(string page, params object[] arguments)
+        {
+	        // Form1 form = (Form1) Form.ActiveForm; méthode basique mais peu fiable
+	        Form1 lastOpenedForm = Application.OpenForms[Application.OpenForms.Count - 1] as Form1; // récupère la dernière form active
+	        lastOpenedForm?.LoadPage("QMag.Pages." + page, arguments); // charge la page Ajouter
         }
 
         protected void Invoque(/*EventHandler<CommandEventArgs> listePartitions, object sender, CommandEventArgs e*/)
