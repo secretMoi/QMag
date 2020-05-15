@@ -2,9 +2,6 @@
 using System.Drawing;
 using System.Windows.Forms;
 using Controls;
-using Projet_magasin.Classes;
-using Projet_magasin.Gestion;
-using QMag.Controls;
 using QMag.Pages;
 
 // todo système de maj avec dernier client sur nas
@@ -24,11 +21,8 @@ namespace QMag.Fenetres
 
             Resize += Form1_Resize;
 
-            //Ssh = new SSH("82.212.177.233", "Quentin", "ee6f4e2b02", 3232);
-
             ThemePanel.SetConnection(Connexion);
             Accueil accueil = new Accueil();
-            //Ssh.Connect(accueil.ChangeEtatConnection);
 
             panelContainer.Controls.Add(accueil);
 
@@ -37,21 +31,32 @@ namespace QMag.Fenetres
 
         private void SetSubMenus()
         {
-            panelSousMenuDisques.Size = new Size(panelSousMenuDisques.Size.Width, 0);
+            panelSousMenuStock.Size = new Size(panelSousMenuStock.Size.Width, 0);
+            panelSousMenuClients.Size = new Size(panelSousMenuClients.Size.Width, 0);
         }
 
         private void HideSubMenu()
         {
-            if (panelSousMenuDisques.Size.Height == panelSousMenuDisques.MaximumSize.Height)
-                _subMenuPanelToHide = panelSousMenuDisques;
+            if (panelSousMenuStock.Size.Height == panelSousMenuStock.MaximumSize.Height && panelSousMenuStock != _subMenuPanelToShow)
+                _subMenuPanelToHide = panelSousMenuStock;
+
+            else if (panelSousMenuClients.Size.Height == panelSousMenuClients.MaximumSize.Height && panelSousMenuClients != _subMenuPanelToShow)
+	            _subMenuPanelToHide = panelSousMenuClients;
         }
 
         private void ShowSubMenu(Panel subMenu)
         {
-            if (panelSousMenuDisques.Size.Height == panelSousMenuDisques.MinimumSize.Height)
+            if (panelSousMenuStock.Size.Height == panelSousMenuStock.MinimumSize.Height)
             {
+	            _subMenuPanelToShow = subMenu;
                 HideSubMenu(); // cache les autres sous-menus
-                _subMenuPanelToShow = subMenu;
+                
+            }
+            else if(panelSousMenuClients.Size.Height == panelSousMenuClients.MinimumSize.Height)
+            {
+	            _subMenuPanelToShow = subMenu;
+                HideSubMenu(); // cache les autres sous-menus
+	            
             }
             else
                 _subMenuPanelToHide = subMenu;

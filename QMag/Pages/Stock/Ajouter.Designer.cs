@@ -92,12 +92,13 @@
 			// 
 			// flatButtonAjouter
 			// 
+			this.flatButtonAjouter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.flatButtonAjouter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(245)))));
 			this.flatButtonAjouter.FlatAppearance.BorderSize = 0;
 			this.flatButtonAjouter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.flatButtonAjouter.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.flatButtonAjouter.ForeColor = System.Drawing.Color.White;
-			this.flatButtonAjouter.Location = new System.Drawing.Point(594, 500);
+			this.flatButtonAjouter.Location = new System.Drawing.Point(1624, 500);
 			this.flatButtonAjouter.Name = "flatButtonAjouter";
 			this.flatButtonAjouter.Size = new System.Drawing.Size(150, 40);
 			this.flatButtonAjouter.TabIndex = 10;
@@ -107,8 +108,9 @@
 			// 
 			// flatTextBoxPrixVente
 			// 
+			this.flatTextBoxPrixVente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.flatTextBoxPrixVente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(211)))));
-			this.flatTextBoxPrixVente.Location = new System.Drawing.Point(594, 400);
+			this.flatTextBoxPrixVente.Location = new System.Drawing.Point(1624, 400);
 			this.flatTextBoxPrixVente.Margin = new System.Windows.Forms.Padding(0);
 			this.flatTextBoxPrixVente.Name = "flatTextBoxPrixVente";
 			this.flatTextBoxPrixVente.Size = new System.Drawing.Size(150, 40);
@@ -117,8 +119,9 @@
 			// 
 			// flatTextBoxPrixAchat
 			// 
+			this.flatTextBoxPrixAchat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.flatTextBoxPrixAchat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(211)))));
-			this.flatTextBoxPrixAchat.Location = new System.Drawing.Point(594, 300);
+			this.flatTextBoxPrixAchat.Location = new System.Drawing.Point(1624, 300);
 			this.flatTextBoxPrixAchat.Margin = new System.Windows.Forms.Padding(0);
 			this.flatTextBoxPrixAchat.Name = "flatTextBoxPrixAchat";
 			this.flatTextBoxPrixAchat.Size = new System.Drawing.Size(150, 40);
@@ -157,11 +160,12 @@
 			// 
 			// flatLabelPrixAchat
 			// 
+			this.flatLabelPrixAchat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.flatLabelPrixAchat.AutoSize = true;
 			this.flatLabelPrixAchat.BackColor = System.Drawing.Color.White;
 			this.flatLabelPrixAchat.Font = new System.Drawing.Font("Yu Gothic UI", 12.5F);
 			this.flatLabelPrixAchat.ForeColor = System.Drawing.Color.Black;
-			this.flatLabelPrixAchat.Location = new System.Drawing.Point(447, 317);
+			this.flatLabelPrixAchat.Location = new System.Drawing.Point(1477, 317);
 			this.flatLabelPrixAchat.Name = "flatLabelPrixAchat";
 			this.flatLabelPrixAchat.Size = new System.Drawing.Size(99, 23);
 			this.flatLabelPrixAchat.TabIndex = 4;
@@ -169,11 +173,12 @@
 			// 
 			// flatLabelPrixVente
 			// 
+			this.flatLabelPrixVente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.flatLabelPrixVente.AutoSize = true;
 			this.flatLabelPrixVente.BackColor = System.Drawing.Color.White;
 			this.flatLabelPrixVente.Font = new System.Drawing.Font("Yu Gothic UI", 12.5F);
 			this.flatLabelPrixVente.ForeColor = System.Drawing.Color.Black;
-			this.flatLabelPrixVente.Location = new System.Drawing.Point(445, 417);
+			this.flatLabelPrixVente.Location = new System.Drawing.Point(1475, 417);
 			this.flatLabelPrixVente.Name = "flatLabelPrixVente";
 			this.flatLabelPrixVente.Size = new System.Drawing.Size(109, 23);
 			this.flatLabelPrixVente.TabIndex = 3;
