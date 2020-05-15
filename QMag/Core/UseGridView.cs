@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 using QMag.Controls;
@@ -28,12 +29,20 @@ namespace QMag.Core
 				_table.Columns.Add(new DataColumn(title));
 		}
 
-		public void CreateImageColumn(params string[] titles)
+		public int[] CreateImageColumn(params string[] titles)
 		{
+			int[] indexColonne = new int[titles.Length];
+			int compteur = 0;
+
 			foreach (string title in titles)
 			{
+				indexColonne[compteur] = _table.Columns.Count;
 				_table.Columns.Add(title, typeof(Bitmap));
+				compteur++;
 			}
+				
+			return indexColonne;
+
 		}
 
 		public void Add(params object[] records)

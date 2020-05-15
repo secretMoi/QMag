@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
-using System.Windows.Forms;
 using Controls;
 using Projet_magasin.Gestion;
 using Projet_magasin.Classes;
@@ -46,7 +45,10 @@ namespace QMag.Pages.Stock
 				"Prix de vente"
 			);
 
-			_useGridView.CreateImageColumn("Editer", "Supprimer");
+			
+			flatDataGridView1.SetColonnesCliquables(
+				_useGridView.CreateImageColumn("Editer", "Supprimer")
+				);
 		}
 
 		private void RempliColonnes(List<C_Stock> stocks)

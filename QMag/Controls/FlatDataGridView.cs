@@ -1,13 +1,18 @@
-﻿using System.Windows.Forms;
+﻿using System.Collections.Generic;
+using System.Windows.Forms;
 using Controls;
 
 namespace QMag.Controls
 {
 	public partial class FlatDataGridView : ThemePanel
 	{
+		private readonly List<int> _colonnesCliquables;
+
 		public FlatDataGridView()
 		{
 			InitializeComponent();
+
+			_colonnesCliquables = new List<int>();
 
 			dataGridView.GridColor = Theme.Back;
 			dataGridView.ForeColor = Theme.BackDark;
@@ -33,6 +38,26 @@ namespace QMag.Controls
 
 			// change la hauteur des cellules
 			dataGridView.RowTemplate.Height = 38;
+
+			dataGridView.CellMouseEnter += Cliquable; // event lorsque le curseur entre dans une cellule
+		}
+
+		private void Cliquable(object sender, DataGridViewCellEventArgs e)
+		{
+			// vérifie que la case sélectionnée est valide
+			if (e.ColumnIndex < 0 || e.RowIndex < 0)
+				return;
+
+			if(_colonnesCliquables.Contains(e.ColumnIndex))
+				dataGridView.Cursor = Cursors.Hand;
+			else
+				dataGridView.Cursor = Cursors.Default;
+		}
+
+		public void SetColonnesCliquables(params int[] colonnes)
+		{
+			foreach (int colonne in colonnes)
+				_colonnesCliquables.Add(colonne);
 		}
 
 		public BindingSource DataSource
