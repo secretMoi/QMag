@@ -8,14 +8,12 @@ namespace QMag.Controls
 	public partial class FlatDataGridView : ThemePanel
 	{
 		private readonly List<int> _colonnesCliquables;
-		private List<DataGridViewCellMouseEventArgs> _methodClick;
 
 		public FlatDataGridView()
 		{
 			InitializeComponent();
 
 			_colonnesCliquables = new List<int>();
-			_methodClick = new List<DataGridViewCellMouseEventArgs>();
 
 			dataGridView.GridColor = Theme.Back;
 			dataGridView.ForeColor = Theme.BackDark;

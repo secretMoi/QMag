@@ -6,6 +6,7 @@ using Core;
 using Projet_magasin.Gestion;
 using Projet_magasin.Classes;
 using QMag.Core;
+using QMag.Fenetres;
 
 namespace QMag.Pages.Stock
 {
@@ -15,15 +16,17 @@ namespace QMag.Pages.Stock
 		private static readonly Image _imageEditer = Image.FromFile("Ressources/Images/editer.png");
 		private static readonly Image _imageSupprimer = Image.FromFile("Ressources/Images/supprimer.png");
 
+		private readonly List<C_Stock> _stocks;
+
 		public Consulter()
 		{
 			InitializeComponent();
 
 			SetColonnes();
 
-			List<C_Stock> stocks = new G_Stock(Connexion).Lire("nom");
+			_stocks = new G_Stock(Connexion).Lire("id");
 
-			RempliColonnes(stocks);
+			RempliColonnes();
 
 			flatDataGridView1.DataSource = _useGridView.Liens; // ajout(liage) des colonnes à la gridview
 
@@ -55,9 +58,9 @@ namespace QMag.Pages.Stock
 				);
 		}
 
-		private void RempliColonnes(List<C_Stock> stocks)
+		private void RempliColonnes()
 		{
-			foreach (C_Stock stock in stocks)
+			foreach (C_Stock stock in _stocks)
 			{
 				_useGridView.Add(
 					stock.nom,
@@ -76,11 +79,11 @@ namespace QMag.Pages.Stock
 			int colonne = e.ColumnIndex;
 			int ligne = e.RowIndex;
 
-			if (colonne == flatDataGridView1.Column["Editer"].DisplayIndex)
+			if (colonne == flatDataGridView1.Column["Editer"]?.DisplayIndex)
 			{
-				MessageBox.Show(flatDataGridView1.Get(new Couple(ligne, colonne-1)));
+				//MessageBox.Show(flatDataGridView1.Get(new Couple(ligne, colonne-1)));
 
-
+				((Form1)Form.ActiveForm)?.LoadPage("QMag.Pages.Stock.Ajouter", ligne + 1); // charge la page Ajouter
 			}
 		}
 	}

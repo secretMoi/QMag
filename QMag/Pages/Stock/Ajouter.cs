@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Drawing;
 using Controls;
+using Projet_magasin.Classes;
 using Projet_magasin.Gestion;
 
 namespace QMag.Pages.Stock
 {
 	public partial class Ajouter : ThemePanel
 	{
+		private int _idStock;
+
 		public Ajouter()
 		{
 			InitializeComponent();
@@ -18,7 +21,24 @@ namespace QMag.Pages.Stock
 			flatLabelQuantiteMin.ForeColor = Theme.BackDark;
 		}
 
-		private void flatButtonAjouter_Click(object sender, System.EventArgs e)
+		public override void Hydrate(params object[] args)
+		{
+			base.Hydrate(args);
+
+			C_Stock stock = new G_Stock(Connexion).Lire_ID((int) args[0]);
+
+			flatLabelTitre.Text = @"Modification de l'article " + stock.nom;
+			flatButtonAjouter.Text = @"Modifier";
+
+			_idStock = stock.id;
+			flatTextBoxNom.Texte = stock.nom;
+			flatTextBoxQuantiteActuelle.Texte = stock.quantiteActuelle.ToString();
+			flatTextBoxQuantiteMin.Texte = stock.quentiteMin.ToString();
+			flatTextBoxPrixAchat.Texte = stock.prix_achat.ToString();
+			flatTextBoxPrixVente.Texte = stock.prix_vente.ToString();
+		}
+
+		private void flatButtonAjouter_Click(object sender, EventArgs e)
 		{
 			if (!ChampsRemplis())
 			{
@@ -30,18 +50,35 @@ namespace QMag.Pages.Stock
 			string nom = flatTextBoxNom.Texte;
 			int quantiteActuelle = Convert.ToInt32(flatTextBoxQuantiteActuelle.Texte);
 			int quantiteMin = Convert.ToInt32(flatTextBoxQuantiteMin.Texte);
-			decimal prixAchat = Convert.ToInt32(flatTextBoxPrixAchat.Texte);
-			decimal prixVente = Convert.ToInt32(flatTextBoxPrixVente.Texte);
+			decimal prixAchat = Convert.ToDecimal(flatTextBoxPrixAchat.Texte);
+			decimal prixVente = Convert.ToDecimal(flatTextBoxPrixVente.Texte);
 
-			new G_Stock(Connexion).Ajouter(
-				nom,
-				quantiteActuelle,
-				quantiteMin,
-				prixAchat,
-				prixVente
-			);
+			if (flatButtonAjouter.Text == "Ajouter")
+			{
+				new G_Stock(Connexion).Ajouter(
+					nom,
+					quantiteActuelle,
+					quantiteMin,
+					prixAchat,
+					prixVente
+				);
 
-			flatLabelTitre.Text = @"Stock ajouté";
+				flatLabelTitre.Text = @"Stock ajouté";
+			}
+			else
+			{
+				new G_Stock(Connexion).Modifier(
+					_idStock,
+					nom,
+					quantiteActuelle,
+					quantiteMin,
+					prixAchat,
+					prixVente
+				);
+
+				flatLabelTitre.Text = @"Stock modifié";
+			}
+			
 			flatLabelTitre.ForeColor = Theme.Texte;
 		}
 

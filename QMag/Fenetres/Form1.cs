@@ -86,12 +86,19 @@ namespace QMag.Fenetres
                     ShowSubMenu((Panel)panel[0]);
             }
 
-            Type typeClasse = Type.GetType($"{@namespace}.{@class}"); // trouve la classe
-            if (typeClasse == null) return; // quitte si la classe est introuvable
+            LoadPage(@namespace + "." + @class);
+        }
 
-            if (!(Activator.CreateInstance(typeClasse) is ThemePanel page)) return;
-            panelContainer.Controls.Clear();
-            panelContainer.Controls.Add(page);
+        public void LoadPage(string cheminPage, params object[] arguments)
+        {
+	        Type typeClasse = Type.GetType(cheminPage); // trouve la classe
+	        if (typeClasse == null) return; // quitte si la classe est introuvable
+
+	        if (!(Activator.CreateInstance(typeClasse) is ThemePanel page)) return;
+	        panelContainer.Controls.Clear();
+	        panelContainer.Controls.Add(page);
+
+	        page.Hydrate(arguments);
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
