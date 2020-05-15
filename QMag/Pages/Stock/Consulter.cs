@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
+using System.Windows.Forms;
 using Controls;
+using Core;
 using Projet_magasin.Gestion;
 using Projet_magasin.Classes;
 using QMag.Core;
@@ -24,6 +26,8 @@ namespace QMag.Pages.Stock
 			RempliColonnes(stocks);
 
 			flatDataGridView1.DataSource = _useGridView.Liens; // ajout(liage) des colonnes à la gridview
+
+			flatDataGridView1.AddClickMethod(EffetClic); // s'inscrit aux event de clic dans la dgv
 		}
 
 		private void Consulter_Load(object sender, System.EventArgs e)
@@ -64,6 +68,19 @@ namespace QMag.Pages.Stock
 					_imageEditer,
 					_imageSupprimer
 				);
+			}
+		}
+
+		public void EffetClic(object sender, DataGridViewCellMouseEventArgs e)
+		{
+			int colonne = e.ColumnIndex;
+			int ligne = e.RowIndex;
+
+			if (colonne == flatDataGridView1.Column["Editer"].DisplayIndex)
+			{
+				MessageBox.Show(flatDataGridView1.Get(new Couple(ligne, colonne-1)));
+
+
 			}
 		}
 	}

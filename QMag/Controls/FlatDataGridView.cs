@@ -1,18 +1,21 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Forms;
 using Controls;
+using Core;
 
 namespace QMag.Controls
 {
 	public partial class FlatDataGridView : ThemePanel
 	{
 		private readonly List<int> _colonnesCliquables;
+		private List<DataGridViewCellMouseEventArgs> _methodClick;
 
 		public FlatDataGridView()
 		{
 			InitializeComponent();
 
 			_colonnesCliquables = new List<int>();
+			_methodClick = new List<DataGridViewCellMouseEventArgs>();
 
 			dataGridView.GridColor = Theme.Back;
 			dataGridView.ForeColor = Theme.BackDark;
@@ -40,6 +43,11 @@ namespace QMag.Controls
 			dataGridView.RowTemplate.Height = 38;
 
 			dataGridView.CellMouseEnter += Cliquable; // event lorsque le curseur entre dans une cellule
+		}
+
+		public void AddClickMethod(DataGridViewCellMouseEventHandler methode)
+		{
+			dataGridView.CellMouseClick += methode;
 		}
 
 		private void Cliquable(object sender, DataGridViewCellEventArgs e)
@@ -70,6 +78,11 @@ namespace QMag.Controls
 		public bool FirstCellState
 		{
 			set => dataGridView.FirstDisplayedCell.Selected = value;
+		}
+
+		public string Get(Couple coordonnees)
+		{
+			return dataGridView.Rows[coordonnees.Xi].Cells[coordonnees.Yi].Value.ToString();
 		}
 	}
 }
