@@ -1,5 +1,4 @@
-﻿using System.Drawing;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 using Controls;
 
 namespace QMag.Controls
@@ -31,11 +30,21 @@ namespace QMag.Controls
 
 			// désactive la première colonne
 			dataGridView.RowHeadersVisible = false;
+
+			// change la hauteur des cellules
+			dataGridView.RowTemplate.Height = 38;
 		}
 
 		public BindingSource DataSource
 		{
 			set => dataGridView.DataSource = value;
+		}
+
+		public DataGridViewColumnCollection Column => dataGridView.Columns;
+
+		public bool FirstCellState
+		{
+			set => dataGridView.FirstDisplayedCell.Selected = value;
 		}
 	}
 }

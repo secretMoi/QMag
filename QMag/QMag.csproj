@@ -229,6 +229,9 @@
     <Content Include="Ressources\Images\close.png" />
     <Content Include="Ressources\Images\diagonal-arrows.png" />
     <Content Include="Ressources\Images\down-arrow.png" />
+    <EmbeddedResource Include="Ressources\Images\editer.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <Content Include="Ressources\Images\hard-disk-drive.png" />
     <Content Include="Ressources\Images\home.png" />
     <Content Include="Ressources\Images\loading.png" />
@@ -237,6 +240,9 @@
     <Content Include="Ressources\Images\logout.png" />
     <Content Include="Ressources\Images\minus.png" />
     <Content Include="Ressources\Images\pie-chart.png" />
+    <EmbeddedResource Include="Ressources\Images\supprimer.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <Content Include="Ressources\Images\tick.png" />
     <Content Include="Ressources\Images\up-arrow.png" />
   </ItemGroup>
