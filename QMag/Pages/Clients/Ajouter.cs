@@ -1,6 +1,7 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
 using Controls;
+using Core;
 using QMag.Controls;
 using QMag.Controls.Buttons;
 using QMag.Core.Pages;
@@ -21,7 +22,7 @@ namespace QMag.Pages.Clients
 				AjouterArguments.ControlList.FlatTextBox, "FlatTextBoxNom", "",
 				AjouterArguments.ControlList.FlatLabel, "FlatLabelPrenom", "Prénom",
 				AjouterArguments.ControlList.FlatTextBox, "FlatTextBoxPrenom", "",
-				AjouterArguments.ControlList.FlatButton, "FlatButtonAjouter", ""
+				AjouterArguments.ControlList.FlatButton, "FlatButtonAjouter", "Ajouter"
 			);
 
 			PositionneControls();
@@ -31,38 +32,17 @@ namespace QMag.Pages.Clients
 
 		private void PositionneControls()
 		{
-			int compteur = 0;
+			// Labels
+		 	_ajout.LocateControlAt(typeof(FlatLabel), new Couple(50, 50)); // Positionne les labels
 
-			// Positionne les labels
-			foreach (Control control in _ajout.Being(typeof(FlatLabel)))
-			{
-				FlatLabel flatLabel = (FlatLabel)control;
-				flatLabel.Left = 50;
-				flatLabel.Top = 50 + 60 * compteur;
-				compteur++;
-			}
+			// Textbox
+		    Couple dernierePosition = _ajout.LocateControlAt(typeof(FlatTextBox), new Couple(150, 50)); // Positionne les textbox
 
-			compteur = 0;
+			// Bouton
+			dernierePosition.Yi += 60;
+		    _ajout.LocateControlAt(typeof(FlatButton), dernierePosition); // Positionne le bouton
 
-			// Positionne les textbox
-			foreach (Control control in _ajout.Being(typeof(FlatTextBox)))
-			{
-				FlatTextBox flatTextBox = (FlatTextBox)control;
-				flatTextBox.Left = 150;
-				flatTextBox.Top = 50 + 60 * compteur - 5;
-				compteur++;
-			}
-
-			// Positionne le bouton
-			foreach (Control control in _ajout.Being(typeof(FlatButton)))
-			{
-				FlatButton flatButton = (FlatButton)control;
-				flatButton.Text = @"Ajouter";
-				flatButton.Font = new Font(flatButton.Font, FontStyle.Bold);
-				flatButton.Left = 150;
-				flatButton.Top = 50 + 60 * compteur;
-				flatButton.Size = new Size(150, _ajout.Get("FlatTextBoxNom").Height);
-			}
+			_ajout.Get("FlatButtonAjouter").Size = _ajout.Get("FlatTextBoxNom").Size;
 		}
 	}
 }

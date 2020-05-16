@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 using Controls;
+using Core;
 using QMag.Controls;
 using QMag.Controls.Buttons;
 
@@ -54,9 +56,21 @@ namespace QMag.Core.Pages
 				panel.Controls.Add(control.Value);
 		}
 
-		public void LocateControlAt()
+		public Couple LocateControlAt(Type controlAsked, Couple position)
 		{
+			int compteur = 0;
+			Couple lastLocation = new Couple();
 
+			foreach (Control control in Being(controlAsked))
+			{
+				control.Left = position.Xi;
+				control.Top = position.Yi + 60 * compteur;
+				compteur++;
+
+				lastLocation = new Couple(control.Location);
+			}
+
+			return lastLocation;
 		}
 
 		// récupère un control particulier via son nom
@@ -97,7 +111,10 @@ namespace QMag.Core.Pages
 					ForeColor = Theme.BackDark
 				};
 			else if (form.Type == AjouterArguments.ControlList.FlatButton)
-				control = new FlatButton();
+				control = new FlatButton()
+				{
+					Font = new Font("Yu Gothic UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0)
+				};
 
 			// initialise certaines valeurs du control
 			if (control != null)
