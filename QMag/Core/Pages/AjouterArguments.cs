@@ -6,7 +6,9 @@
 		{
 			FlatTextBox,
 			FlatListBox,
-			FlatLabel
+			FlatLabel,
+			FlatButton,
+			Unknown
 		};
 
 		public AjouterArguments(ControlList type, string name, string texte = null)
