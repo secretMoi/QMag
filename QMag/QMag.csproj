@@ -140,6 +140,12 @@
     <Compile Include="Core\Pages\BaseAjouter.Designer.cs">
       <DependentUpon>BaseAjouter.cs</DependentUpon>
     </Compile>
+    <Compile Include="Core\Pages\BaseConsulter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Core\Pages\BaseConsulter.Designer.cs">
+      <DependentUpon>BaseConsulter.cs</DependentUpon>
+    </Compile>
     <Compile Include="Core\Pages\Formulaire.cs" />
     <Compile Include="Core\UseGridView.cs" />
     <Compile Include="Fenetres\Form1.cs">
@@ -165,6 +171,12 @@
     </Compile>
     <Compile Include="Pages\Clients\Ajouter.Designer.cs">
       <DependentUpon>Ajouter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Clients\Consulter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\Clients\Consulter.Designer.cs">
+      <DependentUpon>Consulter.cs</DependentUpon>
     </Compile>
     <Compile Include="Pages\Stock\Ajouter.cs">
       <SubType>UserControl</SubType>
@@ -207,6 +219,9 @@
     <EmbeddedResource Include="Core\Pages\BaseAjouter.resx">
       <DependentUpon>BaseAjouter.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Core\Pages\BaseConsulter.resx">
+      <DependentUpon>BaseConsulter.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Fenetres\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -215,6 +230,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\Clients\Ajouter.resx">
       <DependentUpon>Ajouter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Clients\Consulter.resx">
+      <DependentUpon>Consulter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\Stock\Ajouter.resx">
       <DependentUpon>Ajouter.cs</DependentUpon>

@@ -14,16 +14,6 @@ namespace QMag.Pages.Clients
 		{
 			InitializeComponent();
 
-			/*//todo système intelligent détecte type formulaire avec le name
-			_ajout = new Formulaire
-			(
-				AjouterArguments.ControlList.FlatLabel, "FlatLabelNom", "Nom",
-				AjouterArguments.ControlList.FlatTextBox, "FlatTextBoxNom", "",
-				AjouterArguments.ControlList.FlatLabel, "FlatLabelPrenom", "Prénom",
-				AjouterArguments.ControlList.FlatTextBox, "FlatTextBoxPrenom", "",
-				AjouterArguments.ControlList.FlatButton, "FlatButtonAjouter", "Ajouter"
-			);*/
-
 			_ajout = new Formulaire
 			(
 				"FlatLabelNom", "Nom",

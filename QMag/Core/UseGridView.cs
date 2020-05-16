@@ -5,7 +5,7 @@ using QMag.Controls;
 
 namespace QMag.Core
 {
-	class UseGridView
+	public class UseGridView
 	{
 		private readonly DataTable _table;
 		private readonly BindingSource _liens;

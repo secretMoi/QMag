@@ -41,31 +41,6 @@ namespace QMag.Core.Pages
 			}
 		}
 
-		/*private void AutoAdd(params object[] tuples)
-		{
-			AjouterArguments.ControlList control = AjouterArguments.ControlList.Unknown; // set comme default
-			string name = null;
-			string texte;
-			foreach (object tuple in tuples)
-			{
-				if (control == AjouterArguments.ControlList.Unknown) // si c'est le premier paramètre
-					control = (AjouterArguments.ControlList)tuple;
-				else if (control != AjouterArguments.ControlList.Unknown && name == null) // si c'est le deuxieme
-				{
-					name = tuple as string;
-				}
-				else // sinon c'est le troisième
-				{
-					texte = tuple as string;
-
-					Add(new AjouterArguments(control, name, texte)); // ajoute le control
-
-					control = AjouterArguments.ControlList.Unknown; // reset le premier pour repasser dans le if
-					name = null;
-				}
-			}
-		}*/
-
 		// crée un control
 		public void Add(AjouterArguments arguments)
 		{
@@ -126,16 +101,16 @@ namespace QMag.Core.Pages
 			Control control = null;
 
 			// définit le type du control
-			if (form.Type == AjouterArguments.ControlList.FlatTextBox) // textbox
+			if (form.Type == typeof(FlatTextBox)) // textbox
 				control = new FlatTextBox();
-			else if (form.Type == AjouterArguments.ControlList.FlatListBox) // listbox
+			else if (form.Type == typeof(FlatListBox)) // listbox
 				control = new FlatListBox();
-			else if (form.Type == AjouterArguments.ControlList.FlatLabel) // label
+			else if (form.Type == typeof(FlatLabel)) // label
 				control = new FlatLabel()
 				{
 					ForeColor = Theme.BackDark
 				};
-			else if (form.Type == AjouterArguments.ControlList.FlatButton) // bouton
+			else if (form.Type == typeof(FlatButton)) // bouton
 				control = new FlatButton()
 				{
 					Font = new Font("Yu Gothic UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0)
