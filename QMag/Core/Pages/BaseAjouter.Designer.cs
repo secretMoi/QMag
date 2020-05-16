@@ -1,6 +1,6 @@
 ﻿namespace QMag.Core.Pages
 {
-	partial class Ajouter
+	partial class BaseAjouter
 	{
 		/// <summary> 
 		/// Variable nécessaire au concepteur.
@@ -30,11 +30,11 @@
 		{
 			this.SuspendLayout();
 			// 
-			// Ajouter
+			// BaseAjouter
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-			this.Name = "Ajouter";
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.Name = "BaseAjouter";
 			this.Size = new System.Drawing.Size(1856, 893);
 			this.ResumeLayout(false);
 

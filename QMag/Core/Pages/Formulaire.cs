@@ -9,14 +9,12 @@ using QMag.Controls.Buttons;
 
 namespace QMag.Core.Pages
 {
-	public partial class Ajouter : ThemePanel
+	public partial class Formulaire
 	{
 		private readonly Dictionary<string, Control> _controls;
 
-		public Ajouter(params object[] tuples)
+		public Formulaire(params object[] tuples)
 		{
-			InitializeComponent();
-
 			_controls = new Dictionary<string, Control>();
 
 			AjouterArguments.ControlList control = AjouterArguments.ControlList.Unknown; // set comme default
@@ -25,8 +23,8 @@ namespace QMag.Core.Pages
 			foreach (object tuple in tuples)
 			{
 				if (control == AjouterArguments.ControlList.Unknown) // si c'est le premier paramètre
-					control = (AjouterArguments.ControlList) tuple;
-				else if(control != AjouterArguments.ControlList.Unknown && name == null) // si c'est le deuxieme
+					control = (AjouterArguments.ControlList)tuple;
+				else if (control != AjouterArguments.ControlList.Unknown && name == null) // si c'est le deuxieme
 				{
 					name = tuple as string;
 				}
@@ -76,7 +74,7 @@ namespace QMag.Core.Pages
 		// récupère un control particulier via son nom
 		public Control Get(string name)
 		{
-			if(_controls.ContainsKey(name))
+			if (_controls.ContainsKey(name))
 				return _controls[name];
 
 			return null;
@@ -89,7 +87,7 @@ namespace QMag.Core.Pages
 
 			foreach (KeyValuePair<string, Control> control in _controls)
 			{
-				if(control.Value.GetType() == controlAsked)
+				if (control.Value.GetType() == controlAsked)
 					controls.Add(control.Value);
 			}
 
@@ -104,10 +102,11 @@ namespace QMag.Core.Pages
 			// définit le type du control
 			if (form.Type == AjouterArguments.ControlList.FlatTextBox)
 				control = new FlatTextBox();
-			else if(form.Type == AjouterArguments.ControlList.FlatListBox)
+			else if (form.Type == AjouterArguments.ControlList.FlatListBox)
 				control = new FlatListBox();
 			else if (form.Type == AjouterArguments.ControlList.FlatLabel)
-				control = new FlatLabel(){
+				control = new FlatLabel()
+				{
 					ForeColor = Theme.BackDark
 				};
 			else if (form.Type == AjouterArguments.ControlList.FlatButton)

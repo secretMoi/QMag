@@ -133,13 +133,14 @@
     <Compile Include="Core\Figures\RectangleArrondi.cs" />
     <Compile Include="Core\Figures\Rotation.cs" />
     <Compile Include="Core\Figures\Texte.cs" />
-    <Compile Include="Core\Pages\Ajouter.cs">
+    <Compile Include="Core\Pages\AjouterArguments.cs" />
+    <Compile Include="Core\Pages\BaseAjouter.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Core\Pages\Ajouter.Designer.cs">
-      <DependentUpon>Ajouter.cs</DependentUpon>
+    <Compile Include="Core\Pages\BaseAjouter.Designer.cs">
+      <DependentUpon>BaseAjouter.cs</DependentUpon>
     </Compile>
-    <Compile Include="Core\Pages\AjouterArguments.cs" />
+    <Compile Include="Core\Pages\Formulaire.cs" />
     <Compile Include="Core\UseGridView.cs" />
     <Compile Include="Fenetres\Form1.cs">
       <SubType>Form</SubType>
@@ -203,8 +204,8 @@
     <EmbeddedResource Include="Controls\Utilisation.resx">
       <DependentUpon>Utilisation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Core\Pages\Ajouter.resx">
-      <DependentUpon>Ajouter.cs</DependentUpon>
+    <EmbeddedResource Include="Core\Pages\BaseAjouter.resx">
+      <DependentUpon>BaseAjouter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fenetres\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

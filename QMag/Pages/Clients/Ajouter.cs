@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-using System.Windows.Forms;
-using Controls;
+﻿using System;
 using Core;
 using QMag.Controls;
 using QMag.Controls.Buttons;
@@ -8,15 +6,13 @@ using QMag.Core.Pages;
 
 namespace QMag.Pages.Clients
 {
-	public partial class Ajouter : ThemePanel
-	{
-		private readonly Core.Pages.Ajouter _ajout;
-
+	public partial class Ajouter : BaseAjouter
+	{ 
 		public Ajouter()
 		{
 			InitializeComponent();
 
-			_ajout = new Core.Pages.Ajouter
+			_ajout = new Formulaire
 			(
 				AjouterArguments.ControlList.FlatLabel, "FlatLabelNom", "Nom",
 				AjouterArguments.ControlList.FlatTextBox, "FlatTextBoxNom", "",
@@ -25,9 +21,19 @@ namespace QMag.Pages.Clients
 				AjouterArguments.ControlList.FlatButton, "FlatButtonAjouter", "Ajouter"
 			);
 
+			_ajout.Get("FlatButtonAjouter").Click += Ajouter_Click;
+
 			PositionneControls();
 
 			_ajout.Display(panel2);
+		}
+
+		private void Ajouter_Click(object sender, EventArgs e)
+		{
+			if (!ChampsRemplis(flatLabelTitre))
+				return;
+
+
 		}
 
 		private void PositionneControls()
