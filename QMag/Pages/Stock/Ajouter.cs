@@ -25,10 +25,10 @@ namespace QMag.Pages.Stock
 		{
 			base.Hydrate(args);
 
-			if(args.Length < 1)
+			if(args.Length < 1) // vérifie qu'il y a bien un argument
 				return;
 
-			C_Stock stock = args[0] as C_Stock;
+			C_Stock stock = args[0] as C_Stock; // cast l'argument
 
 			if(stock == null)
 				return;
@@ -36,6 +36,7 @@ namespace QMag.Pages.Stock
 			flatLabelTitre.Text = @"Modification de l'article " + stock.nom;
 			flatButtonAjouter.Text = @"Modifier";
 
+			// pré-rempli les champs
 			_idStock = stock.id;
 			flatTextBoxNom.Texte = stock.nom;
 			flatTextBoxQuantiteActuelle.Texte = stock.quantiteActuelle.ToString();
@@ -46,20 +47,21 @@ namespace QMag.Pages.Stock
 
 		private void flatButtonAjouter_Click(object sender, EventArgs e)
 		{
-			if (!ChampsRemplis())
+			if (!ChampsRemplis()) // si tous les champs ne sont pas remplis
 			{
 				flatLabelTitre.Text = @"Veuillez remplir tous les champs !";
 				flatLabelTitre.ForeColor = Color.Crimson;
 				return;
 			}
 
+			// récupère les valeurs des champs
 			string nom = flatTextBoxNom.Texte;
 			int quantiteActuelle = Convert.ToInt32(flatTextBoxQuantiteActuelle.Texte);
 			int quantiteMin = Convert.ToInt32(flatTextBoxQuantiteMin.Texte);
 			decimal prixAchat = Convert.ToDecimal(flatTextBoxPrixAchat.Texte);
 			decimal prixVente = Convert.ToDecimal(flatTextBoxPrixVente.Texte);
 
-			if (flatButtonAjouter.Text == "Ajouter")
+			if (flatButtonAjouter.Text == @"Ajouter") // si on est en mode insert
 			{
 				new G_Stock(Connexion).Ajouter(
 					nom,
@@ -71,7 +73,7 @@ namespace QMag.Pages.Stock
 
 				flatLabelTitre.Text = @"Stock ajouté";
 			}
-			else
+			else // sinon mode update
 			{
 				new G_Stock(Connexion).Modifier(
 					_idStock,

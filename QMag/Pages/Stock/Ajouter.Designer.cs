@@ -98,7 +98,7 @@
 			this.flatButtonAjouter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.flatButtonAjouter.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.flatButtonAjouter.ForeColor = System.Drawing.Color.White;
-			this.flatButtonAjouter.Location = new System.Drawing.Point(1624, 500);
+			this.flatButtonAjouter.Location = new System.Drawing.Point(1617, 460);
 			this.flatButtonAjouter.Name = "flatButtonAjouter";
 			this.flatButtonAjouter.Size = new System.Drawing.Size(150, 40);
 			this.flatButtonAjouter.TabIndex = 10;
@@ -110,7 +110,7 @@
 			// 
 			this.flatTextBoxPrixVente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.flatTextBoxPrixVente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(211)))));
-			this.flatTextBoxPrixVente.Location = new System.Drawing.Point(1624, 400);
+			this.flatTextBoxPrixVente.Location = new System.Drawing.Point(1617, 360);
 			this.flatTextBoxPrixVente.Margin = new System.Windows.Forms.Padding(0);
 			this.flatTextBoxPrixVente.Name = "flatTextBoxPrixVente";
 			this.flatTextBoxPrixVente.Size = new System.Drawing.Size(150, 40);
@@ -121,7 +121,7 @@
 			// 
 			this.flatTextBoxPrixAchat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.flatTextBoxPrixAchat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(211)))));
-			this.flatTextBoxPrixAchat.Location = new System.Drawing.Point(1624, 300);
+			this.flatTextBoxPrixAchat.Location = new System.Drawing.Point(1617, 260);
 			this.flatTextBoxPrixAchat.Margin = new System.Windows.Forms.Padding(0);
 			this.flatTextBoxPrixAchat.Name = "flatTextBoxPrixAchat";
 			this.flatTextBoxPrixAchat.Size = new System.Drawing.Size(150, 40);
@@ -131,7 +131,7 @@
 			// flatTextBoxQuantiteMin
 			// 
 			this.flatTextBoxQuantiteMin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(211)))));
-			this.flatTextBoxQuantiteMin.Location = new System.Drawing.Point(232, 500);
+			this.flatTextBoxQuantiteMin.Location = new System.Drawing.Point(225, 460);
 			this.flatTextBoxQuantiteMin.Margin = new System.Windows.Forms.Padding(0);
 			this.flatTextBoxQuantiteMin.Name = "flatTextBoxQuantiteMin";
 			this.flatTextBoxQuantiteMin.Size = new System.Drawing.Size(150, 40);
@@ -141,7 +141,7 @@
 			// flatTextBoxQuantiteActuelle
 			// 
 			this.flatTextBoxQuantiteActuelle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(211)))));
-			this.flatTextBoxQuantiteActuelle.Location = new System.Drawing.Point(232, 400);
+			this.flatTextBoxQuantiteActuelle.Location = new System.Drawing.Point(225, 360);
 			this.flatTextBoxQuantiteActuelle.Margin = new System.Windows.Forms.Padding(0);
 			this.flatTextBoxQuantiteActuelle.Name = "flatTextBoxQuantiteActuelle";
 			this.flatTextBoxQuantiteActuelle.Size = new System.Drawing.Size(150, 40);
@@ -151,7 +151,7 @@
 			// flatTextBoxNom
 			// 
 			this.flatTextBoxNom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(211)))));
-			this.flatTextBoxNom.Location = new System.Drawing.Point(232, 300);
+			this.flatTextBoxNom.Location = new System.Drawing.Point(225, 260);
 			this.flatTextBoxNom.Margin = new System.Windows.Forms.Padding(0);
 			this.flatTextBoxNom.Name = "flatTextBoxNom";
 			this.flatTextBoxNom.Size = new System.Drawing.Size(150, 40);
@@ -165,7 +165,7 @@
 			this.flatLabelPrixAchat.BackColor = System.Drawing.Color.White;
 			this.flatLabelPrixAchat.Font = new System.Drawing.Font("Yu Gothic UI", 12.5F);
 			this.flatLabelPrixAchat.ForeColor = System.Drawing.Color.Black;
-			this.flatLabelPrixAchat.Location = new System.Drawing.Point(1477, 317);
+			this.flatLabelPrixAchat.Location = new System.Drawing.Point(1470, 277);
 			this.flatLabelPrixAchat.Name = "flatLabelPrixAchat";
 			this.flatLabelPrixAchat.Size = new System.Drawing.Size(99, 23);
 			this.flatLabelPrixAchat.TabIndex = 4;
@@ -178,7 +178,7 @@
 			this.flatLabelPrixVente.BackColor = System.Drawing.Color.White;
 			this.flatLabelPrixVente.Font = new System.Drawing.Font("Yu Gothic UI", 12.5F);
 			this.flatLabelPrixVente.ForeColor = System.Drawing.Color.Black;
-			this.flatLabelPrixVente.Location = new System.Drawing.Point(1475, 417);
+			this.flatLabelPrixVente.Location = new System.Drawing.Point(1468, 377);
 			this.flatLabelPrixVente.Name = "flatLabelPrixVente";
 			this.flatLabelPrixVente.Size = new System.Drawing.Size(109, 23);
 			this.flatLabelPrixVente.TabIndex = 3;
@@ -190,7 +190,7 @@
 			this.flatLabelQuantiteMin.BackColor = System.Drawing.Color.White;
 			this.flatLabelQuantiteMin.Font = new System.Drawing.Font("Yu Gothic UI", 12.5F);
 			this.flatLabelQuantiteMin.ForeColor = System.Drawing.Color.Black;
-			this.flatLabelQuantiteMin.Location = new System.Drawing.Point(50, 517);
+			this.flatLabelQuantiteMin.Location = new System.Drawing.Point(43, 477);
 			this.flatLabelQuantiteMin.Name = "flatLabelQuantiteMin";
 			this.flatLabelQuantiteMin.Size = new System.Drawing.Size(152, 23);
 			this.flatLabelQuantiteMin.TabIndex = 2;
@@ -202,7 +202,7 @@
 			this.flatLabelQuantiteActuelle.BackColor = System.Drawing.Color.White;
 			this.flatLabelQuantiteActuelle.Font = new System.Drawing.Font("Yu Gothic UI", 12.5F);
 			this.flatLabelQuantiteActuelle.ForeColor = System.Drawing.Color.Black;
-			this.flatLabelQuantiteActuelle.Location = new System.Drawing.Point(52, 417);
+			this.flatLabelQuantiteActuelle.Location = new System.Drawing.Point(45, 377);
 			this.flatLabelQuantiteActuelle.Name = "flatLabelQuantiteActuelle";
 			this.flatLabelQuantiteActuelle.Size = new System.Drawing.Size(141, 23);
 			this.flatLabelQuantiteActuelle.TabIndex = 1;
@@ -214,7 +214,7 @@
 			this.flatLabelNom.BackColor = System.Drawing.Color.White;
 			this.flatLabelNom.Font = new System.Drawing.Font("Yu Gothic UI", 12.5F);
 			this.flatLabelNom.ForeColor = System.Drawing.Color.Black;
-			this.flatLabelNom.Location = new System.Drawing.Point(52, 317);
+			this.flatLabelNom.Location = new System.Drawing.Point(45, 277);
 			this.flatLabelNom.Name = "flatLabelNom";
 			this.flatLabelNom.Size = new System.Drawing.Size(48, 23);
 			this.flatLabelNom.TabIndex = 0;

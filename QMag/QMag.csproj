@@ -133,6 +133,13 @@
     <Compile Include="Core\Figures\RectangleArrondi.cs" />
     <Compile Include="Core\Figures\Rotation.cs" />
     <Compile Include="Core\Figures\Texte.cs" />
+    <Compile Include="Core\Pages\Ajouter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Core\Pages\Ajouter.Designer.cs">
+      <DependentUpon>Ajouter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Pages\AjouterArguments.cs" />
     <Compile Include="Core\UseGridView.cs" />
     <Compile Include="Fenetres\Form1.cs">
       <SubType>Form</SubType>
@@ -151,6 +158,12 @@
     </Compile>
     <Compile Include="Pages\Accueil.Designer.cs">
       <DependentUpon>Accueil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Clients\Ajouter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\Clients\Ajouter.Designer.cs">
+      <DependentUpon>Ajouter.cs</DependentUpon>
     </Compile>
     <Compile Include="Pages\Stock\Ajouter.cs">
       <SubType>UserControl</SubType>
@@ -190,11 +203,17 @@
     <EmbeddedResource Include="Controls\Utilisation.resx">
       <DependentUpon>Utilisation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Core\Pages\Ajouter.resx">
+      <DependentUpon>Ajouter.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Fenetres\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\Accueil.resx">
       <DependentUpon>Accueil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Clients\Ajouter.resx">
+      <DependentUpon>Ajouter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\Stock\Ajouter.resx">
       <DependentUpon>Ajouter.cs</DependentUpon>
