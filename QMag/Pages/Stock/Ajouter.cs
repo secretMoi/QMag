@@ -38,11 +38,11 @@ namespace QMag.Pages.Stock
 
 			// pré-rempli les champs
 			_idStock = stock.id;
-			flatTextBoxNom.Texte = stock.nom;
-			flatTextBoxQuantiteActuelle.Texte = stock.quantiteActuelle.ToString();
-			flatTextBoxQuantiteMin.Texte = stock.quentiteMin.ToString();
-			flatTextBoxPrixAchat.Texte = stock.prix_achat.ToString();
-			flatTextBoxPrixVente.Texte = stock.prix_vente.ToString();
+			flatTextBoxNom.Text = stock.nom;
+			flatTextBoxQuantiteActuelle.Text = stock.quantiteActuelle.ToString();
+			flatTextBoxQuantiteMin.Text = stock.quentiteMin.ToString();
+			flatTextBoxPrixAchat.Text = stock.prix_achat.ToString();
+			flatTextBoxPrixVente.Text = stock.prix_vente.ToString();
 		}
 
 		private void flatButtonAjouter_Click(object sender, EventArgs e)
@@ -55,11 +55,11 @@ namespace QMag.Pages.Stock
 			}
 
 			// récupère les valeurs des champs
-			string nom = flatTextBoxNom.Texte;
-			int quantiteActuelle = Convert.ToInt32(flatTextBoxQuantiteActuelle.Texte);
-			int quantiteMin = Convert.ToInt32(flatTextBoxQuantiteMin.Texte);
-			decimal prixAchat = Convert.ToDecimal(flatTextBoxPrixAchat.Texte);
-			decimal prixVente = Convert.ToDecimal(flatTextBoxPrixVente.Texte);
+			string nom = flatTextBoxNom.Text;
+			int quantiteActuelle = Convert.ToInt32(flatTextBoxQuantiteActuelle.Text);
+			int quantiteMin = Convert.ToInt32(flatTextBoxQuantiteMin.Text);
+			decimal prixAchat = Convert.ToDecimal(flatTextBoxPrixAchat.Text);
+			decimal prixVente = Convert.ToDecimal(flatTextBoxPrixVente.Text);
 
 			if (flatButtonAjouter.Text == @"Ajouter") // si on est en mode insert
 			{
@@ -92,12 +92,12 @@ namespace QMag.Pages.Stock
 
 		private bool ChampsRemplis()
 		{
-			return (flatTextBoxNom.Texte != "" &&
-			        flatTextBoxPrixAchat.Texte != "" &&
-			        flatTextBoxPrixVente.Texte != "" &&
-			        flatTextBoxQuantiteActuelle.Texte != "" &&
-			        flatTextBoxQuantiteMin.Texte != ""
-				);
+			return flatTextBoxNom.Text != "" &&
+			       flatTextBoxPrixAchat.Text != "" &&
+			       flatTextBoxPrixVente.Text != "" &&
+			       flatTextBoxQuantiteActuelle.Text != "" &&
+			       flatTextBoxQuantiteMin.Text != ""
+				;
 		}
 	}
 }

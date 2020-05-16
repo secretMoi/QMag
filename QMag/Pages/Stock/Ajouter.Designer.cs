@@ -115,7 +115,6 @@
 			this.flatTextBoxPrixVente.Name = "flatTextBoxPrixVente";
 			this.flatTextBoxPrixVente.Size = new System.Drawing.Size(150, 40);
 			this.flatTextBoxPrixVente.TabIndex = 9;
-			this.flatTextBoxPrixVente.Texte = "";
 			// 
 			// flatTextBoxPrixAchat
 			// 
@@ -126,7 +125,6 @@
 			this.flatTextBoxPrixAchat.Name = "flatTextBoxPrixAchat";
 			this.flatTextBoxPrixAchat.Size = new System.Drawing.Size(150, 40);
 			this.flatTextBoxPrixAchat.TabIndex = 8;
-			this.flatTextBoxPrixAchat.Texte = "";
 			// 
 			// flatTextBoxQuantiteMin
 			// 
@@ -136,7 +134,6 @@
 			this.flatTextBoxQuantiteMin.Name = "flatTextBoxQuantiteMin";
 			this.flatTextBoxQuantiteMin.Size = new System.Drawing.Size(150, 40);
 			this.flatTextBoxQuantiteMin.TabIndex = 7;
-			this.flatTextBoxQuantiteMin.Texte = "";
 			// 
 			// flatTextBoxQuantiteActuelle
 			// 
@@ -146,7 +143,6 @@
 			this.flatTextBoxQuantiteActuelle.Name = "flatTextBoxQuantiteActuelle";
 			this.flatTextBoxQuantiteActuelle.Size = new System.Drawing.Size(150, 40);
 			this.flatTextBoxQuantiteActuelle.TabIndex = 6;
-			this.flatTextBoxQuantiteActuelle.Texte = "";
 			// 
 			// flatTextBoxNom
 			// 
@@ -156,7 +152,6 @@
 			this.flatTextBoxNom.Name = "flatTextBoxNom";
 			this.flatTextBoxNom.Size = new System.Drawing.Size(150, 40);
 			this.flatTextBoxNom.TabIndex = 5;
-			this.flatTextBoxNom.Texte = "";
 			// 
 			// flatLabelPrixAchat
 			// 

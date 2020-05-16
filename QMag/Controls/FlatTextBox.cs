@@ -30,7 +30,7 @@ namespace QMag.Controls
         }
 
         [Description("Text"), Category("Data"), Browsable(true)]
-        public string Texte {
+        public override string Text {
             get => textBox.Text;
             set => textBox.Text = value;
         }

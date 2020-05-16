@@ -9,7 +9,7 @@ using QMag.Controls.Buttons;
 
 namespace QMag.Core.Pages
 {
-	public partial class Formulaire
+	public class Formulaire
 	{
 		private readonly Dictionary<string, Control> _controls;
 
@@ -17,6 +17,32 @@ namespace QMag.Core.Pages
 		{
 			_controls = new Dictionary<string, Control>();
 
+			AutoAdd(tuples);
+		}
+
+		private void AutoAdd(params object[] tuples)
+		{
+			string name = null;
+			string texte;
+			foreach (object tuple in tuples)
+			{
+				if (name == null) // si c'est le deuxieme
+				{
+					name = tuple as string;
+				}
+				else // sinon c'est le troisième
+				{
+					texte = tuple as string;
+
+					Add(new AjouterArguments(AjouterArguments.WhatIs(name), name, texte)); // ajoute le control
+
+					name = null;
+				}
+			}
+		}
+
+		/*private void AutoAdd(params object[] tuples)
+		{
 			AjouterArguments.ControlList control = AjouterArguments.ControlList.Unknown; // set comme default
 			string name = null;
 			string texte;
@@ -32,14 +58,13 @@ namespace QMag.Core.Pages
 				{
 					texte = tuple as string;
 
-					//Add(control, name); // ajoute le control
 					Add(new AjouterArguments(control, name, texte)); // ajoute le control
 
 					control = AjouterArguments.ControlList.Unknown; // reset le premier pour repasser dans le if
 					name = null;
 				}
 			}
-		}
+		}*/
 
 		// crée un control
 		public void Add(AjouterArguments arguments)
@@ -54,6 +79,7 @@ namespace QMag.Core.Pages
 				panel.Controls.Add(control.Value);
 		}
 
+		// positionne les controles à une position donnée
 		public Couple LocateControlAt(Type controlAsked, Couple position)
 		{
 			int compteur = 0;
@@ -68,7 +94,7 @@ namespace QMag.Core.Pages
 				lastLocation = new Couple(control.Location);
 			}
 
-			return lastLocation;
+			return lastLocation; // retourne la position du dernier contrôle
 		}
 
 		// récupère un control particulier via son nom
@@ -87,8 +113,8 @@ namespace QMag.Core.Pages
 
 			foreach (KeyValuePair<string, Control> control in _controls)
 			{
-				if (control.Value.GetType() == controlAsked)
-					controls.Add(control.Value);
+				if (control.Value.GetType() == controlAsked) // si le type du control est celui désiré
+					controls.Add(control.Value); // on l'ajoute à la liste
 			}
 
 			return controls;
@@ -100,16 +126,16 @@ namespace QMag.Core.Pages
 			Control control = null;
 
 			// définit le type du control
-			if (form.Type == AjouterArguments.ControlList.FlatTextBox)
+			if (form.Type == AjouterArguments.ControlList.FlatTextBox) // textbox
 				control = new FlatTextBox();
-			else if (form.Type == AjouterArguments.ControlList.FlatListBox)
+			else if (form.Type == AjouterArguments.ControlList.FlatListBox) // listbox
 				control = new FlatListBox();
-			else if (form.Type == AjouterArguments.ControlList.FlatLabel)
+			else if (form.Type == AjouterArguments.ControlList.FlatLabel) // label
 				control = new FlatLabel()
 				{
 					ForeColor = Theme.BackDark
 				};
-			else if (form.Type == AjouterArguments.ControlList.FlatButton)
+			else if (form.Type == AjouterArguments.ControlList.FlatButton) // bouton
 				control = new FlatButton()
 				{
 					Font = new Font("Yu Gothic UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0)
