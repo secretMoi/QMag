@@ -17,11 +17,11 @@ namespace QMag.Pages.Clients
 
 			_ajout = new Core.Pages.Ajouter
 			(
-				AjouterArguments.ControlList.FlatLabel, "FlatLabelNom",
-				AjouterArguments.ControlList.FlatTextBox, "FlatTextBoxNom",
-				AjouterArguments.ControlList.FlatLabel, "FlatLabelPrenom",
-				AjouterArguments.ControlList.FlatTextBox, "FlatTextBoxPrenom",
-				AjouterArguments.ControlList.FlatButton, "FlatButtonAjouter"
+				AjouterArguments.ControlList.FlatLabel, "FlatLabelNom", "Nom",
+				AjouterArguments.ControlList.FlatTextBox, "FlatTextBoxNom", "",
+				AjouterArguments.ControlList.FlatLabel, "FlatLabelPrenom", "Prénom",
+				AjouterArguments.ControlList.FlatTextBox, "FlatTextBoxPrenom", "",
+				AjouterArguments.ControlList.FlatButton, "FlatButtonAjouter", ""
 			);
 
 			PositionneControls();
@@ -34,12 +34,9 @@ namespace QMag.Pages.Clients
 			int compteur = 0;
 
 			// Positionne les labels
-
-
 			foreach (Control control in _ajout.Being(typeof(FlatLabel)))
 			{
 				FlatLabel flatLabel = (FlatLabel)control;
-				flatLabel.Text = @"coucou";
 				flatLabel.Left = 50;
 				flatLabel.Top = 50 + 60 * compteur;
 				compteur++;

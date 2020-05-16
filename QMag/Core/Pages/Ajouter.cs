@@ -17,27 +17,34 @@ namespace QMag.Core.Pages
 
 			_controls = new Dictionary<string, Control>();
 
-			AjouterArguments.ControlList control = AjouterArguments.ControlList.Unknown;
+			AjouterArguments.ControlList control = AjouterArguments.ControlList.Unknown; // set comme default
 			string name = null;
-			for (int compteur = 0; compteur < tuples.Length; compteur++)
+			string texte;
+			foreach (object tuple in tuples)
 			{
-				if (control == AjouterArguments.ControlList.Unknown)
-					control = (AjouterArguments.ControlList) tuples[compteur];
-				else
+				if (control == AjouterArguments.ControlList.Unknown) // si c'est le premier paramètre
+					control = (AjouterArguments.ControlList) tuple;
+				else if(control != AjouterArguments.ControlList.Unknown && name == null) // si c'est le deuxieme
 				{
-					name = tuples[compteur] as string;
-					Add(control, name);
+					name = tuple as string;
+				}
+				else // sinon c'est le troisième
+				{
+					texte = tuple as string;
 
-					control = AjouterArguments.ControlList.Unknown;
+					//Add(control, name); // ajoute le control
+					Add(new AjouterArguments(control, name, texte)); // ajoute le control
+
+					control = AjouterArguments.ControlList.Unknown; // reset le premier pour repasser dans le if
 					name = null;
 				}
 			}
 		}
 
 		// crée un control
-		public void Add(AjouterArguments.ControlList typeControl, string name)
+		public void Add(AjouterArguments arguments)
 		{
-			_controls.Add(name, CreateControl(new AjouterArguments(typeControl, name)));
+			_controls.Add(arguments.Name, CreateControl(arguments));
 		}
 
 		// affiche les controls dans un panel définit
@@ -45,6 +52,11 @@ namespace QMag.Core.Pages
 		{
 			foreach (KeyValuePair<string, Control> control in _controls)
 				panel.Controls.Add(control.Value);
+		}
+
+		public void LocateControlAt()
+		{
+
 		}
 
 		// récupère un control particulier via son nom
@@ -89,7 +101,10 @@ namespace QMag.Core.Pages
 
 			// initialise certaines valeurs du control
 			if (control != null)
+			{
 				control.Name = form.Name;
+				control.Text = form.Text;
+			}
 
 			return control;
 		}
