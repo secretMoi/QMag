@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using Controls;
@@ -24,6 +25,8 @@ namespace QMag.Core.Pages
 
 		protected virtual void AfterLoad()
 		{
+			_flatDataGridView.AddClickMethod(EffetClic); // s'inscrit aux event de clic dans la dgv
+
 			_flatDataGridView.DataSource = _useGridView.Liens; // ajout(liage) des colonnes à la gridview
 
 			if (_editEnabled)
@@ -58,6 +61,11 @@ namespace QMag.Core.Pages
 				SetColonnesCliquables("Supprimer");
 				_imageSupprimer = Image.FromFile("Ressources/Images/supprimer.png");
 			}
+		}
+
+		public virtual void EffetClic(object sender, DataGridViewCellMouseEventArgs e)
+		{
+
 		}
 	}
 }

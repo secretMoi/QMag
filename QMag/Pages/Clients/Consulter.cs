@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 using Projet_magasin.Classes;
 using Projet_magasin.Gestion;
 using QMag.Core.Pages;
@@ -25,6 +27,8 @@ namespace QMag.Pages.Clients
 
 			RempliColonnes();
 
+			flatDataGridView.AddClickMethod(EffetClic); // s'inscrit aux event de clic dans la dgv
+
 			AfterLoad();
 		}
 
@@ -37,6 +41,28 @@ namespace QMag.Pages.Clients
 					_imageEditer,
 					_imageSupprimer
 					);
+		}
+
+		public override void EffetClic(object sender, DataGridViewCellMouseEventArgs e)
+		{
+			int colonne = e.ColumnIndex;
+			int ligne = e.RowIndex;
+
+			// récupère le nom de la classe
+			Type myType = GetType();
+			string @namespace = myType.Namespace;
+			string[] @class = @namespace?.Split('.');
+			string @className = @class?[@class.Length - 1];
+
+			if (colonne == flatDataGridView.Column["Editer"]?.DisplayIndex) // si la colonne cliquée correspond à l'édition
+				LoadPage(@className + ".Ajouter", _clients[ligne]); // charge la page Ajouter
+
+			else if (colonne == flatDataGridView.Column["Supprimer"]?.DisplayIndex) // si la colonne cliquée correspond à la suppression
+			{
+				new G_Stock(Connexion).Supprimer(_clients[ligne].id); // supprime l'enregistrement
+
+				LoadPage(@className + ".Consulter"); // rafraichit la page
+			}
 		}
 	}
 }
