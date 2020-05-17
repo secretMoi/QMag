@@ -1,6 +1,6 @@
 ﻿namespace QMag.Core.Pages
 {
-	abstract partial class BaseConsulter
+	partial class BaseConsulter
 	{
 		/// <summary> 
 		/// Variable nécessaire au concepteur.

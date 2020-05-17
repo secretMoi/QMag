@@ -43,6 +43,7 @@ namespace QMag.Controls
 			dataGridView.CellMouseEnter += Cliquable; // event lorsque le curseur entre dans une cellule
 		}
 
+		// permet de subscribe une méthode à l'event
 		public void AddClickMethod(DataGridViewCellMouseEventHandler methode)
 		{
 			dataGridView.CellMouseClick += methode;
@@ -73,25 +74,15 @@ namespace QMag.Controls
 
 		public DataGridViewColumnCollection Column => dataGridView.Columns;
 
-		public bool FirstCellState
-		{
-			set => dataGridView.FirstDisplayedCell.Selected = value;
-		}
-
-		public bool CurrentCell
-		{
-			get => dataGridView.CurrentCell.Selected;
-			set => dataGridView.CurrentCell.Selected = value;
-		}
-
 		public string Get(Couple coordonnees)
 		{
 			return dataGridView.Rows[coordonnees.Xi].Cells[coordonnees.Yi].Value.ToString();
 		}
 
+		// code exécuté après le chargement de la dgv
 		private void dataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
 		{
-			dataGridView.FirstDisplayedCell.Selected = false;
+			dataGridView.FirstDisplayedCell.Selected = false; // désactive la sélection automatique
 		}
 	}
 }

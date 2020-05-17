@@ -4,7 +4,6 @@ using System.Windows.Forms;
 using Controls;
 using QMag.Pages;
 
-// todo système de maj avec dernier client sur nas
 namespace QMag.Fenetres
 {
     public partial class Form1 : FormBdd
@@ -33,6 +32,7 @@ namespace QMag.Fenetres
         {
             panelSousMenuStock.Size = new Size(panelSousMenuStock.Size.Width, 0);
             panelSousMenuClients.Size = new Size(panelSousMenuClients.Size.Width, 0);
+            panelSousMenuFournisseurs.Size = new Size(panelSousMenuFournisseurs.Size.Width, 0);
         }
 
         private void HideSubMenu()
@@ -42,6 +42,9 @@ namespace QMag.Fenetres
 
             else if (panelSousMenuClients.Size.Height == panelSousMenuClients.MaximumSize.Height && panelSousMenuClients != _subMenuPanelToShow)
 	            _subMenuPanelToHide = panelSousMenuClients;
+
+            else if (panelSousMenuFournisseurs.Size.Height == panelSousMenuFournisseurs.MaximumSize.Height && panelSousMenuFournisseurs != _subMenuPanelToShow)
+	            _subMenuPanelToHide = panelSousMenuFournisseurs;
         }
 
         private void ShowSubMenu(Panel subMenu)
@@ -57,6 +60,12 @@ namespace QMag.Fenetres
 	            _subMenuPanelToShow = subMenu;
                 HideSubMenu(); // cache les autres sous-menus
 	            
+            }
+            else if (panelSousMenuFournisseurs.Size.Height == panelSousMenuFournisseurs.MinimumSize.Height)
+            {
+	            _subMenuPanelToShow = subMenu;
+	            HideSubMenu(); // cache les autres sous-menus
+
             }
             else
                 _subMenuPanelToHide = subMenu;

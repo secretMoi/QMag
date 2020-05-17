@@ -5,24 +5,24 @@ using Projet_magasin.Classes;
 using Projet_magasin.Gestion;
 using QMag.Core.Pages;
 
-namespace QMag.Pages.Clients
+namespace QMag.Pages.Fournisseurs
 {
 	public partial class Consulter : BaseConsulter
 	{
-		private readonly List<C_Clients> _clients;
+		private readonly List<C_Fournisseurs> _founisseurs;
 
 		public Consulter()
 		{
 			InitializeComponent();
 
-			_clients = new G_Clients(Connexion).Lire("id");
+			_founisseurs = new G_Fournisseurs(Connexion).Lire("id");
 		}
-		
+
 		private void Consulter_Load(object sender, EventArgs e)
 		{
 			_flatDataGridView = flatDataGridView;
 
-			SetColonnes("Nom", "Prénom");
+			SetColonnes("Nom");
 			EnableColumn("editer", "supprimer");
 
 			RempliColonnes();
@@ -34,13 +34,12 @@ namespace QMag.Pages.Clients
 
 		private void RempliColonnes()
 		{
-			foreach (C_Clients client in _clients)
+			foreach (C_Fournisseurs founisseur in _founisseurs)
 				_useGridView.Add(
-					client.nom,
-					client.prenom,
+					founisseur.nom,
 					_imageEditer,
 					_imageSupprimer
-					);
+				);
 		}
 
 		public override void EffetClic(object sender, DataGridViewCellMouseEventArgs e)
@@ -55,11 +54,11 @@ namespace QMag.Pages.Clients
 			string @className = @class?[@class.Length - 1];
 
 			if (colonne == flatDataGridView.Column["Editer"]?.DisplayIndex) // si la colonne cliquée correspond à l'édition
-				LoadPage(@className + ".Ajouter", _clients[ligne]); // charge la page Ajouter
+				LoadPage(@className + ".Ajouter", _founisseurs[ligne]); // charge la page Ajouter
 
 			else if (colonne == flatDataGridView.Column["Supprimer"]?.DisplayIndex) // si la colonne cliquée correspond à la suppression
 			{
-				new G_Clients(Connexion).Supprimer(_clients[ligne].id); // supprime l'enregistrement
+				new G_Fournisseurs(Connexion).Supprimer(_founisseurs[ligne].id); // supprime l'enregistrement
 
 				LoadPage(@className + ".Consulter"); // rafraichit la page
 			}

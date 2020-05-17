@@ -178,6 +178,18 @@
     <Compile Include="Pages\Clients\Consulter.Designer.cs">
       <DependentUpon>Consulter.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Fournisseurs\Ajouter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\Fournisseurs\Ajouter.Designer.cs">
+      <DependentUpon>Ajouter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Fournisseurs\Consulter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\Fournisseurs\Consulter.Designer.cs">
+      <DependentUpon>Consulter.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Stock\Ajouter.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -234,6 +246,12 @@
     <EmbeddedResource Include="Pages\Clients\Consulter.resx">
       <DependentUpon>Consulter.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Fournisseurs\Ajouter.resx">
+      <DependentUpon>Ajouter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Fournisseurs\Consulter.resx">
+      <DependentUpon>Consulter.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pages\Stock\Ajouter.resx">
       <DependentUpon>Ajouter.cs</DependentUpon>
     </EmbeddedResource>
@@ -268,6 +286,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <Content Include="Ressources\Images\close.png" />
+    <EmbeddedResource Include="Ressources\Images\delivery.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <Content Include="Ressources\Images\diagonal-arrows.png" />
     <Content Include="Ressources\Images\down-arrow.png" />
     <EmbeddedResource Include="Ressources\Images\editer.png">
