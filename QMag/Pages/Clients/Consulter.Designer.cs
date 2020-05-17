@@ -65,9 +65,9 @@
 			// 
 			this.panel2.Controls.Add(this.flatDataGridView);
 			this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panel2.Location = new System.Drawing.Point(0, 0);
+			this.panel2.Location = new System.Drawing.Point(0, 220);
 			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(1856, 893);
+			this.panel2.Size = new System.Drawing.Size(1856, 673);
 			this.panel2.TabIndex = 9;
 			// 
 			// flatDataGridView
@@ -76,16 +76,17 @@
 			this.flatDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.flatDataGridView.Location = new System.Drawing.Point(0, 0);
 			this.flatDataGridView.Name = "flatDataGridView";
-			this.flatDataGridView.Size = new System.Drawing.Size(1856, 893);
+			this.flatDataGridView.Size = new System.Drawing.Size(1856, 673);
 			this.flatDataGridView.TabIndex = 0;
 			// 
 			// Consulter
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.panel2);
+			this.Controls.Add(this.panel1);
 			this.Name = "Consulter";
+			this.Size = new System.Drawing.Size(1856, 893);
 			this.Load += new System.EventHandler(this.Consulter_Load);
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();

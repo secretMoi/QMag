@@ -28,17 +28,14 @@ namespace QMag.Core.Pages
 			catch {}
 		}
 
-		private void BaseConsulter_Load(object sender, System.EventArgs e)
-		{
-			//AfterLoad();
-		}
-
 		protected virtual void AfterLoad()
 		{
-			// désactive le cochage de case au lancement
-			//_flatDataGridView.FirstCellState = false;
-
 			_flatDataGridView.DataSource = _useGridView.Liens; // ajout(liage) des colonnes à la gridview
+
+			_flatDataGridView.Column["Editer"].Width = 150;
+			_flatDataGridView.Column["Supprimer"].Width = 200;
+
+			//if ()
 		}
 
 		protected void SetColonnes(params string[] titres)

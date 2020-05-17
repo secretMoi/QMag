@@ -45,6 +45,7 @@
 			this.dataGridView.ReadOnly = true;
 			this.dataGridView.Size = new System.Drawing.Size(1856, 893);
 			this.dataGridView.TabIndex = 0;
+			this.dataGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView_DataBindingComplete);
 			// 
 			// FlatDataGridView
 			// 

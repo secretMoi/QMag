@@ -36,9 +36,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.Name = "BaseConsulter";
 			this.Size = new System.Drawing.Size(1856, 893);
-			this.Load += new System.EventHandler(this.BaseConsulter_Load);
 			this.ResumeLayout(false);
-
 		}
 
 		#endregion

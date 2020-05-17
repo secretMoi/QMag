@@ -11,7 +11,6 @@ namespace QMag.Pages.Stock
 	public partial class Consulter : ThemePanel
 	{
 		private UseGridView _useGridView;
-		//private static readonly Image _imageEditer = Image.FromFile("Ressources/Images/editer.png");
 		private static readonly Image _imageEditer = Image.FromFile("Ressources/Images/editer.png");
 		private static readonly Image _imageSupprimer = Image.FromFile("Ressources/Images/supprimer.png");
 

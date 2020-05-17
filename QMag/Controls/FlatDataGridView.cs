@@ -78,9 +78,20 @@ namespace QMag.Controls
 			set => dataGridView.FirstDisplayedCell.Selected = value;
 		}
 
+		public bool CurrentCell
+		{
+			get => dataGridView.CurrentCell.Selected;
+			set => dataGridView.CurrentCell.Selected = value;
+		}
+
 		public string Get(Couple coordonnees)
 		{
 			return dataGridView.Rows[coordonnees.Xi].Cells[coordonnees.Yi].Value.ToString();
+		}
+
+		private void dataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+		{
+			dataGridView.FirstDisplayedCell.Selected = false;
 		}
 	}
 }
