@@ -1,58 +1,39 @@
 ﻿using System.Collections.Generic;
-using System.Drawing;
 using System.Windows.Forms;
-using Controls;
 using Projet_magasin.Gestion;
 using Projet_magasin.Classes;
-using QMag.Core;
+using QMag.Core.Pages;
 
 namespace QMag.Pages.Stock
 {
-	public partial class Consulter : ThemePanel
+	public partial class Consulter : BaseConsulter
 	{
-		private UseGridView _useGridView;
-		private static readonly Image _imageEditer = Image.FromFile("Ressources/Images/editer.png");
-		private static readonly Image _imageSupprimer = Image.FromFile("Ressources/Images/supprimer.png");
-
 		private readonly List<C_Stock> _stocks;
 
 		public Consulter()
 		{
 			InitializeComponent();
 
-			SetColonnes();
-
 			_stocks = new G_Stock(Connexion).Lire("id");
-
-			RempliColonnes();
-
-			flatDataGridView1.DataSource = _useGridView.Liens; // ajout(liage) des colonnes à la gridview
-
-			flatDataGridView1.AddClickMethod(EffetClic); // s'inscrit aux event de clic dans la dgv
 		}
 
 		private void Consulter_Load(object sender, System.EventArgs e)
 		{
-			// désactive le cochage de case au lancement
-			flatDataGridView1.FirstCellState = false;
+			_flatDataGridView = flatDataGridView1;
 
-			flatDataGridView1.Column["Editer"].Width = 150;
-			flatDataGridView1.Column["Supprimer"].Width = 200;
-		}
-
-		private void SetColonnes()
-		{
-			_useGridView = new UseGridView(
+			SetColonnes(
 				"Nom",
 				"Quantité Actuelle",
 				"Quantité minimale",
 				"Prix d'achat",
 				"Prix de vente"
-			);
-
-			flatDataGridView1.SetColonnesCliquables(
-				_useGridView.CreateImageColumn("Editer", "Supprimer")
 				);
+			EnableColumn("editer", "supprimer");
+			RempliColonnes();
+
+			flatDataGridView1.AddClickMethod(EffetClic); // s'inscrit aux event de clic dans la dgv
+
+			AfterLoad();
 		}
 
 		private void RempliColonnes()
@@ -76,12 +57,12 @@ namespace QMag.Pages.Stock
 			int colonne = e.ColumnIndex;
 			int ligne = e.RowIndex;
 
-			if (colonne == flatDataGridView1.Column["Editer"]?.DisplayIndex)
+			if (colonne == flatDataGridView1.Column["Editer"]?.DisplayIndex) // si la colonne cliquée correspond à l'édition
 				LoadPage("Stock.Ajouter",  _stocks[ligne]); // charge la page Ajouter
 
-			else if (colonne == flatDataGridView1.Column["Supprimer"]?.DisplayIndex)
+			else if (colonne == flatDataGridView1.Column["Supprimer"]?.DisplayIndex) // si la colonne cliquée correspond à la suppression
 			{
-				new G_Stock(Connexion).Supprimer(_stocks[ligne].id);
+				new G_Stock(Connexion).Supprimer(_stocks[ligne].id); // supprime l'enregistrement
 
 				LoadPage("Stock.Consulter"); // rafraichit la page
 			}

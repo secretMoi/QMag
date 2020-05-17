@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using Controls;
 using QMag.Controls;
@@ -13,29 +14,22 @@ namespace QMag.Core.Pages
 		protected Image _imageEditer;
 		protected Image _imageSupprimer;
 
-		//protected static readonly Image _imageEditer = Image.FromFile("Ressurces/Images/editer.png");
-		///protected static readonly Image _imageSupprimer = Image.FromFile("Ressources/Images/supprimer.png");
+		private bool _editEnabled = false;
+		private bool _deleteEnabled = false;
 
 		public BaseConsulter()
 		{
 			InitializeComponent();
-
-			try
-			{
-				_imageEditer = Image.FromFile("Ressources/Images/editer.png");
-				_imageSupprimer = Image.FromFile("Ressources/Images/supprimer.png");
-			}
-			catch {}
 		}
 
 		protected virtual void AfterLoad()
 		{
 			_flatDataGridView.DataSource = _useGridView.Liens; // ajout(liage) des colonnes à la gridview
 
-			_flatDataGridView.Column["Editer"].Width = 150;
-			_flatDataGridView.Column["Supprimer"].Width = 200;
-
-			//if ()
+			if (_editEnabled)
+				_flatDataGridView.Column["Editer"].Width = 150;
+			if(_deleteEnabled)
+				_flatDataGridView.Column["Supprimer"].Width = 200;
 		}
 
 		protected void SetColonnes(params string[] titres)
@@ -48,6 +42,22 @@ namespace QMag.Core.Pages
 			_flatDataGridView.SetColonnesCliquables(
 				_useGridView.CreateImageColumn(titres)
 			);
+		}
+
+		protected void EnableColumn(params string[] colonnes)
+		{
+			if (colonnes.Contains("editer"))
+			{
+				_editEnabled = true;
+				SetColonnesCliquables("Editer");
+				_imageEditer = Image.FromFile("Ressources/Images/editer.png");
+			}
+			if (colonnes.Contains("supprimer"))
+			{
+				_deleteEnabled = true;
+				SetColonnesCliquables("Supprimer");
+				_imageSupprimer = Image.FromFile("Ressources/Images/supprimer.png");
+			}
 		}
 	}
 }
