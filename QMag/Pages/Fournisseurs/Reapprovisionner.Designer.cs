@@ -53,7 +53,7 @@
 			this.panelCorps.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panelCorps.Location = new System.Drawing.Point(0, 220);
 			this.panelCorps.Name = "panelCorps";
-			this.panelCorps.Size = new System.Drawing.Size(0, 0);
+			this.panelCorps.Size = new System.Drawing.Size(1856, 673);
 			this.panelCorps.TabIndex = 11;
 			// 
 			// panelTitre
@@ -64,7 +64,7 @@
 			this.panelTitre.Location = new System.Drawing.Point(0, 0);
 			this.panelTitre.MaximumSize = new System.Drawing.Size(0, 220);
 			this.panelTitre.Name = "panelTitre";
-			this.panelTitre.Size = new System.Drawing.Size(0, 220);
+			this.panelTitre.Size = new System.Drawing.Size(1856, 220);
 			this.panelTitre.TabIndex = 10;
 			// 
 			// Reapprovisionner
@@ -74,7 +74,7 @@
 			this.Controls.Add(this.panelCorps);
 			this.Controls.Add(this.panelTitre);
 			this.Name = "Reapprovisionner";
-			this.Size = new System.Drawing.Size(0, 0);
+			this.Size = new System.Drawing.Size(1856, 893);
 			this.panelTitre.ResumeLayout(false);
 			this.panelTitre.PerformLayout();
 			this.ResumeLayout(false);
