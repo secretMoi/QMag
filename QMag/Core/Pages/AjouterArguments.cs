@@ -27,6 +27,8 @@ namespace QMag.Core.Pages
 				return typeof(FlatButton);
 			if (name.Contains("FlatListBox"))
 				return typeof(FlatListBox);
+			if (name.Contains("FlatList"))
+				return typeof(FlatList);
 
 			return null;
 		}

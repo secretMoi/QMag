@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.Windows.Forms;
 using Controls;
 using Core;
 using Projet_magasin.Classes;
@@ -22,20 +24,27 @@ namespace QMag.Pages.Fournisseurs
 				"FlatListBoxArticle", "",
 				"FlatLabelQuantite", "Quantité",
 				"FlatTextBoxQuantite", "",
-				"FlatButtonAjouter", "Ajouter"
+				"FlatButtonAjouter", "Ajouter",
+				"FlatButtonCommander", "Commander",
+				"FlatListArticles", "Liste des articles"
 			);
 
-			//_ajout.Get("FlatButtonAjouter").Click += Ajouter_Click;
+			_ajout.Get("FlatButtonAjouter").Click += Ajouter_Click;
 
 			PositionneControls();
 
 			_ajout.Display(panelCorps);
 		}
 
+		private void Ajouter_Click(object sender, EventArgs e)
+		{
+			
+		}
+
 		private void PositionneControls()
 		{
-			FlatLabel labelQuantite = (FlatLabel) _ajout.Get("FlatLabelQuantite");
 			FlatListBox listBoxArticle = (FlatListBox) _ajout.Get("FlatListBoxArticle");
+			FlatList listeArticles = (FlatList)_ajout.Get("FlatListArticles");
 
 			// Labels
 			_ajout.LocateControlAt(typeof(FlatLabel), new Couple(50, 50)); // Positionne les labels
@@ -54,11 +63,24 @@ namespace QMag.Pages.Fournisseurs
 			dernierePosition.Xi = listBoxArticle.Left;
 			dernierePosition = _ajout.LocateControlAt(typeof(FlatTextBox), dernierePosition); // Positionne les textbox
 
-			// Bouton
+			// Bouton Ajouter
 			dernierePosition.Yi += 60;
 			_ajout.LocateControlAt(typeof(FlatButton), dernierePosition); // Positionne le bouton
 
 			_ajout.Get("FlatButtonAjouter").Size = _ajout.Get("FlatTextBoxQuantite").Size;
+			_ajout.Get("FlatButtonCommander").Size = _ajout.Get("FlatTextBoxQuantite").Size;
+
+			// Bouton Commander
+			_ajout.Get("FlatButtonCommander").Top = _ajout.Get("FlatButtonCommander").Bottom +310;
+
+			_ajout.Get("FlatButtonCommander").Anchor = AnchorStyles.None;
+			_ajout.Get("FlatButtonCommander").Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+
+			// Liste des articles
+			listeArticles.Location = new Point(
+				listBoxArticle.Left + listBoxArticle.Width + 50,
+				listBoxArticle.Top
+				);
 		}
 	}
 }

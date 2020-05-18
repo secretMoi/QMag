@@ -115,6 +115,8 @@ namespace QMag.Core.Pages
 				{
 					Font = new Font("Yu Gothic UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0)
 				};
+			else if (form.Type == typeof(FlatList)) // listbox
+				control = new FlatList();
 
 			// initialise certaines valeurs du control
 			if (control != null)
