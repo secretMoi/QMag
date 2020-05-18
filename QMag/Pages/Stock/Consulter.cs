@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using Projet_magasin.Gestion;
 using Projet_magasin.Classes;
+using QMag.Core;
 using QMag.Core.Pages;
+using QMag.Fenetres;
 
 namespace QMag.Pages.Stock
 {
@@ -35,6 +37,17 @@ namespace QMag.Pages.Stock
 			AfterLoad();
 		}
 
+		public override void Hydrate(params object[] args)
+		{
+			base.Hydrate(args);
+
+			C_Stock stock = ArgumentsValides(typeof(C_Stock), args) as C_Stock;
+			if (stock == null)
+				return;
+
+			Dialog.Show("L'article " + stock.nom + " a bien été supprimé.");
+		}
+
 		private void RempliColonnes()
 		{
 			foreach (C_Stock stock in _stocks)
@@ -57,19 +70,21 @@ namespace QMag.Pages.Stock
 			int ligne = e.RowIndex;
 
 			// récupère le nom de la classe
-			Type myType = GetType();
-			string @namespace = myType.Namespace;
-			string[] @class = @namespace?.Split('.');
-			string @className = @class?[@class.Length - 1];
+			Reflection reflection = new Reflection(GetType());
 
 			if (colonne == flatDataGridView1.Column["Editer"]?.DisplayIndex) // si la colonne cliquée correspond à l'édition
-				LoadPage(@className + ".Ajouter",  _stocks[ligne]); // charge la page Ajouter
+				LoadPage(reflection.Class + ".Ajouter",  _stocks[ligne]); // charge la page Ajouter
 
 			else if (colonne == flatDataGridView1.Column["Supprimer"]?.DisplayIndex) // si la colonne cliquée correspond à la suppression
 			{
-				new G_Stock(Connexion).Supprimer(_stocks[ligne].id); // supprime l'enregistrement
+				string question = "l'article " + _stocks[ligne].nom + " ?";
+				if (DialogDelete(question) == DialogResult.Yes)
+				{
+					new G_Stock(Connexion).Supprimer(_stocks[ligne].id); // supprime l'enregistrement
 
-				LoadPage(@className + ".Consulter"); // rafraichit la page
+					LoadPage(reflection.Class + ".Consulter", _stocks[ligne]); // rafraichit la page
+				}
+
 			}
 		}
 	}

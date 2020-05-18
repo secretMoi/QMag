@@ -20,6 +20,7 @@ namespace Controls
             _arguments = new List<object>();
         }
 
+        // méthode appelée après la création d'une page pour charger des arguments
         public virtual void Hydrate(params object[] args)
         {
 	        if (args.Length > 0)

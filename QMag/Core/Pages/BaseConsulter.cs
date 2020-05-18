@@ -24,6 +24,18 @@ namespace QMag.Core.Pages
 			InitializeComponent();
 		}
 
+		protected object ArgumentsValides(Type type, params object[] args)
+		{
+			if (args.Length < 1) // vérifie qu'il y a bien un argument
+				return null;
+
+			Type typ = GetType();
+
+			object objet = args[0]; // cast l'argument
+
+			return objet;
+		}
+
 		protected virtual void AfterLoad()
 		{
 			_flatDataGridView.AddClickMethod(EffetClic); // s'inscrit aux event de clic dans la dgv

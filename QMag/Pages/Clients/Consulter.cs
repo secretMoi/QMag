@@ -29,8 +29,6 @@ namespace QMag.Pages.Clients
 
 			RempliColonnes();
 
-			flatDataGridView.AddClickMethod(base.EffetClic); // s'inscrit aux event de clic dans la dgv
-
 			AfterLoad();
 		}
 
@@ -38,11 +36,7 @@ namespace QMag.Pages.Clients
 		{
 			base.Hydrate(args);
 
-			if (args.Length < 1) // vérifie qu'il y a bien un argument
-				return;
-
-			C_Clients client = args[0] as C_Clients; // cast l'argument
-
+			C_Clients client = ArgumentsValides(typeof(C_Clients), args) as C_Clients;
 			if (client == null)
 				return;
 

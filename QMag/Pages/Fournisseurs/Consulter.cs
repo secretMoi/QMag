@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using Projet_magasin.Classes;
 using Projet_magasin.Gestion;
+using QMag.Core;
 using QMag.Core.Pages;
+using QMag.Fenetres;
 
 namespace QMag.Pages.Fournisseurs
 {
@@ -27,9 +29,18 @@ namespace QMag.Pages.Fournisseurs
 
 			RempliColonnes();
 
-			flatDataGridView.AddClickMethod(EffetClic); // s'inscrit aux event de clic dans la dgv
-
 			AfterLoad();
+		}
+
+		public override void Hydrate(params object[] args)
+		{
+			base.Hydrate(args);
+
+			C_Fournisseurs fournisseur = ArgumentsValides(typeof(C_Fournisseurs), args) as C_Fournisseurs;
+			if (fournisseur == null)
+				return;
+
+			Dialog.Show("Le fournisseur " + fournisseur.nom + " a bien été supprimé.");
 		}
 
 		private void RempliColonnes()
@@ -48,19 +59,21 @@ namespace QMag.Pages.Fournisseurs
 			int ligne = e.RowIndex;
 
 			// récupère le nom de la classe
-			Type myType = GetType();
-			string @namespace = myType.Namespace;
-			string[] @class = @namespace?.Split('.');
-			string @className = @class?[@class.Length - 1];
+			Reflection reflection = new Reflection(GetType());
 
 			if (colonne == flatDataGridView.Column["Editer"]?.DisplayIndex) // si la colonne cliquée correspond à l'édition
-				LoadPage(@className + ".Ajouter", _founisseurs[ligne]); // charge la page Ajouter
+				LoadPage(reflection.Class + ".Ajouter", _founisseurs[ligne]); // charge la page Ajouter
 
 			else if (colonne == flatDataGridView.Column["Supprimer"]?.DisplayIndex) // si la colonne cliquée correspond à la suppression
 			{
-				new G_Fournisseurs(Connexion).Supprimer(_founisseurs[ligne].id); // supprime l'enregistrement
+				string question = "le fournisseur " + _founisseurs[ligne].nom + " ?";
+				if (DialogDelete(question) == DialogResult.Yes)
+				{
+					new G_Fournisseurs(Connexion).Supprimer(_founisseurs[ligne].id); // supprime l'enregistrement
 
-				LoadPage(@className + ".Consulter"); // rafraichit la page
+					LoadPage(reflection.Class + ".Consulter", _founisseurs[ligne]); // rafraichit la page
+				}
+
 			}
 		}
 	}
