@@ -117,6 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="flatButtonDown.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAB3RJ
+        TUUH5AMVERIvr6eqhAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAADkSURBVEhL
+        7ZJNCwFRGIUn5I8QUsPC3kL+/8ZCEitfWUiJ7XjOuC9jajRzZxaUp07N+3VOUzf48x1EUVRHTVeWRl6o
+        ZkUbrdEZTeNmCfCYOK8VaqkxR8YNeYdwK/OrjBwzNReP7ydeIdykzcVSgw7axuWLQiHsjtFFhwmOKLQF
+        7xB2PpsbNAqHMMtnbjDoolwh9IqZGywoZKftBG8hfPuZGyxmhqBy5gYHfXTQdQKFpJ9icXODwx5K/0kS
+        f3MDg6wQmQ/cWjkwUshero4TGrlxNWAYog3SMx66drVg3JBc+ecnCII7OERSx994gQkAAAAASUVORK5C
+        YII=
+</value>
+  </data>
+  <data name="flatButtonUp.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAB3RJ
+        TUUH5AMVERcL7tO6EAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAADmSURBVEhL
+        7ZI5DsJADEUjtotAwc4NKID7VyAa6BBrAQXQhufEhhCRaBgiISSe9KIZj/3dJPjzW4RhWBH1WiwED3CN
+        K+xpuRgI7OMBjT0Ws4SgdLjx+RICssIN/yUyqAFJLniNj3e22NYxNxho4UamE0j4GId4lkKCHXZ1PB8a
+        M8O1RXr8ltDQxNxwg1rWko62PMODc7jBm9sSCm+HG/TkL+HgHW7Q+2pJ/HfxWUTXBxI+0llnmJlg+hee
+        y8M0Pkd4hRvMppfMpFjHJR7RO9wgQ5acNLNhxRJWo0sBkFXDsl7/fJUguAGmllLVL+1h6AAAAABJRU5E
+        rkJggg==
+</value>
+  </data>
   <metadata name="timer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>

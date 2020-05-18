@@ -29,13 +29,17 @@
         private void InitializeComponent()
         {
 			this.components = new System.ComponentModel.Container();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FlatListBox));
 			this.labelTitre = new System.Windows.Forms.Label();
 			this.panelTitre = new System.Windows.Forms.Panel();
 			this.pictureBox = new System.Windows.Forms.PictureBox();
 			this.panelCorps = new System.Windows.Forms.Panel();
 			this.timer = new System.Windows.Forms.Timer(this.components);
+			this.flatButtonUp = new QMag.Controls.Buttons.FlatButton();
+			this.flatButtonDown = new QMag.Controls.Buttons.FlatButton();
 			this.panelTitre.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+			this.panelCorps.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// labelTitre
@@ -73,10 +77,12 @@
 			// 
 			// panelCorps
 			// 
+			this.panelCorps.Controls.Add(this.flatButtonDown);
+			this.panelCorps.Controls.Add(this.flatButtonUp);
 			this.panelCorps.Location = new System.Drawing.Point(0, 40);
 			this.panelCorps.Margin = new System.Windows.Forms.Padding(0);
 			this.panelCorps.Name = "panelCorps";
-			this.panelCorps.Size = new System.Drawing.Size(150, 0);
+			this.panelCorps.Size = new System.Drawing.Size(150, 80);
 			this.panelCorps.TabIndex = 2;
 			this.panelCorps.Paint += new System.Windows.Forms.PaintEventHandler(this.panelCorps_Paint);
 			// 
@@ -84,6 +90,38 @@
 			// 
 			this.timer.Interval = 15;
 			this.timer.Tick += new System.EventHandler(this.timer_Tick);
+			// 
+			// flatButtonUp
+			// 
+			this.flatButtonUp.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.flatButtonUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(245)))));
+			this.flatButtonUp.FlatAppearance.BorderSize = 0;
+			this.flatButtonUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.flatButtonUp.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.flatButtonUp.ForeColor = System.Drawing.Color.White;
+			this.flatButtonUp.Image = ((System.Drawing.Image)(resources.GetObject("flatButtonUp.Image")));
+			this.flatButtonUp.Location = new System.Drawing.Point(4, 4);
+			this.flatButtonUp.Margin = new System.Windows.Forms.Padding(0);
+			this.flatButtonUp.Name = "flatButtonUp";
+			this.flatButtonUp.Size = new System.Drawing.Size(150, 40);
+			this.flatButtonUp.TabIndex = 0;
+			this.flatButtonUp.UseVisualStyleBackColor = false;
+			// 
+			// flatButtonDown
+			// 
+			this.flatButtonDown.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.flatButtonDown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(245)))));
+			this.flatButtonDown.FlatAppearance.BorderSize = 0;
+			this.flatButtonDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.flatButtonDown.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.flatButtonDown.ForeColor = System.Drawing.Color.White;
+			this.flatButtonDown.Image = ((System.Drawing.Image)(resources.GetObject("flatButtonDown.Image")));
+			this.flatButtonDown.Location = new System.Drawing.Point(0, 20);
+			this.flatButtonDown.Margin = new System.Windows.Forms.Padding(0);
+			this.flatButtonDown.Name = "flatButtonDown";
+			this.flatButtonDown.Size = new System.Drawing.Size(150, 40);
+			this.flatButtonDown.TabIndex = 1;
+			this.flatButtonDown.UseVisualStyleBackColor = false;
 			// 
 			// FlatListBox
 			// 
@@ -101,6 +139,7 @@
 			this.panelTitre.ResumeLayout(false);
 			this.panelTitre.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
+			this.panelCorps.ResumeLayout(false);
 			this.ResumeLayout(false);
 
         }
@@ -112,5 +151,7 @@
         private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.Panel panelCorps;
         private System.Windows.Forms.Timer timer;
-    }
+		private QMag.Controls.Buttons.FlatButton flatButtonUp;
+		private QMag.Controls.Buttons.FlatButton flatButtonDown;
+	}
 }

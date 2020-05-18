@@ -107,6 +107,12 @@
     <Compile Include="Controls\GraphicRepartition.Designer.cs">
       <DependentUpon>GraphicRepartition.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\test.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\test.Designer.cs">
+      <DependentUpon>test.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Theme.cs" />
     <Compile Include="Controls\ThemePanel.cs">
       <SubType>UserControl</SubType>
