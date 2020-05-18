@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using Controls;
 using QMag.Controls;
 using QMag.Controls.Buttons;
 
@@ -24,6 +25,8 @@ namespace QMag.Core.Pages
 				return typeof(FlatLabel);
 			if (name.Contains("FlatButton"))
 				return typeof(FlatButton);
+			if (name.Contains("FlatListBox"))
+				return typeof(FlatListBox);
 
 			return null;
 		}

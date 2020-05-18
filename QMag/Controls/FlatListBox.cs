@@ -17,6 +17,8 @@ namespace Controls
             InitializeComponent();
 
             _vitesse = _vitesseOrigine = 1;
+
+            pictureBox.Image = Image.FromFile("Ressources/Images/down-arrow.png");
         }
 
         public void Add(string text, EventHandler click = null)
@@ -27,12 +29,12 @@ namespace Controls
             {
                 Height = 40,
                 Text = @"   " + text,
-                BackColor = Color.FromArgb(25, 118, 211),
+                BackColor = Theme.Back,
                 TextAlign = ContentAlignment.MiddleLeft,
                 Width = panelCorps.Width, // fit la largeur du bouton au panel
                 Location = new Point(0, panelCorps.MaximumSize.Height),
                 AutoSize = true // agrandit le bouton pour afficher le texte si il est trop long
-        };
+			};
 
             flatButton.Name = Name + "Sub" + panelCorps.MaximumSize.Height / flatButton.Height;
 
@@ -43,6 +45,12 @@ namespace Controls
             panelCorps.MaximumSize = new Size(panelCorps.Width, panelCorps.MaximumSize.Height + flatButton.Height);
             MaximumSize = new Size(panelCorps.Width, MaximumSize.Height + flatButton.Height);
             panelCorps.Controls.Add(flatButton);
+        }
+
+        public void Add(string[] texts, EventHandler click = null)
+        {
+	        foreach (string text in texts)
+		        Add(text, click);
         }
 
         private void timer_Tick(object sender, EventArgs e)
@@ -85,6 +93,11 @@ namespace Controls
         {
             get => labelTitre.Text;
             set => labelTitre.Text = value;
+        }
+
+        private void panelCorps_Paint(object sender, PaintEventArgs e)
+        {
+	        ControlPaint.DrawBorder(e.Graphics, panelCorps.ClientRectangle, Theme.BackDark, ButtonBorderStyle.Solid);
         }
     }
 }

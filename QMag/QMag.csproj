@@ -191,11 +191,23 @@
     <Compile Include="Pages\Fournisseurs\Ajouter.Designer.cs">
       <DependentUpon>Ajouter.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Fournisseurs\Commandes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\Fournisseurs\Commandes.Designer.cs">
+      <DependentUpon>Commandes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Fournisseurs\Consulter.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Pages\Fournisseurs\Consulter.Designer.cs">
       <DependentUpon>Consulter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Fournisseurs\Reapprovisionner.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\Fournisseurs\Reapprovisionner.Designer.cs">
+      <DependentUpon>Reapprovisionner.cs</DependentUpon>
     </Compile>
     <Compile Include="Pages\Stock\Ajouter.cs">
       <SubType>UserControl</SubType>
@@ -259,8 +271,14 @@
     <EmbeddedResource Include="Pages\Fournisseurs\Ajouter.resx">
       <DependentUpon>Ajouter.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Fournisseurs\Commandes.resx">
+      <DependentUpon>Commandes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pages\Fournisseurs\Consulter.resx">
       <DependentUpon>Consulter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Fournisseurs\Reapprovisionner.resx">
+      <DependentUpon>Reapprovisionner.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\Stock\Ajouter.resx">
       <DependentUpon>Ajouter.cs</DependentUpon>
@@ -295,12 +313,20 @@
     <EmbeddedResource Include="Ressources\Images\box.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ressources\Images\checkup.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <Content Include="Ressources\Images\close.png" />
     <EmbeddedResource Include="Ressources\Images\delivery.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ressources\Images\delivery-box.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <Content Include="Ressources\Images\diagonal-arrows.png" />
-    <Content Include="Ressources\Images\down-arrow.png" />
+    <EmbeddedResource Include="Ressources\Images\down-arrow.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ressources\Images\editer.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -314,6 +340,9 @@
     <Content Include="Ressources\Images\logo.png" />
     <Content Include="Ressources\Images\logout.png" />
     <Content Include="Ressources\Images\minus.png" />
+    <EmbeddedResource Include="Ressources\Images\pack.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <Content Include="Ressources\Images\pie-chart.png" />
     <EmbeddedResource Include="Ressources\Images\supprimer.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -323,7 +352,9 @@
     </EmbeddedResource>
     <Content Include="Ressources\Images\tick.png" />
     <Content Include="Ressources\Images\tools-and-utensils.png" />
-    <Content Include="Ressources\Images\up-arrow.png" />
+    <EmbeddedResource Include="Ressources\Images\up-arrow.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -135,6 +135,7 @@ namespace QMag.Fenetres
 			{
 				// Release the mouse capture started by the mouse down.
 				panelHeader.Capture = false;
+				flatLabel1.Capture = false;
 
 				// Create and send a WM_NCLBUTTONDOWN message.
 				const int wmNclbuttondown = 0x00A1;

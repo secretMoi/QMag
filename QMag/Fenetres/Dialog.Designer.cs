@@ -54,8 +54,9 @@
 			this.flatLabel1.Location = new System.Drawing.Point(12, 32);
 			this.flatLabel1.Name = "flatLabel1";
 			this.flatLabel1.Size = new System.Drawing.Size(104, 30);
-			this.flatLabel1.TabIndex = 0;
+			this.flatLabel1.TabIndex = 8;
 			this.flatLabel1.Text = "flatLabel1";
+			this.flatLabel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelHeader_MouseMove);
 			// 
 			// Dialog
 			// 

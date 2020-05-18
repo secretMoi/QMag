@@ -177,24 +177,24 @@ namespace QMag.Fenetres
 
         private void timerMenuDeroulant_Tick(object sender, EventArgs e)
         {
+	        if (_subMenuPanelToHide != null)
+	        {
+		        _subMenuPanelToHide.Height -= 7;
+
+		        if (_subMenuPanelToHide.Size.Height == _subMenuPanelToHide.MinimumSize.Height)
+			        _subMenuPanelToHide = null;
+	        }
             if (_subMenuPanelToShow != null)
             {
-                _subMenuPanelToShow.Height += 10;
+                _subMenuPanelToShow.Height += 7;
+
                 if (_subMenuPanelToShow.Size.Height == _subMenuPanelToShow.MaximumSize.Height)
-                {
-                    timerMenuDeroulant.Stop();
-                    _subMenuPanelToShow = null;
-                }
+	                _subMenuPanelToShow = null;
             }
-            if (_subMenuPanelToHide != null)
-            {
-                _subMenuPanelToHide.Height -= 10;
-                if (_subMenuPanelToHide.Size.Height == _subMenuPanelToHide.MinimumSize.Height)
-                {
-                    timerMenuDeroulant.Stop();
-                    _subMenuPanelToHide = null;
-                }
-            }
+
+            // si tous les panels ont atteint leur position finale
+            if(_subMenuPanelToShow == null && _subMenuPanelToHide == null)
+	            timerMenuDeroulant.Stop();
         }
 
         private void pictureBoxClose_MouseEnter(object sender, EventArgs e)

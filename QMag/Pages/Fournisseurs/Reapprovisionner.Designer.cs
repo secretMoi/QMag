@@ -1,6 +1,6 @@
 ﻿namespace QMag.Pages.Fournisseurs
 {
-	partial class Ajouter
+	partial class Reapprovisionner
 	{
 		/// <summary> 
 		/// Variable nécessaire au concepteur.
@@ -28,19 +28,11 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.panelCorps = new System.Windows.Forms.Panel();
 			this.flatLabelTitre = new QMag.Controls.FlatLabel();
+			this.panelCorps = new System.Windows.Forms.Panel();
 			this.panelTitre = new System.Windows.Forms.Panel();
 			this.panelTitre.SuspendLayout();
 			this.SuspendLayout();
-			// 
-			// panelCorps
-			// 
-			this.panelCorps.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panelCorps.Location = new System.Drawing.Point(0, 220);
-			this.panelCorps.Name = "panelCorps";
-			this.panelCorps.Size = new System.Drawing.Size(1856, 673);
-			this.panelCorps.TabIndex = 9;
 			// 
 			// flatLabelTitre
 			// 
@@ -51,10 +43,18 @@
 			this.flatLabelTitre.ForeColor = System.Drawing.Color.White;
 			this.flatLabelTitre.Location = new System.Drawing.Point(52, 99);
 			this.flatLabelTitre.Name = "flatLabelTitre";
-			this.flatLabelTitre.Size = new System.Drawing.Size(292, 37);
+			this.flatLabelTitre.Size = new System.Drawing.Size(291, 37);
 			this.flatLabelTitre.TabIndex = 0;
-			this.flatLabelTitre.Text = "Ajouter un fournisseur";
+			this.flatLabelTitre.Text = "Passer une commande";
 			this.flatLabelTitre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// panelCorps
+			// 
+			this.panelCorps.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.panelCorps.Location = new System.Drawing.Point(0, 220);
+			this.panelCorps.Name = "panelCorps";
+			this.panelCorps.Size = new System.Drawing.Size(1856, 673);
+			this.panelCorps.TabIndex = 11;
 			// 
 			// panelTitre
 			// 
@@ -65,15 +65,15 @@
 			this.panelTitre.MaximumSize = new System.Drawing.Size(0, 220);
 			this.panelTitre.Name = "panelTitre";
 			this.panelTitre.Size = new System.Drawing.Size(1856, 220);
-			this.panelTitre.TabIndex = 8;
+			this.panelTitre.TabIndex = 10;
 			// 
-			// Ajouter
+			// Reapprovisionner
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
 			this.Controls.Add(this.panelCorps);
 			this.Controls.Add(this.panelTitre);
-			this.Name = "Ajouter";
+			this.Name = "Reapprovisionner";
 			this.Size = new System.Drawing.Size(1856, 893);
 			this.panelTitre.ResumeLayout(false);
 			this.panelTitre.PerformLayout();
@@ -83,8 +83,8 @@
 
 		#endregion
 
-		private System.Windows.Forms.Panel panelCorps;
 		private Controls.FlatLabel flatLabelTitre;
+		private System.Windows.Forms.Panel panelCorps;
 		private System.Windows.Forms.Panel panelTitre;
 	}
 }
