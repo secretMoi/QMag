@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Controls;
 using QMag.Controls;
+using QMag.Fenetres;
 
 namespace QMag.Core.Pages
 {
@@ -66,6 +67,11 @@ namespace QMag.Core.Pages
 		public virtual void EffetClic(object sender, DataGridViewCellMouseEventArgs e)
 		{
 
+		}
+
+		protected DialogResult DialogDelete(string question)
+		{
+			return Dialog.ShowYesNo("Voulez-vous vraiment supprimer " + question);
 		}
 	}
 }

@@ -5,6 +5,7 @@ using Projet_magasin.Classes;
 using Projet_magasin.Gestion;
 using QMag.Core;
 using QMag.Core.Pages;
+using QMag.Fenetres;
 
 namespace QMag.Pages.Clients
 {
@@ -28,9 +29,24 @@ namespace QMag.Pages.Clients
 
 			RempliColonnes();
 
-			flatDataGridView.AddClickMethod(EffetClic); // s'inscrit aux event de clic dans la dgv
+			flatDataGridView.AddClickMethod(base.EffetClic); // s'inscrit aux event de clic dans la dgv
 
 			AfterLoad();
+		}
+
+		public override void Hydrate(params object[] args)
+		{
+			base.Hydrate(args);
+
+			if (args.Length < 1) // vérifie qu'il y a bien un argument
+				return;
+
+			C_Clients client = args[0] as C_Clients; // cast l'argument
+
+			if (client == null)
+				return;
+
+			Dialog.Show("Le client " + client.nom + " " + client.prenom + " a bien été supprimé.");
 		}
 
 		private void RempliColonnes()
@@ -53,13 +69,18 @@ namespace QMag.Pages.Clients
 			Reflection reflection = new Reflection(GetType());
 
 			if (colonne == flatDataGridView.Column["Editer"]?.DisplayIndex) // si la colonne cliquée correspond à l'édition
-				LoadPage(reflection.GetClass + ".Ajouter", _clients[ligne]); // charge la page Ajouter
+				LoadPage(reflection.Class + ".Ajouter", _clients[ligne]); // charge la page Ajouter
 
 			else if (colonne == flatDataGridView.Column["Supprimer"]?.DisplayIndex) // si la colonne cliquée correspond à la suppression
 			{
-				new G_Clients(Connexion).Supprimer(_clients[ligne].id); // supprime l'enregistrement
+				string question = "le client " + _clients[ligne].nom + " " + _clients[ligne].prenom + " ?";
+				if (DialogDelete(question) == DialogResult.Yes)
+				{
+					new G_Clients(Connexion).Supprimer(_clients[ligne].id); // supprime l'enregistrement
 
-				LoadPage(reflection.GetClass + ".Consulter"); // rafraichit la page
+					LoadPage(reflection.Class + ".Consulter", _clients[ligne]); // rafraichit la page
+				}
+				
 			}
 		}
 	}

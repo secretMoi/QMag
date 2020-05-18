@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using Controls;
 using QMag.Controls;
+using QMag.Fenetres;
 
 namespace QMag.Core.Pages
 {
@@ -15,7 +16,7 @@ namespace QMag.Core.Pages
 			InitializeComponent();
 		}
 
-		protected bool ChampsRemplis(FlatLabel titre)
+		protected bool ChampsRemplis()
 		{
 			bool result = true;
 
@@ -24,10 +25,7 @@ namespace QMag.Core.Pages
 					result = false;
 
 			if (!result)
-			{
-				titre.Text = @"Veuillez remplir tous les champs !";
-				titre.ForeColor = Color.Crimson;
-			}
+				Dialog.Show(@"Veuillez remplir tous les champs !");
 
 			return result;
 		}

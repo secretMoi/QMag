@@ -35,7 +35,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.Name = "BaseAjouter";
-			this.Size = new System.Drawing.Size(1856, 893);
+			this.Size = new System.Drawing.Size(1650, 893);
 			this.ResumeLayout(false);
 
 		}

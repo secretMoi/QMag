@@ -109,6 +109,11 @@ namespace Core
             return new Point((int)X, (int)Y);
         }
 
+        public Size ToSize()
+        {
+	        return new Size((int)X, (int)Y);
+        }
+
         #region GettersSetters
         public double X
         {

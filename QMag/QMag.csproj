@@ -149,6 +149,12 @@
     <Compile Include="Core\Pages\Formulaire.cs" />
     <Compile Include="Core\Reflection.cs" />
     <Compile Include="Core\UseGridView.cs" />
+    <Compile Include="Fenetres\Dialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fenetres\Dialog.Designer.cs">
+      <DependentUpon>Dialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Fenetres\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -234,6 +240,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Core\Pages\BaseConsulter.resx">
       <DependentUpon>BaseConsulter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fenetres\Dialog.resx">
+      <DependentUpon>Dialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fenetres\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace QMag.Core
 {
@@ -15,11 +11,11 @@ namespace QMag.Core
 			_type = type;
 		}
 
-		public string GetNamespace => _type.Namespace;
+		public string Namespace => _type.Namespace;
 
 		public string FirstNamespace => _type.Namespace?.Split('.')[0];
 
-		public string GetClass
+		public string Class
 		{
 			get
 			{

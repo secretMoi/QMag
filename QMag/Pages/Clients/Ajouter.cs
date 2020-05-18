@@ -53,7 +53,7 @@ namespace QMag.Pages.Clients
 
 		private void Ajouter_Click(object sender, EventArgs e)
 		{
-			if (!ChampsRemplis(flatLabelTitre))
+			if (!ChampsRemplis())
 				return;
 
 			string nom = _ajout.Get("FlatTextBoxNom").Text;
