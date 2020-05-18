@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using Controls;
+using QMag.Core;
 using QMag.Pages;
 
 namespace QMag.Fenetres
@@ -78,20 +79,19 @@ namespace QMag.Fenetres
             string nom = ((Button)sender).Name; // récupère le nom du controle appelant
             string[] chaine = nom.Split('_'); // scinde le nom pour avoir les 2 parties
 
-            String espaceNom = typeof(Form1).Namespace;
-            string[] espaceNoms = espaceNom?.Split('.');
-            espaceNom = espaceNoms?[0];
+            Reflection reflection = new Reflection(GetType());
 
             string @namespace, @class;
 
             if (chaine.Length == 3) // si c'est un bouton de sous-menu
             {
-                @namespace = espaceNom + ".Pages." + chaine[1];
+                @namespace = reflection.FirstNamespace + ".Pages." + chaine[1];
                 @class = chaine[2];
             }
             else // si c'est un bouton de menu
             {
-                @namespace = espaceNom + ".Pages";
+                // charge directement la page
+                @namespace = reflection.FirstNamespace + ".Pages";
                 @class = chaine[1];
 
                 // trouve le panel correspondant

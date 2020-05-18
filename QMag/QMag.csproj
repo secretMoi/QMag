@@ -147,6 +147,7 @@
       <DependentUpon>BaseConsulter.cs</DependentUpon>
     </Compile>
     <Compile Include="Core\Pages\Formulaire.cs" />
+    <Compile Include="Core\Reflection.cs" />
     <Compile Include="Core\UseGridView.cs" />
     <Compile Include="Fenetres\Form1.cs">
       <SubType>Form</SubType>

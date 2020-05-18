@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using Projet_magasin.Classes;
 using Projet_magasin.Gestion;
+using QMag.Core;
 using QMag.Core.Pages;
 
 namespace QMag.Pages.Clients
@@ -49,19 +50,16 @@ namespace QMag.Pages.Clients
 			int ligne = e.RowIndex;
 
 			// récupère le nom de la classe
-			Type myType = GetType();
-			string @namespace = myType.Namespace;
-			string[] @class = @namespace?.Split('.');
-			string @className = @class?[@class.Length - 1];
+			Reflection reflection = new Reflection(GetType());
 
 			if (colonne == flatDataGridView.Column["Editer"]?.DisplayIndex) // si la colonne cliquée correspond à l'édition
-				LoadPage(@className + ".Ajouter", _clients[ligne]); // charge la page Ajouter
+				LoadPage(reflection.GetClass + ".Ajouter", _clients[ligne]); // charge la page Ajouter
 
 			else if (colonne == flatDataGridView.Column["Supprimer"]?.DisplayIndex) // si la colonne cliquée correspond à la suppression
 			{
 				new G_Clients(Connexion).Supprimer(_clients[ligne].id); // supprime l'enregistrement
 
-				LoadPage(@className + ".Consulter"); // rafraichit la page
+				LoadPage(reflection.GetClass + ".Consulter"); // rafraichit la page
 			}
 		}
 	}
