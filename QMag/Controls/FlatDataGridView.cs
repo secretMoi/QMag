@@ -8,12 +8,14 @@ namespace QMag.Controls
 	public partial class FlatDataGridView : ThemePanel
 	{
 		private readonly List<int> _colonnesCliquables;
+		private readonly Dictionary<string, List<object>> _colonnesMasquees;
 
 		public FlatDataGridView()
 		{
 			InitializeComponent();
 
 			_colonnesCliquables = new List<int>();
+			_colonnesMasquees = new Dictionary<string, List<object>>();
 
 			dataGridView.GridColor = Theme.Back;
 			dataGridView.ForeColor = Theme.BackDark;
@@ -67,6 +69,22 @@ namespace QMag.Controls
 				_colonnesCliquables.Add(colonne);
 		}
 
+		public void SetColonnesMasquees(params string[] colonnes)
+		{
+			foreach (string colonne in colonnes)
+				_colonnesMasquees.Add(colonne, null);
+		}
+
+		public void SetDataMasquee(string nomColonne, int positionColonne, object data)
+		{
+			_colonnesMasquees[nomColonne][positionColonne] = data;
+		}
+
+		public object GetDataMasquee(string nomColonne, int positionColonne)
+		{
+			return _colonnesMasquees[nomColonne][positionColonne];
+		}
+
 		public BindingSource DataSource
 		{
 			set => dataGridView.DataSource = value;
@@ -76,9 +94,10 @@ namespace QMag.Controls
 
 		public string Get(Couple coordonnees)
 		{
-			int x = dataGridView.Rows.Count;
-			int y = dataGridView.ColumnCount;
-			return dataGridView.Rows[coordonnees.Xi].Cells[coordonnees.Yi].Value.ToString();
+			if(dataGridView.Rows.Count > coordonnees.Xi && dataGridView.ColumnCount > coordonnees.Yi)
+				return dataGridView.Rows[coordonnees.Xi].Cells[coordonnees.Yi].Value.ToString();
+
+			return null;
 		}
 
 		// code exécuté après le chargement de la dgv

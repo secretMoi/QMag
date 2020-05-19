@@ -10,17 +10,18 @@ namespace QMag.Controls
 {
 	public partial class FlatListBox : UserControl
 	{
-		private bool _state;
+		private bool _state; // état ouvert/fermé
 		private int _vitesse;
 		private readonly int _vitesseOrigine;
 
 		private readonly Image _menuFerme;
 		private readonly Image _menuOuvert;
 
-		private const int _hauteurCase = 40;
+		private const int _hauteurCase = 40; // hauteur d'une case
 
-		private readonly List<FlatButton> _elements;
-		private int _nbElementsMax = 7;
+		private readonly List<FlatButton> _elements; // liste des éléments
+		private int _nbElementsMax = 7; // nombre d'éléments max à afficher
+		private int _idSelected; // contient l'id du dernier élément sélectionné
 
 		public FlatListBox()
 		{
@@ -69,7 +70,7 @@ namespace QMag.Controls
 				AutoSize = true // agrandit le bouton pour afficher le texte si il est trop long
 			};
 
-			flatButton.Name = Name + "Sub" + _elements.Count;
+			flatButton.Name = Name + "Sub_" + _elements.Count;
 
 			_elements.Add(flatButton);
 
@@ -96,6 +97,8 @@ namespace QMag.Controls
 			foreach (string text in texts)
 				Add(text, click);
 		}
+
+		public int IdSelected => _idSelected;
 
 		private void timer_Tick(object sender, EventArgs e)
 		{
@@ -128,7 +131,13 @@ namespace QMag.Controls
 
 		private new void Click(object sender, EventArgs e)
 		{
-			Text = ((FlatButton)sender).Text;
+			Text = ((FlatButton)sender).Text; // change le texte
+
+			// trouve l'id
+			_idSelected = Convert.ToInt32(
+				((FlatButton) sender).Name.Split('_')[1]
+			);
+
 			timer.Start();
 		}
 

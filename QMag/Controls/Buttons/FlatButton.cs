@@ -6,7 +6,7 @@ namespace QMag.Controls.Buttons
 {
     public partial class FlatButton : Button
     {
-        private static Couple _size = new Couple(75, 23);
+        private static readonly Couple _size = new Couple(75, 23);
 
         public FlatButton()
         {
@@ -23,6 +23,6 @@ namespace QMag.Controls.Buttons
 
         protected override bool ShowFocusCues => false;
 
-        public static Couple DefaultSize => _size;
+        public new static Couple DefaultSize => _size;
     }
 }

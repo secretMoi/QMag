@@ -30,17 +30,21 @@
 		{
 			this.flatLabelTitre = new QMag.Controls.FlatLabel();
 			this.panelCorps = new System.Windows.Forms.Panel();
+			this.panelDgv = new System.Windows.Forms.Panel();
+			this.flatDataGridView = new QMag.Controls.FlatDataGridView();
+			this.panelFormulaire = new System.Windows.Forms.Panel();
 			this.flatListBoxArticle = new QMag.Controls.FlatListBox();
+			this.flatLabelTotalMontant = new QMag.Controls.FlatLabel();
+			this.flatLabelTotal = new QMag.Controls.FlatLabel();
 			this.flatButtonConfirmer = new QMag.Controls.Buttons.FlatButton();
 			this.flatButtonAjouter = new QMag.Controls.Buttons.FlatButton();
 			this.flatTextBoxQuantite = new QMag.Controls.FlatTextBox();
 			this.flatLabelQuantite = new QMag.Controls.FlatLabel();
 			this.flatLabelArticle = new QMag.Controls.FlatLabel();
-			this.panelDgv = new System.Windows.Forms.Panel();
-			this.flatDataGridView = new QMag.Controls.FlatDataGridView();
 			this.panelTitre = new System.Windows.Forms.Panel();
 			this.panelCorps.SuspendLayout();
 			this.panelDgv.SuspendLayout();
+			this.panelFormulaire.SuspendLayout();
 			this.panelTitre.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -60,18 +64,47 @@
 			// 
 			// panelCorps
 			// 
-			this.panelCorps.Controls.Add(this.flatListBoxArticle);
-			this.panelCorps.Controls.Add(this.flatButtonConfirmer);
-			this.panelCorps.Controls.Add(this.flatButtonAjouter);
-			this.panelCorps.Controls.Add(this.flatTextBoxQuantite);
-			this.panelCorps.Controls.Add(this.flatLabelQuantite);
-			this.panelCorps.Controls.Add(this.flatLabelArticle);
 			this.panelCorps.Controls.Add(this.panelDgv);
+			this.panelCorps.Controls.Add(this.panelFormulaire);
 			this.panelCorps.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panelCorps.Location = new System.Drawing.Point(0, 220);
 			this.panelCorps.Name = "panelCorps";
 			this.panelCorps.Size = new System.Drawing.Size(1856, 673);
 			this.panelCorps.TabIndex = 11;
+			// 
+			// panelDgv
+			// 
+			this.panelDgv.Controls.Add(this.flatDataGridView);
+			this.panelDgv.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.panelDgv.Location = new System.Drawing.Point(327, 0);
+			this.panelDgv.Name = "panelDgv";
+			this.panelDgv.Size = new System.Drawing.Size(1529, 673);
+			this.panelDgv.TabIndex = 0;
+			// 
+			// flatDataGridView
+			// 
+			this.flatDataGridView.BackColor = System.Drawing.Color.White;
+			this.flatDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.flatDataGridView.Location = new System.Drawing.Point(0, 0);
+			this.flatDataGridView.Name = "flatDataGridView";
+			this.flatDataGridView.Size = new System.Drawing.Size(1529, 673);
+			this.flatDataGridView.TabIndex = 0;
+			// 
+			// panelFormulaire
+			// 
+			this.panelFormulaire.Controls.Add(this.flatListBoxArticle);
+			this.panelFormulaire.Controls.Add(this.flatLabelTotalMontant);
+			this.panelFormulaire.Controls.Add(this.flatLabelTotal);
+			this.panelFormulaire.Controls.Add(this.flatButtonConfirmer);
+			this.panelFormulaire.Controls.Add(this.flatButtonAjouter);
+			this.panelFormulaire.Controls.Add(this.flatTextBoxQuantite);
+			this.panelFormulaire.Controls.Add(this.flatLabelQuantite);
+			this.panelFormulaire.Controls.Add(this.flatLabelArticle);
+			this.panelFormulaire.Dock = System.Windows.Forms.DockStyle.Left;
+			this.panelFormulaire.Location = new System.Drawing.Point(0, 0);
+			this.panelFormulaire.Name = "panelFormulaire";
+			this.panelFormulaire.Size = new System.Drawing.Size(327, 673);
+			this.panelFormulaire.TabIndex = 10;
 			// 
 			// flatListBoxArticle
 			// 
@@ -86,6 +119,31 @@
 			this.flatListBoxArticle.Size = new System.Drawing.Size(150, 40);
 			this.flatListBoxArticle.TabIndex = 7;
 			// 
+			// flatLabelTotalMontant
+			// 
+			this.flatLabelTotalMontant.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.flatLabelTotalMontant.BackColor = System.Drawing.Color.White;
+			this.flatLabelTotalMontant.Font = new System.Drawing.Font("Yu Gothic UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.flatLabelTotalMontant.ForeColor = System.Drawing.Color.Black;
+			this.flatLabelTotalMontant.Location = new System.Drawing.Point(165, 565);
+			this.flatLabelTotalMontant.Name = "flatLabelTotalMontant";
+			this.flatLabelTotalMontant.Size = new System.Drawing.Size(155, 30);
+			this.flatLabelTotalMontant.TabIndex = 9;
+			this.flatLabelTotalMontant.Text = "0,00";
+			this.flatLabelTotalMontant.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
+			// flatLabelTotal
+			// 
+			this.flatLabelTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.flatLabelTotal.AutoSize = true;
+			this.flatLabelTotal.Font = new System.Drawing.Font("Yu Gothic UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.flatLabelTotal.ForeColor = System.Drawing.Color.Black;
+			this.flatLabelTotal.Location = new System.Drawing.Point(12, 565);
+			this.flatLabelTotal.Name = "flatLabelTotal";
+			this.flatLabelTotal.Size = new System.Drawing.Size(60, 30);
+			this.flatLabelTotal.TabIndex = 8;
+			this.flatLabelTotal.Text = "Total";
+			// 
 			// flatButtonConfirmer
 			// 
 			this.flatButtonConfirmer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -94,12 +152,13 @@
 			this.flatButtonConfirmer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.flatButtonConfirmer.Font = new System.Drawing.Font("Yu Gothic UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.flatButtonConfirmer.ForeColor = System.Drawing.Color.White;
-			this.flatButtonConfirmer.Location = new System.Drawing.Point(170, 592);
+			this.flatButtonConfirmer.Location = new System.Drawing.Point(170, 622);
 			this.flatButtonConfirmer.Name = "flatButtonConfirmer";
 			this.flatButtonConfirmer.Size = new System.Drawing.Size(150, 40);
 			this.flatButtonConfirmer.TabIndex = 6;
 			this.flatButtonConfirmer.Text = "Confirmer";
 			this.flatButtonConfirmer.UseVisualStyleBackColor = false;
+			this.flatButtonConfirmer.Click += new System.EventHandler(this.flatButtonConfirmer_Click);
 			// 
 			// flatButtonAjouter
 			// 
@@ -147,24 +206,6 @@
 			this.flatLabelArticle.TabIndex = 1;
 			this.flatLabelArticle.Text = "Article";
 			// 
-			// panelDgv
-			// 
-			this.panelDgv.Anchor = System.Windows.Forms.AnchorStyles.Right;
-			this.panelDgv.Controls.Add(this.flatDataGridView);
-			this.panelDgv.Location = new System.Drawing.Point(1383, 131);
-			this.panelDgv.Name = "panelDgv";
-			this.panelDgv.Size = new System.Drawing.Size(450, 527);
-			this.panelDgv.TabIndex = 0;
-			// 
-			// flatDataGridView
-			// 
-			this.flatDataGridView.BackColor = System.Drawing.Color.White;
-			this.flatDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.flatDataGridView.Location = new System.Drawing.Point(0, 0);
-			this.flatDataGridView.Name = "flatDataGridView";
-			this.flatDataGridView.Size = new System.Drawing.Size(450, 527);
-			this.flatDataGridView.TabIndex = 0;
-			// 
 			// panelTitre
 			// 
 			this.panelTitre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(245)))));
@@ -186,8 +227,9 @@
 			this.Size = new System.Drawing.Size(1856, 893);
 			this.Load += new System.EventHandler(this.Reapprovisionner_Load);
 			this.panelCorps.ResumeLayout(false);
-			this.panelCorps.PerformLayout();
 			this.panelDgv.ResumeLayout(false);
+			this.panelFormulaire.ResumeLayout(false);
+			this.panelFormulaire.PerformLayout();
 			this.panelTitre.ResumeLayout(false);
 			this.panelTitre.PerformLayout();
 			this.ResumeLayout(false);
@@ -207,5 +249,8 @@
 		private Controls.Buttons.FlatButton flatButtonAjouter;
 		private Controls.FlatTextBox flatTextBoxQuantite;
 		private Controls.FlatListBox flatListBoxArticle;
+		private Controls.FlatLabel flatLabelTotalMontant;
+		private Controls.FlatLabel flatLabelTotal;
+		private System.Windows.Forms.Panel panelFormulaire;
 	}
 }
