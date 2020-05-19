@@ -88,6 +88,12 @@ namespace QMag.Controls
 				dataGridView.FirstDisplayedCell.Selected = false; // désactive la sélection automatique
 		}
 
+		public void RemoveRowAt(int ligne)
+		{
+			DataGridViewRow dgvDelRow = dataGridView.Rows[ligne];
+			dataGridView.Rows.Remove(dgvDelRow);
+		}
+
 		public DataGridViewRowCollection Rows => dataGridView.Rows;
 	}
 }

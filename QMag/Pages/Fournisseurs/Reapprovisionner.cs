@@ -16,9 +16,11 @@ namespace QMag.Pages.Fournisseurs
 {
 	public partial class Reapprovisionner : BaseAjouter
 	{
-		protected UseGridView _useGridView;
-		protected Image _imageSupprimer = Image.FromFile("Ressources/Images/supprimer.png");
-		protected Image _imageEditer = Image.FromFile("Ressources/Images/editer.png");
+		private UseGridView _useGridView;
+		private Image _imageSupprimer = Image.FromFile("Ressources/Images/supprimer.png");
+		private Image _imageEditer = Image.FromFile("Ressources/Images/editer.png");
+
+		private bool _modeEdition = false;
 
 		public Reapprovisionner()
 		{
@@ -62,48 +64,25 @@ namespace QMag.Pages.Fournisseurs
 			int colonneNom = 0;
 			int colonneQuantite = 1;
 
-			// récupère le nom de la classe
-			Reflection reflection = new Reflection(GetType());
-
 			if (colonne == flatDataGridView.Column["Editer"]?.DisplayIndex) // si la colonne cliquée correspond à l'édition
 			{
-				ReaprovisionnerArguments arguments = new ReaprovisionnerArguments(
-					"Editer",
-					GetInDataGridView(ligne, colonneNom),
-					Convert.ToInt32(GetInDataGridView(ligne, colonneQuantite))
-				);
-				LoadPage(this.ToString(), arguments); // charge la page Ajouter
+				((FlatListBox)_ajout.Get("FlatListBoxArticle")).Text = GetInDataGridView(ligne, colonneNom);
+				((FlatTextBox)_ajout.Get("FlatTextBoxQuantite")).Text = GetInDataGridView(ligne, colonneQuantite);
+				((FlatButton) _ajout.Get("FlatButtonAjouter")).Text = @"Modifier";
+				_modeEdition = true;
 			}
 
 			else if (colonne == flatDataGridView.Column["Supprimer"]?.DisplayIndex) // si la colonne cliquée correspond à la suppression
 			{
-				ReaprovisionnerArguments arguments = new ReaprovisionnerArguments(
-					"Supprimer",
-					GetInDataGridView(ligne, colonneNom),
-					Convert.ToInt32(GetInDataGridView(ligne, colonneQuantite))
-				);
 				DialogResult question = Dialog.ShowYesNo("Voulez-vous vraiment supprimer l'article " + GetInDataGridView(ligne, colonneNom) + " de la commande ?");
 				if (question == DialogResult.Yes)
-					LoadPage(this.ToString(), arguments); // rafraichit la page
+					flatDataGridView.RemoveRowAt(ligne);
 			}
 		}
 
 		private string GetInDataGridView(int x, int y)
 		{
 			return flatDataGridView.Get(new Couple(x, y));
-		}
-
-		public override void Hydrate(params object[] args)
-		{
-			base.Hydrate(args);
-
-			/*ReaprovisionnerArguments arguments = args as ReaprovisionnerArguments;
-
-			C_Fournisseurs fournisseur = ArgumentsValides(typeof(C_Fournisseurs), args) as C_Fournisseurs;
-			if (fournisseur == null)
-				return;
-
-			Dialog.Show("Le fournisseur " + fournisseur.nom + " a bien été supprimé.");*/
 		}
 
 		protected void SetColonnes(params string[] titres)
@@ -117,6 +96,11 @@ namespace QMag.Pages.Fournisseurs
 
 		private void Ajouter_Click(object sender, EventArgs e)
 		{
+			if (_modeEdition)
+			{
+				//todo compléter
+			}
+
 			_useGridView.Add(
 				((FlatListBox)_ajout.Get("FlatListBoxArticle")).Text,
 				_ajout.Get("FlatTextBoxQuantite").Text,
