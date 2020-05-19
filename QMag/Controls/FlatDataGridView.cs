@@ -8,14 +8,14 @@ namespace QMag.Controls
 	public partial class FlatDataGridView : ThemePanel
 	{
 		private readonly List<int> _colonnesCliquables;
-		private readonly Dictionary<string, List<object>> _colonnesMasquees;
+		private readonly Dictionary<int, object> _colonnesMasquees;
 
 		public FlatDataGridView()
 		{
 			InitializeComponent();
 
 			_colonnesCliquables = new List<int>();
-			_colonnesMasquees = new Dictionary<string, List<object>>();
+			_colonnesMasquees = new Dictionary<int, object>();
 
 			dataGridView.GridColor = Theme.Back;
 			dataGridView.ForeColor = Theme.BackDark;
@@ -69,20 +69,19 @@ namespace QMag.Controls
 				_colonnesCliquables.Add(colonne);
 		}
 
-		public void SetColonnesMasquees(params string[] colonnes)
+		public void SetDataMasquee(int positionColonne, object data)
 		{
-			foreach (string colonne in colonnes)
-				_colonnesMasquees.Add(colonne, null);
+			_colonnesMasquees[positionColonne] = data;
 		}
 
-		public void SetDataMasquee(string nomColonne, int positionColonne, object data)
+		public void UpdateDataMasquee(int positionColonne, object data)
 		{
-			_colonnesMasquees[nomColonne][positionColonne] = data;
+			_colonnesMasquees[positionColonne] = data;
 		}
 
-		public object GetDataMasquee(string nomColonne, int positionColonne)
+		public object GetDataMasquee(int positionColonne)
 		{
-			return _colonnesMasquees[nomColonne][positionColonne];
+			return _colonnesMasquees[positionColonne];
 		}
 
 		public BindingSource DataSource
@@ -123,7 +122,5 @@ namespace QMag.Controls
 
 		public DataGridViewRowCollection Rows => dataGridView.Rows;
 		public int SelectedRow => dataGridView.CurrentCell.RowIndex;
-
-
 	}
 }

@@ -16,7 +16,9 @@ namespace QMag.Pages.Fournisseurs
 		private UseGridView _useGridView;
 		private readonly Image _imageSupprimer = Image.FromFile("Ressources/Images/supprimer.png");
 		private readonly Image _imageEditer = Image.FromFile("Ressources/Images/editer.png");
-		private List<ArticleEnregistrement> _articles;
+
+
+		private List<ArticleEnregistrement> _articles; // todo supprimer ?
 
 		private bool _modeEdition = false;
 
@@ -72,6 +74,8 @@ namespace QMag.Pages.Fournisseurs
 
 			_articles = new List<ArticleEnregistrement>(liste.Count);
 
+			int compteur = 0;
+
 			foreach (C_Stock article in liste)
 			{
 				flatListBoxArticle.Add(article.nom); // ajout à la flatlist
@@ -82,6 +86,9 @@ namespace QMag.Pages.Fournisseurs
 						article.nom,
 						article.prix_achat
 					));
+
+				flatListBoxArticle.SetDataMasquee(compteur, _articles[_articles.Count - 1]);
+				compteur++;
 			}
 
 			flatListBoxArticle.Text = liste[0].nom; // mets en text de la listbox le premier article
@@ -103,8 +110,6 @@ namespace QMag.Pages.Fournisseurs
 			flatDataGridView.SetColonnesCliquables(
 				_useGridView.CreateImageColumn("Editer", "Supprimer")
 			);
-
-			flatDataGridView.SetColonnesMasquees("id");
 		}
 
 		// que faire lorsque l'on ajoute/modifie un item de la liste
@@ -140,20 +145,31 @@ namespace QMag.Pages.Fournisseurs
 					_imageEditer,
 					_imageSupprimer
 				);
+
+				//todo continuer
+				/*flatDataGridView.SetDataMasquee(
+					"id",
+					flatDataGridView.Rows.Count - 1,
+					_articles[flatListBoxArticle.IdSelected]
+				);
+
+				flatDataGridView.SetDataMasquee(
+					
+					);*/
 			}
 
 			// Actualisation du label montant
 			flatDataGridView.DataSource = _useGridView.Liens; // ajout(liage) des colonnes à la gridview
-
 			ActualiseMontant();
 		}
 
 		private void ActualiseMontant()
 		{
+			// todo bug * nb articles
 			Money total = new Money();
 
 			for (int i = 0; i < flatDataGridView.Rows.Count; i++)
-				total.Montant += Convert.ToDecimal(flatDataGridView.Get(new Couple(i, 2)));
+				total.Montant += Convert.ToDecimal(flatDataGridView.Get(new Couple(i, 2)))/* * (decimal) flatDataGridView.GetDataMasquee("id", i)*/;
 
 			flatLabelTotalMontant.Text = total.ToString();
 		}
@@ -161,7 +177,7 @@ namespace QMag.Pages.Fournisseurs
 		// action lors du click sur confirmer
 		private void flatButtonConfirmer_Click(object sender, EventArgs e)
 		{
-			//if()
+			//if() // todo compléter
 		}
 
 		// permet de passer ou quitter le mode édition

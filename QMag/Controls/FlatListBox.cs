@@ -23,6 +23,8 @@ namespace QMag.Controls
 		private int _nbElementsMax = 7; // nombre d'éléments max à afficher
 		private int _idSelected; // contient l'id du dernier élément sélectionné
 
+		private readonly Dictionary<int, object> _donneMasquee;
+
 		public FlatListBox()
 		{
 			InitializeComponent();
@@ -40,6 +42,7 @@ namespace QMag.Controls
 			panelCorps.AutoScroll = true;
 
 			_elements = new List<FlatButton>();
+			_donneMasquee = new Dictionary<int, object>();
 
 			Size = new Size(Width, _hauteurCase);
 			panelCorps.Size = new Size(Width, 0);
@@ -96,6 +99,16 @@ namespace QMag.Controls
 		{
 			foreach (string text in texts)
 				Add(text, click);
+		}
+
+		public void SetDataMasquee(int positionColonne, object data)
+		{
+			_donneMasquee[positionColonne] = data;
+		}
+
+		public object GetDataMasquee(int positionColonne)
+		{
+			return _donneMasquee[positionColonne];
 		}
 
 		public int IdSelected => _idSelected;
