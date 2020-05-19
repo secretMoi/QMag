@@ -15,7 +15,7 @@ namespace QMag.Core
 
 		public string FirstNamespace => _type.Namespace?.Split('.')[0];
 
-		public string Class
+		public string LastItemNamespace
 		{
 			get
 			{

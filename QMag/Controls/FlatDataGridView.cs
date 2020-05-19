@@ -76,13 +76,18 @@ namespace QMag.Controls
 
 		public string Get(Couple coordonnees)
 		{
+			int x = dataGridView.Rows.Count;
+			int y = dataGridView.ColumnCount;
 			return dataGridView.Rows[coordonnees.Xi].Cells[coordonnees.Yi].Value.ToString();
 		}
 
 		// code exécuté après le chargement de la dgv
 		private void dataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
 		{
-			dataGridView.FirstDisplayedCell.Selected = false; // désactive la sélection automatique
+			if(dataGridView.Rows.Count > 0)
+				dataGridView.FirstDisplayedCell.Selected = false; // désactive la sélection automatique
 		}
+
+		public DataGridViewRowCollection Rows => dataGridView.Rows;
 	}
 }

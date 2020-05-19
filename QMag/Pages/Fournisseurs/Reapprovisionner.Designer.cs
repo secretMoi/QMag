@@ -30,7 +30,11 @@
 		{
 			this.flatLabelTitre = new QMag.Controls.FlatLabel();
 			this.panelCorps = new System.Windows.Forms.Panel();
+			this.panelDgv = new System.Windows.Forms.Panel();
+			this.flatDataGridView = new QMag.Controls.FlatDataGridView();
 			this.panelTitre = new System.Windows.Forms.Panel();
+			this.panelCorps.SuspendLayout();
+			this.panelDgv.SuspendLayout();
 			this.panelTitre.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -50,11 +54,30 @@
 			// 
 			// panelCorps
 			// 
+			this.panelCorps.Controls.Add(this.panelDgv);
 			this.panelCorps.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panelCorps.Location = new System.Drawing.Point(0, 220);
 			this.panelCorps.Name = "panelCorps";
 			this.panelCorps.Size = new System.Drawing.Size(1856, 673);
 			this.panelCorps.TabIndex = 11;
+			// 
+			// panelDgv
+			// 
+			this.panelDgv.Anchor = System.Windows.Forms.AnchorStyles.Right;
+			this.panelDgv.Controls.Add(this.flatDataGridView);
+			this.panelDgv.Location = new System.Drawing.Point(1366, 131);
+			this.panelDgv.Name = "panelDgv";
+			this.panelDgv.Size = new System.Drawing.Size(473, 527);
+			this.panelDgv.TabIndex = 0;
+			// 
+			// flatDataGridView
+			// 
+			this.flatDataGridView.BackColor = System.Drawing.Color.White;
+			this.flatDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.flatDataGridView.Location = new System.Drawing.Point(0, 0);
+			this.flatDataGridView.Name = "flatDataGridView";
+			this.flatDataGridView.Size = new System.Drawing.Size(473, 527);
+			this.flatDataGridView.TabIndex = 0;
 			// 
 			// panelTitre
 			// 
@@ -75,6 +98,9 @@
 			this.Controls.Add(this.panelTitre);
 			this.Name = "Reapprovisionner";
 			this.Size = new System.Drawing.Size(1856, 893);
+			this.Load += new System.EventHandler(this.Reapprovisionner_Load);
+			this.panelCorps.ResumeLayout(false);
+			this.panelDgv.ResumeLayout(false);
 			this.panelTitre.ResumeLayout(false);
 			this.panelTitre.PerformLayout();
 			this.ResumeLayout(false);
@@ -86,5 +112,7 @@
 		private Controls.FlatLabel flatLabelTitre;
 		private System.Windows.Forms.Panel panelCorps;
 		private System.Windows.Forms.Panel panelTitre;
+		private System.Windows.Forms.Panel panelDgv;
+		private Controls.FlatDataGridView flatDataGridView;
 	}
 }

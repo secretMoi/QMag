@@ -63,7 +63,7 @@ namespace QMag.Pages.Clients
 			Reflection reflection = new Reflection(GetType());
 
 			if (colonne == flatDataGridView.Column["Editer"]?.DisplayIndex) // si la colonne cliquée correspond à l'édition
-				LoadPage(reflection.Class + ".Ajouter", _clients[ligne]); // charge la page Ajouter
+				LoadPage(reflection.LastItemNamespace + ".Ajouter", _clients[ligne]); // charge la page Ajouter
 
 			else if (colonne == flatDataGridView.Column["Supprimer"]?.DisplayIndex) // si la colonne cliquée correspond à la suppression
 			{
@@ -72,7 +72,7 @@ namespace QMag.Pages.Clients
 				{
 					new G_Clients(Connexion).Supprimer(_clients[ligne].id); // supprime l'enregistrement
 
-					LoadPage(reflection.Class + ".Consulter", _clients[ligne]); // rafraichit la page
+					LoadPage(reflection.LastItemNamespace + ".Consulter", _clients[ligne]); // rafraichit la page
 				}
 				
 			}

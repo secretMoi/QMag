@@ -73,7 +73,7 @@ namespace QMag.Pages.Stock
 			Reflection reflection = new Reflection(GetType());
 
 			if (colonne == flatDataGridView1.Column["Editer"]?.DisplayIndex) // si la colonne cliquée correspond à l'édition
-				LoadPage(reflection.Class + ".Ajouter",  _stocks[ligne]); // charge la page Ajouter
+				LoadPage(reflection.LastItemNamespace + ".Ajouter",  _stocks[ligne]); // charge la page Ajouter
 
 			else if (colonne == flatDataGridView1.Column["Supprimer"]?.DisplayIndex) // si la colonne cliquée correspond à la suppression
 			{
@@ -82,7 +82,7 @@ namespace QMag.Pages.Stock
 				{
 					new G_Stock(Connexion).Supprimer(_stocks[ligne].id); // supprime l'enregistrement
 
-					LoadPage(reflection.Class + ".Consulter", _stocks[ligne]); // rafraichit la page
+					LoadPage(reflection.LastItemNamespace + ".Consulter", _stocks[ligne]); // rafraichit la page
 				}
 
 			}

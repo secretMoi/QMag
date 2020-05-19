@@ -4,6 +4,7 @@ using Controls;
 using Core;
 using QMag.Controls.Buttons;
 
+//todo label multiline si text trop grand
 namespace QMag.Fenetres
 {
 	public partial class Dialog : FormBdd
