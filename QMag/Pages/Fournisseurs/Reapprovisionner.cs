@@ -6,10 +6,7 @@ using Controls;
 using Core;
 using Projet_magasin.Classes;
 using Projet_magasin.Gestion;
-using QMag.Controls;
-using QMag.Controls.Buttons;
 using QMag.Core;
-using QMag.Core.Pages;
 using QMag.Fenetres;
 
 namespace QMag.Pages.Fournisseurs
@@ -26,23 +23,11 @@ namespace QMag.Pages.Fournisseurs
 		{
 			InitializeComponent();
 
-			/*_ajout = new Formulaire
-			(
-				"FlatLabelArticle", "Article",
-				"FlatListBoxArticle", "",
-				"FlatLabelQuantite", "Quantité",
-				"FlatTextBoxQuantite", "",
-				"FlatButtonAjouter", "Ajouter",
-				"FlatButtonCommander", "Commander",
-				"FlatListArticles", "Liste des articles"
-			);*/
+			List<C_Stock> liste = new G_Stock(Connexion).Lire("id");
+			foreach (C_Stock article in liste)
+				flatListBoxArticle.Add(article.nom);
 
-			//_ajout.Get("FlatButtonAjouter").Click += Ajouter_Click;
-			flatButtonAjouter.Click += Ajouter_Click;
-
-			PositionneControls();
-
-			//_ajout.Display(panelCorps);
+			flatListBoxArticle.Text = liste[0].nom;
 		}
 
 		private void Reapprovisionner_Load(object sender, EventArgs e)
@@ -67,9 +52,8 @@ namespace QMag.Pages.Fournisseurs
 
 			if (colonne == flatDataGridView.Column["Editer"]?.DisplayIndex) // si la colonne cliquée correspond à l'édition
 			{
-				//((FlatListBox)_ajout.Get("FlatListBoxArticle")).Text = GetInDataGridView(ligne, colonneNom);
+				flatListBoxArticle.Text = GetInDataGridView(ligne, colonneNom);
 				flatTextBoxQuantite.Text = GetInDataGridView(ligne, colonneQuantite);
-				//((FlatTextBox)_ajout.Get("FlatTextBoxQuantite")).Text = GetInDataGridView(ligne, colonneQuantite);
 				EnableEdit(true);
 			}
 
@@ -101,8 +85,7 @@ namespace QMag.Pages.Fournisseurs
 			{
 				flatDataGridView.UpdateRowAt(
 					flatDataGridView.SelectedRow,
-					//((FlatListBox)_ajout.Get("FlatListBoxArticle")).Text,
-					//_ajout.Get("FlatTextBoxQuantite").Text,
+					flatListBoxArticle.Text,
 					flatTextBoxQuantite.Text,
 					"5",
 					_imageEditer,
@@ -114,9 +97,8 @@ namespace QMag.Pages.Fournisseurs
 			else
 			{
 				_useGridView.Add(
-					//((FlatListBox)_ajout.Get("FlatListBoxArticle")).Text,
-					//_ajout.Get("FlatTextBoxQuantite").Text,
-					flatTextBoxQuantite,
+					flatListBoxArticle.Text,
+					flatTextBoxQuantite.Text,
 					5,
 					_imageEditer,
 					_imageSupprimer
@@ -132,56 +114,12 @@ namespace QMag.Pages.Fournisseurs
 			{
 				_modeEdition = true;
 				flatButtonAjouter.Text = @"Modifier";
-				//((FlatButton)_ajout.Get("FlatButtonAjouter")).Text = @"Modifier";
 			}
 			else
 			{
 				_modeEdition = false;
 				flatButtonAjouter.Text = @"Ajouter";
-				//((FlatButton)_ajout.Get("FlatButtonAjouter")).Text = @"Ajouter";
 			}
-		}
-
-		private void PositionneControls()
-		{
-			/*FlatListBox listBoxArticle = (FlatListBox) _ajout.Get("FlatListBoxArticle");
-			FlatList listeArticles = (FlatList)_ajout.Get("FlatListArticles");
-
-			// Labels
-			_ajout.LocateControlAt(typeof(FlatLabel), new Couple(50, 50)); // Positionne les labels
-
-			// ListBox
-			Couple dernierePosition = _ajout.LocateControlAt(typeof(FlatListBox), new Couple(150, 50));
-			listBoxArticle.Text = "Sélection article";
-
-			List<C_Stock> liste = new G_Stock(Connexion).Lire("id");
-			foreach (C_Stock article in liste)
-				((FlatListBox) _ajout.Get("FlatListBoxArticle")).Add(article.nom);
-
-			// Quantité
-			dernierePosition.Yi += 60;
-
-			dernierePosition.Xi = listBoxArticle.Left;
-			dernierePosition = _ajout.LocateControlAt(typeof(FlatTextBox), dernierePosition); // Positionne les textbox
-
-			// Bouton Ajouter
-			dernierePosition.Yi += 60;
-			_ajout.LocateControlAt(typeof(FlatButton), dernierePosition); // Positionne le bouton
-
-			_ajout.Get("FlatButtonAjouter").Size = _ajout.Get("FlatTextBoxQuantite").Size;
-			_ajout.Get("FlatButtonCommander").Size = _ajout.Get("FlatTextBoxQuantite").Size;
-
-			// Bouton Commander
-			_ajout.Get("FlatButtonCommander").Top = _ajout.Get("FlatButtonCommander").Bottom +310;
-
-			_ajout.Get("FlatButtonCommander").Anchor = AnchorStyles.None;
-			_ajout.Get("FlatButtonCommander").Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-
-			// Liste des articles
-			listeArticles.Location = new Point(
-				listBoxArticle.Left + listBoxArticle.Width + 50,
-				listBoxArticle.Top
-				);*/
 		}
 	}
 }

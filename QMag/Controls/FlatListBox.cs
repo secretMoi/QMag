@@ -28,8 +28,6 @@ namespace QMag.Controls
 
 			_vitesse = _vitesseOrigine = 1;
 
-			pictureBox.Image = _menuFerme;
-
 			// désactive les barres de scroll mais rend le panel scrollable
 			panelCorps.HorizontalScroll.Enabled = false;
 			panelCorps.HorizontalScroll.Visible = false;
@@ -54,6 +52,8 @@ namespace QMag.Controls
 				_menuOuvert = Image.FromFile("Ressources/Images/up-arrow.png");
 			}
 			catch { }
+
+			pictureBox.Image = _menuFerme;
 		}
 
 		public void Add(string text, EventHandler click = null)

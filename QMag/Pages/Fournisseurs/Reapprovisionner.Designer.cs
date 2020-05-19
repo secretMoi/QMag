@@ -30,6 +30,7 @@
 		{
 			this.flatLabelTitre = new QMag.Controls.FlatLabel();
 			this.panelCorps = new System.Windows.Forms.Panel();
+			this.flatListBoxArticle = new QMag.Controls.FlatListBox();
 			this.flatButtonConfirmer = new QMag.Controls.Buttons.FlatButton();
 			this.flatButtonAjouter = new QMag.Controls.Buttons.FlatButton();
 			this.flatTextBoxQuantite = new QMag.Controls.FlatTextBox();
@@ -59,6 +60,7 @@
 			// 
 			// panelCorps
 			// 
+			this.panelCorps.Controls.Add(this.flatListBoxArticle);
 			this.panelCorps.Controls.Add(this.flatButtonConfirmer);
 			this.panelCorps.Controls.Add(this.flatButtonAjouter);
 			this.panelCorps.Controls.Add(this.flatTextBoxQuantite);
@@ -71,6 +73,19 @@
 			this.panelCorps.Size = new System.Drawing.Size(1856, 673);
 			this.panelCorps.TabIndex = 11;
 			// 
+			// flatListBoxArticle
+			// 
+			this.flatListBoxArticle.AutoSize = true;
+			this.flatListBoxArticle.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.flatListBoxArticle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(245)))));
+			this.flatListBoxArticle.Location = new System.Drawing.Point(170, 40);
+			this.flatListBoxArticle.Margin = new System.Windows.Forms.Padding(0);
+			this.flatListBoxArticle.MaximumSize = new System.Drawing.Size(150, 40);
+			this.flatListBoxArticle.MinimumSize = new System.Drawing.Size(150, 40);
+			this.flatListBoxArticle.Name = "flatListBoxArticle";
+			this.flatListBoxArticle.Size = new System.Drawing.Size(150, 40);
+			this.flatListBoxArticle.TabIndex = 7;
+			// 
 			// flatButtonConfirmer
 			// 
 			this.flatButtonConfirmer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -79,7 +94,7 @@
 			this.flatButtonConfirmer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.flatButtonConfirmer.Font = new System.Drawing.Font("Yu Gothic UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.flatButtonConfirmer.ForeColor = System.Drawing.Color.White;
-			this.flatButtonConfirmer.Location = new System.Drawing.Point(231, 609);
+			this.flatButtonConfirmer.Location = new System.Drawing.Point(170, 592);
 			this.flatButtonConfirmer.Name = "flatButtonConfirmer";
 			this.flatButtonConfirmer.Size = new System.Drawing.Size(150, 40);
 			this.flatButtonConfirmer.TabIndex = 6;
@@ -93,7 +108,7 @@
 			this.flatButtonAjouter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.flatButtonAjouter.Font = new System.Drawing.Font("Yu Gothic UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.flatButtonAjouter.ForeColor = System.Drawing.Color.White;
-			this.flatButtonAjouter.Location = new System.Drawing.Point(231, 210);
+			this.flatButtonAjouter.Location = new System.Drawing.Point(170, 180);
 			this.flatButtonAjouter.Name = "flatButtonAjouter";
 			this.flatButtonAjouter.Size = new System.Drawing.Size(150, 40);
 			this.flatButtonAjouter.TabIndex = 5;
@@ -104,7 +119,7 @@
 			// flatTextBoxQuantite
 			// 
 			this.flatTextBoxQuantite.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(211)))));
-			this.flatTextBoxQuantite.Location = new System.Drawing.Point(231, 136);
+			this.flatTextBoxQuantite.Location = new System.Drawing.Point(170, 106);
 			this.flatTextBoxQuantite.Margin = new System.Windows.Forms.Padding(0);
 			this.flatTextBoxQuantite.Name = "flatTextBoxQuantite";
 			this.flatTextBoxQuantite.Size = new System.Drawing.Size(150, 40);
@@ -115,7 +130,7 @@
 			this.flatLabelQuantite.AutoSize = true;
 			this.flatLabelQuantite.Font = new System.Drawing.Font("Yu Gothic UI", 12.5F);
 			this.flatLabelQuantite.ForeColor = System.Drawing.Color.Black;
-			this.flatLabelQuantite.Location = new System.Drawing.Point(74, 153);
+			this.flatLabelQuantite.Location = new System.Drawing.Point(13, 123);
 			this.flatLabelQuantite.Name = "flatLabelQuantite";
 			this.flatLabelQuantite.Size = new System.Drawing.Size(77, 23);
 			this.flatLabelQuantite.TabIndex = 2;
@@ -126,7 +141,7 @@
 			this.flatLabelArticle.AutoSize = true;
 			this.flatLabelArticle.Font = new System.Drawing.Font("Yu Gothic UI", 12.5F);
 			this.flatLabelArticle.ForeColor = System.Drawing.Color.Black;
-			this.flatLabelArticle.Location = new System.Drawing.Point(74, 87);
+			this.flatLabelArticle.Location = new System.Drawing.Point(13, 57);
 			this.flatLabelArticle.Name = "flatLabelArticle";
 			this.flatLabelArticle.Size = new System.Drawing.Size(58, 23);
 			this.flatLabelArticle.TabIndex = 1;
@@ -136,9 +151,9 @@
 			// 
 			this.panelDgv.Anchor = System.Windows.Forms.AnchorStyles.Right;
 			this.panelDgv.Controls.Add(this.flatDataGridView);
-			this.panelDgv.Location = new System.Drawing.Point(1366, 131);
+			this.panelDgv.Location = new System.Drawing.Point(1383, 131);
 			this.panelDgv.Name = "panelDgv";
-			this.panelDgv.Size = new System.Drawing.Size(473, 527);
+			this.panelDgv.Size = new System.Drawing.Size(450, 527);
 			this.panelDgv.TabIndex = 0;
 			// 
 			// flatDataGridView
@@ -147,7 +162,7 @@
 			this.flatDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.flatDataGridView.Location = new System.Drawing.Point(0, 0);
 			this.flatDataGridView.Name = "flatDataGridView";
-			this.flatDataGridView.Size = new System.Drawing.Size(473, 527);
+			this.flatDataGridView.Size = new System.Drawing.Size(450, 527);
 			this.flatDataGridView.TabIndex = 0;
 			// 
 			// panelTitre
@@ -191,5 +206,6 @@
 		private Controls.Buttons.FlatButton flatButtonConfirmer;
 		private Controls.Buttons.FlatButton flatButtonAjouter;
 		private Controls.FlatTextBox flatTextBoxQuantite;
+		private Controls.FlatListBox flatListBoxArticle;
 	}
 }
