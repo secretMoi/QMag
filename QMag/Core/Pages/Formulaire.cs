@@ -20,6 +20,7 @@ namespace QMag.Core.Pages
 			AutoAdd(tuples);
 		}
 
+		// ajoute de manière intelligente les control
 		private void AutoAdd(params object[] tuples)
 		{
 			string name = null;
@@ -27,9 +28,7 @@ namespace QMag.Core.Pages
 			foreach (object tuple in tuples)
 			{
 				if (name == null) // si c'est le deuxieme
-				{
 					name = tuple as string;
-				}
 				else // sinon c'est le troisième
 				{
 					texte = tuple as string;

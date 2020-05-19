@@ -94,6 +94,17 @@ namespace QMag.Controls
 			dataGridView.Rows.Remove(dgvDelRow);
 		}
 
+		public void UpdateRowAt(int ligne, params object[] newData)
+		{
+			DataGridViewRow nouvelleLigne = dataGridView.Rows[ligne];
+
+			for (int colonne = 0; colonne < dataGridView.ColumnCount; colonne++)
+				nouvelleLigne.Cells[colonne].Value = newData[colonne];
+		}
+
 		public DataGridViewRowCollection Rows => dataGridView.Rows;
+		public int SelectedRow => dataGridView.CurrentCell.RowIndex;
+
+
 	}
 }

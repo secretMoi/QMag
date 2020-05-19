@@ -14,11 +14,11 @@ using QMag.Fenetres;
 
 namespace QMag.Pages.Fournisseurs
 {
-	public partial class Reapprovisionner : BaseAjouter
+	public partial class Reapprovisionner : ThemePanel
 	{
 		private UseGridView _useGridView;
-		private Image _imageSupprimer = Image.FromFile("Ressources/Images/supprimer.png");
-		private Image _imageEditer = Image.FromFile("Ressources/Images/editer.png");
+		private readonly Image _imageSupprimer = Image.FromFile("Ressources/Images/supprimer.png");
+		private readonly Image _imageEditer = Image.FromFile("Ressources/Images/editer.png");
 
 		private bool _modeEdition = false;
 
@@ -26,7 +26,7 @@ namespace QMag.Pages.Fournisseurs
 		{
 			InitializeComponent();
 
-			_ajout = new Formulaire
+			/*_ajout = new Formulaire
 			(
 				"FlatLabelArticle", "Article",
 				"FlatListBoxArticle", "",
@@ -35,13 +35,14 @@ namespace QMag.Pages.Fournisseurs
 				"FlatButtonAjouter", "Ajouter",
 				"FlatButtonCommander", "Commander",
 				"FlatListArticles", "Liste des articles"
-			);
+			);*/
 
-			_ajout.Get("FlatButtonAjouter").Click += Ajouter_Click;
+			//_ajout.Get("FlatButtonAjouter").Click += Ajouter_Click;
+			flatButtonAjouter.Click += Ajouter_Click;
 
 			PositionneControls();
 
-			_ajout.Display(panelCorps);
+			//_ajout.Display(panelCorps);
 		}
 
 		private void Reapprovisionner_Load(object sender, EventArgs e)
@@ -66,10 +67,10 @@ namespace QMag.Pages.Fournisseurs
 
 			if (colonne == flatDataGridView.Column["Editer"]?.DisplayIndex) // si la colonne cliquée correspond à l'édition
 			{
-				((FlatListBox)_ajout.Get("FlatListBoxArticle")).Text = GetInDataGridView(ligne, colonneNom);
-				((FlatTextBox)_ajout.Get("FlatTextBoxQuantite")).Text = GetInDataGridView(ligne, colonneQuantite);
-				((FlatButton) _ajout.Get("FlatButtonAjouter")).Text = @"Modifier";
-				_modeEdition = true;
+				//((FlatListBox)_ajout.Get("FlatListBoxArticle")).Text = GetInDataGridView(ligne, colonneNom);
+				flatTextBoxQuantite.Text = GetInDataGridView(ligne, colonneQuantite);
+				//((FlatTextBox)_ajout.Get("FlatTextBoxQuantite")).Text = GetInDataGridView(ligne, colonneQuantite);
+				EnableEdit(true);
 			}
 
 			else if (colonne == flatDataGridView.Column["Supprimer"]?.DisplayIndex) // si la colonne cliquée correspond à la suppression
@@ -98,23 +99,52 @@ namespace QMag.Pages.Fournisseurs
 		{
 			if (_modeEdition)
 			{
-				//todo compléter
+				flatDataGridView.UpdateRowAt(
+					flatDataGridView.SelectedRow,
+					//((FlatListBox)_ajout.Get("FlatListBoxArticle")).Text,
+					//_ajout.Get("FlatTextBoxQuantite").Text,
+					flatTextBoxQuantite.Text,
+					"5",
+					_imageEditer,
+					_imageSupprimer
+					);
+
+				EnableEdit(false);
 			}
-
-			_useGridView.Add(
-				((FlatListBox)_ajout.Get("FlatListBoxArticle")).Text,
-				_ajout.Get("FlatTextBoxQuantite").Text,
-				5,
-				_imageEditer,
-				_imageSupprimer
+			else
+			{
+				_useGridView.Add(
+					//((FlatListBox)_ajout.Get("FlatListBoxArticle")).Text,
+					//_ajout.Get("FlatTextBoxQuantite").Text,
+					flatTextBoxQuantite,
+					5,
+					_imageEditer,
+					_imageSupprimer
 				);
-
+			}
+			
 			flatDataGridView.DataSource = _useGridView.Liens; // ajout(liage) des colonnes à la gridview
+		}
+
+		private void EnableEdit(bool state)
+		{
+			if (state)
+			{
+				_modeEdition = true;
+				flatButtonAjouter.Text = @"Modifier";
+				//((FlatButton)_ajout.Get("FlatButtonAjouter")).Text = @"Modifier";
+			}
+			else
+			{
+				_modeEdition = false;
+				flatButtonAjouter.Text = @"Ajouter";
+				//((FlatButton)_ajout.Get("FlatButtonAjouter")).Text = @"Ajouter";
+			}
 		}
 
 		private void PositionneControls()
 		{
-			FlatListBox listBoxArticle = (FlatListBox) _ajout.Get("FlatListBoxArticle");
+			/*FlatListBox listBoxArticle = (FlatListBox) _ajout.Get("FlatListBoxArticle");
 			FlatList listeArticles = (FlatList)_ajout.Get("FlatListArticles");
 
 			// Labels
@@ -151,21 +181,7 @@ namespace QMag.Pages.Fournisseurs
 			listeArticles.Location = new Point(
 				listBoxArticle.Left + listBoxArticle.Width + 50,
 				listBoxArticle.Top
-				);
+				);*/
 		}
-	}
-
-	public class ReaprovisionnerArguments
-	{
-		public ReaprovisionnerArguments(string mode, string article, int quantite)
-		{
-			Mode = mode;
-			Article = article;
-			Quantite = quantite;
-		}
-
-		public string Article { get; set; }
-		public int Quantite { get; set; }
-		public string Mode { get; set; }
 	}
 }
