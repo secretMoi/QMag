@@ -58,7 +58,7 @@
 			this.panelTitre.Location = new System.Drawing.Point(0, 0);
 			this.panelTitre.MaximumSize = new System.Drawing.Size(0, 220);
 			this.panelTitre.Name = "panelTitre";
-			this.panelTitre.Size = new System.Drawing.Size(1039, 220);
+			this.panelTitre.Size = new System.Drawing.Size(1856, 220);
 			this.panelTitre.TabIndex = 12;
 			// 
 			// flatLabelTitre
@@ -82,7 +82,7 @@
 			this.panelCorps.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panelCorps.Location = new System.Drawing.Point(0, 220);
 			this.panelCorps.Name = "panelCorps";
-			this.panelCorps.Size = new System.Drawing.Size(1039, 673);
+			this.panelCorps.Size = new System.Drawing.Size(1856, 673);
 			this.panelCorps.TabIndex = 13;
 			// 
 			// panelDgv
@@ -91,7 +91,7 @@
 			this.panelDgv.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panelDgv.Location = new System.Drawing.Point(293, 0);
 			this.panelDgv.Name = "panelDgv";
-			this.panelDgv.Size = new System.Drawing.Size(746, 673);
+			this.panelDgv.Size = new System.Drawing.Size(1563, 673);
 			this.panelDgv.TabIndex = 0;
 			// 
 			// flatDataGridView
@@ -100,7 +100,7 @@
 			this.flatDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.flatDataGridView.Location = new System.Drawing.Point(0, 0);
 			this.flatDataGridView.Name = "flatDataGridView";
-			this.flatDataGridView.Size = new System.Drawing.Size(746, 673);
+			this.flatDataGridView.Size = new System.Drawing.Size(1563, 673);
 			this.flatDataGridView.TabIndex = 0;
 			// 
 			// panelFormulaire
@@ -252,7 +252,7 @@
 			this.Controls.Add(this.panelCorps);
 			this.Controls.Add(this.panelTitre);
 			this.Name = "Commander";
-			this.Size = new System.Drawing.Size(1039, 893);
+			this.Size = new System.Drawing.Size(1856, 893);
 			this.Load += new System.EventHandler(this.Commander_Load);
 			this.panelTitre.ResumeLayout(false);
 			this.panelTitre.PerformLayout();

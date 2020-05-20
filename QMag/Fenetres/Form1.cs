@@ -234,5 +234,5 @@ namespace QMag.Fenetres
             control.Location = nouvellePosition;
             control.Size = new Size(taille, taille);
         }
-    }
+	}
 }

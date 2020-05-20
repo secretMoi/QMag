@@ -1,6 +1,6 @@
-﻿namespace QMag.Pages.Fournisseurs
+﻿namespace QMag.Pages.Clients
 {
-	partial class ConsulterDetailAchat
+	partial class Historique
 	{
 		/// <summary> 
 		/// Variable nécessaire au concepteur.
@@ -45,7 +45,7 @@
 			this.panelTitre.MaximumSize = new System.Drawing.Size(0, 220);
 			this.panelTitre.Name = "panelTitre";
 			this.panelTitre.Size = new System.Drawing.Size(1039, 220);
-			this.panelTitre.TabIndex = 12;
+			this.panelTitre.TabIndex = 14;
 			// 
 			// flatLabelTitre
 			// 
@@ -56,9 +56,9 @@
 			this.flatLabelTitre.ForeColor = System.Drawing.Color.White;
 			this.flatLabelTitre.Location = new System.Drawing.Point(52, 99);
 			this.flatLabelTitre.Name = "flatLabelTitre";
-			this.flatLabelTitre.Size = new System.Drawing.Size(394, 37);
+			this.flatLabelTitre.Size = new System.Drawing.Size(436, 37);
 			this.flatLabelTitre.TabIndex = 0;
-			this.flatLabelTitre.Text = "Consultation d\'une commande";
+			this.flatLabelTitre.Text = "Historique des commandes clients";
 			this.flatLabelTitre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// panelCorps
@@ -68,7 +68,7 @@
 			this.panelCorps.Location = new System.Drawing.Point(0, 220);
 			this.panelCorps.Name = "panelCorps";
 			this.panelCorps.Size = new System.Drawing.Size(1039, 673);
-			this.panelCorps.TabIndex = 13;
+			this.panelCorps.TabIndex = 15;
 			// 
 			// flatDataGridView
 			// 
@@ -79,15 +79,15 @@
 			this.flatDataGridView.Size = new System.Drawing.Size(1039, 673);
 			this.flatDataGridView.TabIndex = 0;
 			// 
-			// ConsulterDetailAchat
+			// Historique
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
 			this.Controls.Add(this.panelCorps);
 			this.Controls.Add(this.panelTitre);
-			this.Name = "ConsulterDetailAchat";
+			this.Name = "Historique";
 			this.Size = new System.Drawing.Size(1039, 893);
-			this.Load += new System.EventHandler(this.ConsulterDetailAchat_Load);
+			this.Load += new System.EventHandler(this.Historique_Load);
 			this.panelTitre.ResumeLayout(false);
 			this.panelTitre.PerformLayout();
 			this.panelCorps.ResumeLayout(false);

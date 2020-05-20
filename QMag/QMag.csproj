@@ -204,6 +204,18 @@
     <Compile Include="Pages\Clients\Consulter.Designer.cs">
       <DependentUpon>Consulter.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Clients\ConsulterDetailVente.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\Clients\ConsulterDetailVente.Designer.cs">
+      <DependentUpon>ConsulterDetailVente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Clients\Historique.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\Clients\Historique.Designer.cs">
+      <DependentUpon>Historique.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Fournisseurs\Ajouter.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -298,6 +310,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\Clients\Consulter.resx">
       <DependentUpon>Consulter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Clients\ConsulterDetailVente.resx">
+      <DependentUpon>ConsulterDetailVente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Clients\Historique.resx">
+      <DependentUpon>Historique.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\Fournisseurs\Ajouter.resx">
       <DependentUpon>Ajouter.cs</DependentUpon>

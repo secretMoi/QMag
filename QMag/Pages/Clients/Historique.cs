@@ -1,31 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using Controls;
 using Projet_magasin.Classes;
 using Projet_magasin.Gestion;
 using QMag.Core;
 using QMag.Core.Pages;
 
-namespace QMag.Pages.Fournisseurs
+namespace QMag.Pages.Clients
 {
-	public partial class Commandes : BaseConsulter
+	public partial class Historique : BaseConsulter
 	{
-		private readonly List<C_CommandesFournisseurs> _commandes; // liste des commandes
+		private readonly List<C_CommandesClients> _commandes; // liste des commandes
 		private readonly List<int> _id; // associe id bdd et id dgv
 
-		public Commandes()
+		public Historique()
 		{
 			InitializeComponent();
 
-			_commandes = new G_CommandesFournisseurs(Connexion).Lire("id");
+			_commandes = new G_CommandesClients(Connexion).Lire("id");
 			_id = new List<int>(_commandes.Count);
 		}
 
-		private void Commandes_Load(object sender, EventArgs e)
+		private void Historique_Load(object sender, System.EventArgs e)
 		{
 			_flatDataGridView = flatDataGridView;
 
-			SetColonnes("Fournisseur", "Montant", "Date");
+			SetColonnes("Client", "Montant", "Date");
 			EnableColumn("voir");
 
 			RempliColonnes();
@@ -35,22 +36,22 @@ namespace QMag.Pages.Fournisseurs
 
 		private void RempliColonnes()
 		{
-			string fournisseur;
+			string client;
 			Money montant = new Money();
 			DateTime date;
-			foreach (C_CommandesFournisseurs commande in _commandes)
+			foreach (C_CommandesClients commande in _commandes)
 			{
-				fournisseur = new G_Fournisseurs(Connexion).Lire_ID(commande.id_fournisseur).nom;
+				client = new G_Clients(Connexion).Lire_ID(commande.id_client).nom;
 				date = commande.date;
 
 				// somme les montants de chaque article
-				foreach (C_DetailAchat detailCommande in new G_DetailAchat(Connexion).Lire("id"))
+				foreach (C_DetailVente detailCommande in new G_DetailVente(Connexion).Lire("id"))
 					if (detailCommande.id_commande == commande.id)
 						montant.Montant += detailCommande.prix * detailCommande.quantite;
 
 				// ajoute les champs à la dgv
 				_useGridView.Add(
-					fournisseur,
+					client,
 					Money.Display(montant.Montant),
 					date,
 					_imageVoir
@@ -70,8 +71,8 @@ namespace QMag.Pages.Fournisseurs
 			// récupère le nom de la classe
 			Reflection reflection = new Reflection(GetType());
 
-			if (colonne == flatDataGridView.Column["Voir"]?.DisplayIndex) // si la colonne cliquée correspond à l'édition
-				LoadPage(reflection.LastItemNamespace + ".ConsulterDetailAchat", _id[ligne]); // charge la page Ajouter
+			if (colonne == flatDataGridView.Column["Voir"]?.DisplayIndex) // si la colonne cliquée correspond
+				LoadPage(reflection.LastItemNamespace + ".ConsulterDetailVente", _id[ligne]); // charge la page de détail
 		}
 	}
 }

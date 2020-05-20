@@ -272,6 +272,7 @@ namespace QMag.Pages.Fournisseurs
 			return resultat;
 		}
 
+		//todo splitter les classes + héritage de cette classe mère
 		private class ArticleEnregistrement
 		{
 			public ArticleEnregistrement(int id, string nom, decimal prix)
