@@ -9,30 +9,30 @@ using Projet_magasin.Gestion;
 using QMag.Core;
 using QMag.Fenetres;
 
-namespace QMag.Pages.Fournisseurs
+namespace QMag.Pages.Clients
 {
-	public partial class Reapprovisionner : ThemePanel
+	public partial class Commander : ThemePanel
 	{
 		private UseGridView _useGridView;
 		private readonly Image _imageSupprimer = Image.FromFile("Ressources/Images/supprimer.png");
 		private readonly Image _imageEditer = Image.FromFile("Ressources/Images/editer.png");
 
-		private List<ArticleEnregistrement> _articles;
-		private List<FournisseurEnregistrement> _fournisseurs;
-		private readonly List<int> _associeArticleDbetDgv = new List<int>(); // l'ordre de la liste sera le même que dans _articles
-
 		private bool _modeEdition = false;
 
-		public Reapprovisionner()
+		private List<ArticleEnregistrement> _articles;
+		private List<ClientEnregistrement> _clients;
+		private readonly List<int> _associeArticleDbetDgv = new List<int>(); // l'ordre de la liste sera le même que dans _articles
+
+		public Commander()
 		{
 			InitializeComponent();
 
 			GetBdData();
 
-			flatLabelFournisseur.ForeColor = flatLabelArticle.ForeColor = flatLabelQuantite.ForeColor = flatLabelTotal.ForeColor = flatLabelTotalMontant.ForeColor = Theme.BackDark;
+			flatLabelClient.ForeColor = flatLabelArticle.ForeColor = flatLabelQuantite.ForeColor = flatLabelTotal.ForeColor = flatLabelTotalMontant.ForeColor = Theme.BackDark;
 		}
 
-		private void Reapprovisionner_Load(object sender, EventArgs e)
+		private void Commander_Load(object sender, System.EventArgs e)
 		{
 			SetColonnes();
 
@@ -40,38 +40,18 @@ namespace QMag.Pages.Fournisseurs
 
 			flatDataGridView.DataSource = _useGridView.Liens; // ajout(liage) des colonnes à la gridview
 
-			if(flatDataGridView.Rows.Count > 0)
+			if (flatDataGridView.Rows.Count > 0)
 				flatDataGridView.Column["Supprimer"].Width = 200;
+
 		}
 
-		// appelé lors du clic sur la dgv
-		private void EffetClic(object sender, DataGridViewCellMouseEventArgs e)
+		private void SetColonnes()
 		{
-			int colonne = e.ColumnIndex;
-			int ligne = e.RowIndex;
+			_useGridView = new UseGridView("Article", "Quantité", "Coût unitaire");
 
-			int colonneNom = 0;
-			int colonneQuantite = 1;
-
-			if (colonne == flatDataGridView.Column["Editer"]?.DisplayIndex) // si la colonne cliquée correspond à l'édition
-			{
-				flatListBoxArticle.SelectId(_associeArticleDbetDgv[ligne]);
-				flatTextBoxQuantite.Text = GetInDataGridView(ligne, colonneQuantite);
-				EnableEdit(true);
-			}
-
-			else if (colonne == flatDataGridView.Column["Supprimer"]?.DisplayIndex) // si la colonne cliquée correspond à la suppression
-			{
-				DialogResult question = 
-					Dialog.ShowYesNo("Voulez-vous vraiment supprimer l'article " + GetInDataGridView(ligne, colonneNom) + " de la commande ?");
-				if (question == DialogResult.Yes)
-				{
-					flatDataGridView.RemoveRowAt(ligne);
-					_associeArticleDbetDgv.RemoveAt(ligne);
-					EnableEdit(false);
-					ActualiseMontant();
-				}
-			}
+			flatDataGridView.SetColonnesCliquables(
+				_useGridView.CreateImageColumn("Editer", "Supprimer")
+			);
 		}
 
 		// récupère les données de la bdd et les associe au formulaire
@@ -98,43 +78,89 @@ namespace QMag.Pages.Fournisseurs
 			flatListBoxArticle.SelectId(0); // mets en text de la listbox le premier article
 
 			// remplissage listbox fournisseurs
-			List<C_Fournisseurs> listeFournisseurs = new G_Fournisseurs(Connexion).Lire("id");
-			_fournisseurs = new List<FournisseurEnregistrement>(listeFournisseurs.Count);
-			foreach (C_Fournisseurs fournisseur in listeFournisseurs)
+			List<C_Clients> listeClients = new G_Clients(Connexion).Lire("id");
+			_clients = new List<ClientEnregistrement>(listeClients.Count);
+			foreach (C_Clients client in listeClients)
 			{
-				flatListBoxFournisseur.Add(fournisseur.nom); // ajout à la flatlist
+				flatListBoxClient.Add(client.nom); // ajout à la flatlist
 
 				// ajoute à notre liste arguments
-				_fournisseurs.Add(
-					new FournisseurEnregistrement(
-						fournisseur.id,
-						fournisseur.nom
+				_clients.Add(
+					new ClientEnregistrement(
+						client.id,
+						client.nom,
+						client.prenom
 					));
 			}
 
-			flatListBoxFournisseur.SelectId(0); // mets en text de la listbox le premier article
+			flatListBoxClient.SelectId(0); // mets en text de la listbox le premier article
+
 		}
 
-		//COUCOU MON LOULOU, Ye te Nem!!! <3
-
-		// permet de récupérer le contenu d'une cellule de la dgv
-		private string GetInDataGridView(int x, int y)
+		// appelé lors du clic sur la dgv
+		private void EffetClic(object sender, DataGridViewCellMouseEventArgs e)
 		{
-			return flatDataGridView.Get(new Couple(x, y));
+			int colonne = e.ColumnIndex;
+			int ligne = e.RowIndex;
+
+			int colonneNom = 0;
+			int colonneQuantite = 1;
+
+			if (colonne == flatDataGridView.Column["Editer"]?.DisplayIndex) // si la colonne cliquée correspond à l'édition
+			{
+				flatListBoxArticle.SelectId(_associeArticleDbetDgv[ligne]);
+				flatTextBoxQuantite.Text = flatDataGridView.Get(ligne, colonneQuantite);
+				EnableEdit(true);
+			}
+
+			else if (colonne == flatDataGridView.Column["Supprimer"]?.DisplayIndex) // si la colonne cliquée correspond à la suppression
+			{
+				DialogResult question =
+					Dialog.ShowYesNo("Voulez-vous vraiment supprimer l'article " + flatDataGridView.Get(ligne, colonneNom) + " de la commande ?");
+				if (question == DialogResult.Yes)
+				{
+					flatDataGridView.RemoveRowAt(ligne);
+					_associeArticleDbetDgv.RemoveAt(ligne);
+					EnableEdit(false);
+					ActualiseMontant();
+				}
+			}
 		}
 
-		// initialise les colonnes
-		protected void SetColonnes()
+		// permet de passer ou quitter le mode édition
+		private void EnableEdit(bool state)
 		{
-			_useGridView = new UseGridView("Article", "Quantité", "Coût unitaire");
-
-			flatDataGridView.SetColonnesCliquables(
-				_useGridView.CreateImageColumn("Editer", "Supprimer")
-			);
+			if (state)
+			{
+				_modeEdition = true;
+				flatButtonAjouter.Text = @"Modifier";
+			}
+			else
+			{
+				_modeEdition = false;
+				flatButtonAjouter.Text = @"Ajouter";
+			}
 		}
 
-		// que faire lorsque l'on ajoute/modifie un item de la liste
-		private void Ajouter_Click(object sender, EventArgs e)
+		// met à jour le label de la somme totale
+		private void ActualiseMontant()
+		{
+			Money total = new Money();
+			int nombreArticles;
+			int id;
+
+			for (int i = 0; i < flatDataGridView.Rows.Count; i++)
+			{
+				id = _associeArticleDbetDgv[i];
+				nombreArticles = _articles[id].Quantite;
+
+				total.Montant += Convert.ToDecimal(flatDataGridView.Get(new Couple(i, 2))) * nombreArticles;
+			}
+
+			flatLabelTotalMontant.Text = total.ToString();
+		}
+
+		private void flatButtonAjouter_Click(object sender, EventArgs e)
 		{
 			if (!ChampsValides())
 				return;
@@ -151,13 +177,13 @@ namespace QMag.Pages.Fournisseurs
 					Money.Round(_articles[idArticle].Prix),
 					_imageEditer,
 					_imageSupprimer
-					);
+				);
 
 				EnableEdit(false);
 			}
 			else // mode Ajouter
 			{
-				if(!_associeArticleDbetDgv.Contains(idArticle)) // si la dgv ne contient pas déjà le même article
+				if (!_associeArticleDbetDgv.Contains(idArticle)) // si la dgv ne contient pas déjà le même article
 				{
 					_useGridView.Add(
 						flatListBoxArticle.Text,
@@ -191,25 +217,6 @@ namespace QMag.Pages.Fournisseurs
 			ActualiseMontant();
 		}
 
-		// met à jour le label de la somme totale
-		private void ActualiseMontant()
-		{
-			Money total = new Money();
-			int nombreArticles;
-			int id;
-
-			for (int i = 0; i < flatDataGridView.Rows.Count; i++)
-			{
-				id = _associeArticleDbetDgv[i];
-				nombreArticles = _articles[id].Quantite;
-
-				total.Montant += Convert.ToDecimal(flatDataGridView.Get(new Couple(i, 2))) * nombreArticles;
-			}
-
-			flatLabelTotalMontant.Text = total.ToString();
-		}
-
-		// action lors du click sur confirmer
 		private void flatButtonConfirmer_Click(object sender, EventArgs e)
 		{
 			if (flatDataGridView.Rows.Count < 1)
@@ -219,38 +226,23 @@ namespace QMag.Pages.Fournisseurs
 			}
 
 			// crée la commande
-			int idCommande = new G_CommandesFournisseurs(Connexion).Ajouter(
-				_fournisseurs[flatListBoxFournisseur.IdSelected].Id,
+			int idCommande = new G_CommandesClients(Connexion).Ajouter(
+				_clients[flatListBoxClient.IdSelected].Id,
 				DateTime.Now
 			);
 
 			// ajotue le détail
 			for (int i = 0; i < flatDataGridView.Rows.Count; i++)
 			{
-				new G_DetailAchat(Connexion).Ajouter(
+				new G_DetailVente(Connexion).Ajouter(
 					_articles[_associeArticleDbetDgv[i]].Id,
 					_articles[_associeArticleDbetDgv[i]].Prix,
-					Convert.ToInt32(GetInDataGridView(i, 1)),
+					Convert.ToInt32(flatDataGridView.Get(i, 1)),
 					idCommande
 				);
 			}
 
-			Dialog.Show("Commande passée au fournisseur " + flatListBoxFournisseur.Text);
-		}
-
-		// permet de passer ou quitter le mode édition
-		private void EnableEdit(bool state)
-		{
-			if (state)
-			{
-				_modeEdition = true;
-				flatButtonAjouter.Text = @"Modifier";
-			}
-			else
-			{
-				_modeEdition = false;
-				flatButtonAjouter.Text = @"Ajouter";
-			}
+			Dialog.Show("Commande du client " + flatListBoxClient.Text + " effectuée !");
 		}
 
 		private bool ChampsValides()
@@ -259,14 +251,14 @@ namespace QMag.Pages.Fournisseurs
 			string messageErreur = "";
 
 			resultat &= flatListBoxArticle.Text != "" && flatTextBoxQuantite.Text != "";
-			if(!resultat)
+			if (!resultat)
 				messageErreur = "Veuillez remplir tous les champs !";
 
 			resultat &= int.TryParse(flatTextBoxQuantite.Text, out _);
 			if (!resultat)
 				messageErreur = "Le champs Quantité ne contient pas un nombre !";
 
-			if(!resultat)
+			if (!resultat)
 				Dialog.Show(messageErreur);
 
 			return resultat;
@@ -287,16 +279,18 @@ namespace QMag.Pages.Fournisseurs
 			public decimal Prix { get; set; }
 		}
 
-		private class FournisseurEnregistrement
+		private class ClientEnregistrement
 		{
-			public FournisseurEnregistrement(int id, string nom)
+			public ClientEnregistrement(int id, string nom, string prenom)
 			{
 				Id = id;
 				Nom = nom;
+				Prenom = prenom;
 			}
 
 			public int Id { get; set; }
 			public string Nom { get; set; }
+			public string Prenom { get; set; }
 		}
 	}
 }

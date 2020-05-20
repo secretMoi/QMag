@@ -1,6 +1,6 @@
-﻿namespace QMag.Pages.Fournisseurs
+﻿namespace QMag.Pages.Clients
 {
-	partial class Reapprovisionner
+	partial class Commander
 	{
 		/// <summary> 
 		/// Variable nécessaire au concepteur.
@@ -28,13 +28,14 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.panelTitre = new System.Windows.Forms.Panel();
 			this.flatLabelTitre = new QMag.Controls.FlatLabel();
 			this.panelCorps = new System.Windows.Forms.Panel();
 			this.panelDgv = new System.Windows.Forms.Panel();
 			this.flatDataGridView = new QMag.Controls.FlatDataGridView();
 			this.panelFormulaire = new System.Windows.Forms.Panel();
-			this.flatListBoxFournisseur = new QMag.Controls.FlatListBox();
-			this.flatLabelFournisseur = new QMag.Controls.FlatLabel();
+			this.flatListBoxClient = new QMag.Controls.FlatListBox();
+			this.flatLabelClient = new QMag.Controls.FlatLabel();
 			this.flatListBoxArticle = new QMag.Controls.FlatListBox();
 			this.flatLabelTotalMontant = new QMag.Controls.FlatLabel();
 			this.flatLabelTotal = new QMag.Controls.FlatLabel();
@@ -43,12 +44,22 @@
 			this.flatTextBoxQuantite = new QMag.Controls.FlatTextBox();
 			this.flatLabelQuantite = new QMag.Controls.FlatLabel();
 			this.flatLabelArticle = new QMag.Controls.FlatLabel();
-			this.panelTitre = new System.Windows.Forms.Panel();
+			this.panelTitre.SuspendLayout();
 			this.panelCorps.SuspendLayout();
 			this.panelDgv.SuspendLayout();
 			this.panelFormulaire.SuspendLayout();
-			this.panelTitre.SuspendLayout();
 			this.SuspendLayout();
+			// 
+			// panelTitre
+			// 
+			this.panelTitre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(245)))));
+			this.panelTitre.Controls.Add(this.flatLabelTitre);
+			this.panelTitre.Dock = System.Windows.Forms.DockStyle.Top;
+			this.panelTitre.Location = new System.Drawing.Point(0, 0);
+			this.panelTitre.MaximumSize = new System.Drawing.Size(0, 220);
+			this.panelTitre.Name = "panelTitre";
+			this.panelTitre.Size = new System.Drawing.Size(1039, 220);
+			this.panelTitre.TabIndex = 12;
 			// 
 			// flatLabelTitre
 			// 
@@ -72,7 +83,7 @@
 			this.panelCorps.Location = new System.Drawing.Point(0, 220);
 			this.panelCorps.Name = "panelCorps";
 			this.panelCorps.Size = new System.Drawing.Size(1039, 673);
-			this.panelCorps.TabIndex = 11;
+			this.panelCorps.TabIndex = 13;
 			// 
 			// panelDgv
 			// 
@@ -94,8 +105,8 @@
 			// 
 			// panelFormulaire
 			// 
-			this.panelFormulaire.Controls.Add(this.flatListBoxFournisseur);
-			this.panelFormulaire.Controls.Add(this.flatLabelFournisseur);
+			this.panelFormulaire.Controls.Add(this.flatListBoxClient);
+			this.panelFormulaire.Controls.Add(this.flatLabelClient);
 			this.panelFormulaire.Controls.Add(this.flatListBoxArticle);
 			this.panelFormulaire.Controls.Add(this.flatLabelTotalMontant);
 			this.panelFormulaire.Controls.Add(this.flatLabelTotal);
@@ -110,29 +121,29 @@
 			this.panelFormulaire.Size = new System.Drawing.Size(293, 673);
 			this.panelFormulaire.TabIndex = 10;
 			// 
-			// flatListBoxFournisseur
+			// flatListBoxClient
 			// 
-			this.flatListBoxFournisseur.AutoSize = true;
-			this.flatListBoxFournisseur.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.flatListBoxFournisseur.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(245)))));
-			this.flatListBoxFournisseur.Location = new System.Drawing.Point(135, 17);
-			this.flatListBoxFournisseur.Margin = new System.Windows.Forms.Padding(0);
-			this.flatListBoxFournisseur.MaximumSize = new System.Drawing.Size(150, 40);
-			this.flatListBoxFournisseur.MinimumSize = new System.Drawing.Size(150, 40);
-			this.flatListBoxFournisseur.Name = "flatListBoxFournisseur";
-			this.flatListBoxFournisseur.Size = new System.Drawing.Size(150, 40);
-			this.flatListBoxFournisseur.TabIndex = 11;
+			this.flatListBoxClient.AutoSize = true;
+			this.flatListBoxClient.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.flatListBoxClient.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(245)))));
+			this.flatListBoxClient.Location = new System.Drawing.Point(135, 17);
+			this.flatListBoxClient.Margin = new System.Windows.Forms.Padding(0);
+			this.flatListBoxClient.MaximumSize = new System.Drawing.Size(150, 40);
+			this.flatListBoxClient.MinimumSize = new System.Drawing.Size(150, 40);
+			this.flatListBoxClient.Name = "flatListBoxClient";
+			this.flatListBoxClient.Size = new System.Drawing.Size(150, 40);
+			this.flatListBoxClient.TabIndex = 11;
 			// 
-			// flatLabelFournisseur
+			// flatLabelClient
 			// 
-			this.flatLabelFournisseur.AutoSize = true;
-			this.flatLabelFournisseur.Font = new System.Drawing.Font("Yu Gothic UI", 12.5F);
-			this.flatLabelFournisseur.ForeColor = System.Drawing.Color.Black;
-			this.flatLabelFournisseur.Location = new System.Drawing.Point(13, 34);
-			this.flatLabelFournisseur.Name = "flatLabelFournisseur";
-			this.flatLabelFournisseur.Size = new System.Drawing.Size(96, 23);
-			this.flatLabelFournisseur.TabIndex = 10;
-			this.flatLabelFournisseur.Text = "Fournisseur";
+			this.flatLabelClient.AutoSize = true;
+			this.flatLabelClient.Font = new System.Drawing.Font("Yu Gothic UI", 12.5F);
+			this.flatLabelClient.ForeColor = System.Drawing.Color.Black;
+			this.flatLabelClient.Location = new System.Drawing.Point(13, 34);
+			this.flatLabelClient.Name = "flatLabelClient";
+			this.flatLabelClient.Size = new System.Drawing.Size(54, 23);
+			this.flatLabelClient.TabIndex = 10;
+			this.flatLabelClient.Text = "Client";
 			// 
 			// flatListBoxArticle
 			// 
@@ -201,7 +212,7 @@
 			this.flatButtonAjouter.TabIndex = 5;
 			this.flatButtonAjouter.Text = "Ajouter";
 			this.flatButtonAjouter.UseVisualStyleBackColor = false;
-			this.flatButtonAjouter.Click += new System.EventHandler(this.Ajouter_Click);
+			this.flatButtonAjouter.Click += new System.EventHandler(this.flatButtonAjouter_Click);
 			// 
 			// flatTextBoxQuantite
 			// 
@@ -234,53 +245,42 @@
 			this.flatLabelArticle.TabIndex = 1;
 			this.flatLabelArticle.Text = "Article";
 			// 
-			// panelTitre
-			// 
-			this.panelTitre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(245)))));
-			this.panelTitre.Controls.Add(this.flatLabelTitre);
-			this.panelTitre.Dock = System.Windows.Forms.DockStyle.Top;
-			this.panelTitre.Location = new System.Drawing.Point(0, 0);
-			this.panelTitre.MaximumSize = new System.Drawing.Size(0, 220);
-			this.panelTitre.Name = "panelTitre";
-			this.panelTitre.Size = new System.Drawing.Size(1039, 220);
-			this.panelTitre.TabIndex = 10;
-			// 
-			// Reapprovisionner
+			// Commander
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
 			this.Controls.Add(this.panelCorps);
 			this.Controls.Add(this.panelTitre);
-			this.Name = "Reapprovisionner";
+			this.Name = "Commander";
 			this.Size = new System.Drawing.Size(1039, 893);
-			this.Load += new System.EventHandler(this.Reapprovisionner_Load);
+			this.Load += new System.EventHandler(this.Commander_Load);
+			this.panelTitre.ResumeLayout(false);
+			this.panelTitre.PerformLayout();
 			this.panelCorps.ResumeLayout(false);
 			this.panelDgv.ResumeLayout(false);
 			this.panelFormulaire.ResumeLayout(false);
 			this.panelFormulaire.PerformLayout();
-			this.panelTitre.ResumeLayout(false);
-			this.panelTitre.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
 
 		#endregion
 
+		private System.Windows.Forms.Panel panelTitre;
 		private Controls.FlatLabel flatLabelTitre;
 		private System.Windows.Forms.Panel panelCorps;
-		private System.Windows.Forms.Panel panelTitre;
 		private System.Windows.Forms.Panel panelDgv;
 		private Controls.FlatDataGridView flatDataGridView;
-		private Controls.FlatLabel flatLabelArticle;
-		private Controls.FlatLabel flatLabelQuantite;
-		private Controls.Buttons.FlatButton flatButtonConfirmer;
-		private Controls.Buttons.FlatButton flatButtonAjouter;
-		private Controls.FlatTextBox flatTextBoxQuantite;
+		private System.Windows.Forms.Panel panelFormulaire;
+		private Controls.FlatListBox flatListBoxClient;
+		private Controls.FlatLabel flatLabelClient;
 		private Controls.FlatListBox flatListBoxArticle;
 		private Controls.FlatLabel flatLabelTotalMontant;
 		private Controls.FlatLabel flatLabelTotal;
-		private System.Windows.Forms.Panel panelFormulaire;
-		private Controls.FlatListBox flatListBoxFournisseur;
-		private Controls.FlatLabel flatLabelFournisseur;
+		private Controls.Buttons.FlatButton flatButtonConfirmer;
+		private Controls.Buttons.FlatButton flatButtonAjouter;
+		private Controls.FlatTextBox flatTextBoxQuantite;
+		private Controls.FlatLabel flatLabelQuantite;
+		private Controls.FlatLabel flatLabelArticle;
 	}
 }

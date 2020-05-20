@@ -5,6 +5,7 @@ using Controls;
 using QMag.Core;
 using QMag.Pages;
 
+//todo bug menu quand animation non terminée
 namespace QMag.Fenetres
 {
     public partial class Form1 : FormBdd

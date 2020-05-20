@@ -192,6 +192,12 @@
     <Compile Include="Pages\Clients\Ajouter.Designer.cs">
       <DependentUpon>Ajouter.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Clients\Commander.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\Clients\Commander.Designer.cs">
+      <DependentUpon>Commander.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Clients\Consulter.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -287,6 +293,9 @@
     <EmbeddedResource Include="Pages\Clients\Ajouter.resx">
       <DependentUpon>Ajouter.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Clients\Commander.resx">
+      <DependentUpon>Commander.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pages\Clients\Consulter.resx">
       <DependentUpon>Consulter.cs</DependentUpon>
     </EmbeddedResource>
@@ -339,6 +348,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Ressources\Images\checkup.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ressources\Images\bag.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <Content Include="Ressources\Images\close.png" />

@@ -56,8 +56,8 @@ namespace QMag.Pages.Stock
 					stock.nom,
 					stock.quantiteActuelle,
 					stock.quentiteMin,
-					stock.prix_achat,
-					stock.prix_vente,
+					Money.Display(stock.prix_achat),
+					Money.Display(stock.prix_vente),
 					_imageEditer,
 					_imageSupprimer
 				);

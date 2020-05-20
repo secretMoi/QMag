@@ -99,6 +99,11 @@ namespace QMag.Controls
 			return null;
 		}
 
+		public string Get(int x, int y)
+		{
+			return Get(new Couple(x, y));
+		}
+
 		// code exécuté après le chargement de la dgv
 		private void dataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
 		{

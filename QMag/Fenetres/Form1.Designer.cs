@@ -33,38 +33,39 @@ namespace QMag.Fenetres
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 			this.panelMenu = new System.Windows.Forms.Panel();
-			this.panelSousMenuFournisseurs = new System.Windows.Forms.Panel();
-			this.panelSousMenuClients = new System.Windows.Forms.Panel();
-			this.panelSousMenuStock = new System.Windows.Forms.Panel();
-			this.panelContainer = new System.Windows.Forms.Panel();
-			this.panelHeader = new System.Windows.Forms.Panel();
-			this.timerMenuDeroulant = new System.Windows.Forms.Timer(this.components);
-			this.pictureBoxResize = new System.Windows.Forms.PictureBox();
 			this.menuFlatButtonClose = new QMag.Controls.Buttons.MenuFlatButton();
+			this.panelSousMenuFournisseurs = new System.Windows.Forms.Panel();
 			this.menu_Fournisseurs_Reapprovisionner = new QMag.Controls.Buttons.MenuFlatButton();
 			this.menu_Fournisseurs_Commandes = new QMag.Controls.Buttons.MenuFlatButton();
 			this.menu_Fournisseurs_Ajouter = new QMag.Controls.Buttons.MenuFlatButton();
 			this.menu_Fournisseurs_Consulter = new QMag.Controls.Buttons.MenuFlatButton();
 			this.menu_Fournisseurs = new QMag.Controls.Buttons.MenuFlatButton();
+			this.panelSousMenuClients = new System.Windows.Forms.Panel();
 			this.menu_Clients_Ajouter = new QMag.Controls.Buttons.MenuFlatButton();
 			this.menu_Clients_Consulter = new QMag.Controls.Buttons.MenuFlatButton();
 			this.menu_Clients = new QMag.Controls.Buttons.MenuFlatButton();
+			this.panelSousMenuStock = new System.Windows.Forms.Panel();
 			this.menu_Stock_Consulter = new QMag.Controls.Buttons.MenuFlatButton();
 			this.menu_Stock_Ajouter = new QMag.Controls.Buttons.MenuFlatButton();
 			this.menu_Stock = new QMag.Controls.Buttons.MenuFlatButton();
 			this.menu_Accueil = new QMag.Controls.Buttons.MenuFlatButton();
+			this.panelContainer = new System.Windows.Forms.Panel();
+			this.panelHeader = new System.Windows.Forms.Panel();
 			this.pictureBoxReduce = new System.Windows.Forms.PictureBox();
 			this.pictureBoxClose = new System.Windows.Forms.PictureBox();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
+			this.timerMenuDeroulant = new System.Windows.Forms.Timer(this.components);
+			this.pictureBoxResize = new System.Windows.Forms.PictureBox();
+			this.menu_Clients_Commander = new QMag.Controls.Buttons.MenuFlatButton();
 			this.panelMenu.SuspendLayout();
 			this.panelSousMenuFournisseurs.SuspendLayout();
 			this.panelSousMenuClients.SuspendLayout();
 			this.panelSousMenuStock.SuspendLayout();
 			this.panelHeader.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBoxResize)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxReduce)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBoxResize)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// panelMenu
@@ -85,85 +86,6 @@ namespace QMag.Fenetres
 			this.panelMenu.Size = new System.Drawing.Size(275, 636);
 			this.panelMenu.TabIndex = 3;
 			// 
-			// panelSousMenuFournisseurs
-			// 
-			this.panelSousMenuFournisseurs.Controls.Add(this.menu_Fournisseurs_Reapprovisionner);
-			this.panelSousMenuFournisseurs.Controls.Add(this.menu_Fournisseurs_Commandes);
-			this.panelSousMenuFournisseurs.Controls.Add(this.menu_Fournisseurs_Ajouter);
-			this.panelSousMenuFournisseurs.Controls.Add(this.menu_Fournisseurs_Consulter);
-			this.panelSousMenuFournisseurs.Dock = System.Windows.Forms.DockStyle.Top;
-			this.panelSousMenuFournisseurs.Location = new System.Drawing.Point(0, 560);
-			this.panelSousMenuFournisseurs.MaximumSize = new System.Drawing.Size(275, 280);
-			this.panelSousMenuFournisseurs.Name = "panelSousMenuFournisseurs";
-			this.panelSousMenuFournisseurs.Size = new System.Drawing.Size(258, 280);
-			this.panelSousMenuFournisseurs.TabIndex = 13;
-			// 
-			// panelSousMenuClients
-			// 
-			this.panelSousMenuClients.Controls.Add(this.menu_Clients_Ajouter);
-			this.panelSousMenuClients.Controls.Add(this.menu_Clients_Consulter);
-			this.panelSousMenuClients.Dock = System.Windows.Forms.DockStyle.Top;
-			this.panelSousMenuClients.Location = new System.Drawing.Point(0, 350);
-			this.panelSousMenuClients.MaximumSize = new System.Drawing.Size(275, 140);
-			this.panelSousMenuClients.Name = "panelSousMenuClients";
-			this.panelSousMenuClients.Size = new System.Drawing.Size(258, 140);
-			this.panelSousMenuClients.TabIndex = 12;
-			// 
-			// panelSousMenuStock
-			// 
-			this.panelSousMenuStock.Controls.Add(this.menu_Stock_Consulter);
-			this.panelSousMenuStock.Controls.Add(this.menu_Stock_Ajouter);
-			this.panelSousMenuStock.Dock = System.Windows.Forms.DockStyle.Top;
-			this.panelSousMenuStock.Location = new System.Drawing.Point(0, 140);
-			this.panelSousMenuStock.MaximumSize = new System.Drawing.Size(275, 140);
-			this.panelSousMenuStock.Name = "panelSousMenuStock";
-			this.panelSousMenuStock.Size = new System.Drawing.Size(258, 140);
-			this.panelSousMenuStock.TabIndex = 8;
-			// 
-			// panelContainer
-			// 
-			this.panelContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.panelContainer.Location = new System.Drawing.Point(272, 93);
-			this.panelContainer.Name = "panelContainer";
-			this.panelContainer.Size = new System.Drawing.Size(800, 637);
-			this.panelContainer.TabIndex = 4;
-			// 
-			// panelHeader
-			// 
-			this.panelHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(101)))), ((int)(((byte)(193)))));
-			this.panelHeader.Controls.Add(this.pictureBoxReduce);
-			this.panelHeader.Controls.Add(this.pictureBoxClose);
-			this.panelHeader.Controls.Add(this.pictureBox1);
-			this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
-			this.panelHeader.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.panelHeader.Location = new System.Drawing.Point(0, 0);
-			this.panelHeader.Name = "panelHeader";
-			this.panelHeader.Size = new System.Drawing.Size(1072, 94);
-			this.panelHeader.TabIndex = 5;
-			this.panelHeader.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelHeader_MouseMove);
-			// 
-			// timerMenuDeroulant
-			// 
-			this.timerMenuDeroulant.Interval = 15;
-			this.timerMenuDeroulant.Tick += new System.EventHandler(this.timerMenuDeroulant_Tick);
-			// 
-			// pictureBoxResize
-			// 
-			this.pictureBoxResize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.pictureBoxResize.Cursor = System.Windows.Forms.Cursors.SizeNWSE;
-			this.pictureBoxResize.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxResize.Image")));
-			this.pictureBoxResize.Location = new System.Drawing.Point(1046, 704);
-			this.pictureBoxResize.Name = "pictureBoxResize";
-			this.pictureBoxResize.Size = new System.Drawing.Size(24, 24);
-			this.pictureBoxResize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.pictureBoxResize.TabIndex = 2;
-			this.pictureBoxResize.TabStop = false;
-			this.pictureBoxResize.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBoxResize_MouseDown);
-			this.pictureBoxResize.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBoxResize_MouseMove);
-			this.pictureBoxResize.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBoxResize_MouseUp);
-			// 
 			// menuFlatButtonClose
 			// 
 			this.menuFlatButtonClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(211)))));
@@ -174,7 +96,7 @@ namespace QMag.Fenetres
 			this.menuFlatButtonClose.ForeColor = System.Drawing.Color.White;
 			this.menuFlatButtonClose.Image = ((System.Drawing.Image)(resources.GetObject("menuFlatButtonClose.Image")));
 			this.menuFlatButtonClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.menuFlatButtonClose.Location = new System.Drawing.Point(0, 840);
+			this.menuFlatButtonClose.Location = new System.Drawing.Point(0, 910);
 			this.menuFlatButtonClose.Name = "menuFlatButtonClose";
 			this.menuFlatButtonClose.Size = new System.Drawing.Size(258, 70);
 			this.menuFlatButtonClose.TabIndex = 7;
@@ -182,6 +104,19 @@ namespace QMag.Fenetres
 			this.menuFlatButtonClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.menuFlatButtonClose.UseVisualStyleBackColor = false;
 			this.menuFlatButtonClose.Click += new System.EventHandler(this.buttonClose_Click);
+			// 
+			// panelSousMenuFournisseurs
+			// 
+			this.panelSousMenuFournisseurs.Controls.Add(this.menu_Fournisseurs_Reapprovisionner);
+			this.panelSousMenuFournisseurs.Controls.Add(this.menu_Fournisseurs_Commandes);
+			this.panelSousMenuFournisseurs.Controls.Add(this.menu_Fournisseurs_Ajouter);
+			this.panelSousMenuFournisseurs.Controls.Add(this.menu_Fournisseurs_Consulter);
+			this.panelSousMenuFournisseurs.Dock = System.Windows.Forms.DockStyle.Top;
+			this.panelSousMenuFournisseurs.Location = new System.Drawing.Point(0, 630);
+			this.panelSousMenuFournisseurs.MaximumSize = new System.Drawing.Size(275, 280);
+			this.panelSousMenuFournisseurs.Name = "panelSousMenuFournisseurs";
+			this.panelSousMenuFournisseurs.Size = new System.Drawing.Size(258, 280);
+			this.panelSousMenuFournisseurs.TabIndex = 13;
 			// 
 			// menu_Fournisseurs_Reapprovisionner
 			// 
@@ -265,7 +200,7 @@ namespace QMag.Fenetres
 			this.menu_Fournisseurs.ForeColor = System.Drawing.Color.White;
 			this.menu_Fournisseurs.Image = ((System.Drawing.Image)(resources.GetObject("menu_Fournisseurs.Image")));
 			this.menu_Fournisseurs.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.menu_Fournisseurs.Location = new System.Drawing.Point(0, 490);
+			this.menu_Fournisseurs.Location = new System.Drawing.Point(0, 560);
 			this.menu_Fournisseurs.Name = "menu_Fournisseurs";
 			this.menu_Fournisseurs.Size = new System.Drawing.Size(258, 70);
 			this.menu_Fournisseurs.TabIndex = 12;
@@ -273,6 +208,18 @@ namespace QMag.Fenetres
 			this.menu_Fournisseurs.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.menu_Fournisseurs.UseVisualStyleBackColor = false;
 			this.menu_Fournisseurs.Click += new System.EventHandler(this.Menu_Click);
+			// 
+			// panelSousMenuClients
+			// 
+			this.panelSousMenuClients.Controls.Add(this.menu_Clients_Commander);
+			this.panelSousMenuClients.Controls.Add(this.menu_Clients_Ajouter);
+			this.panelSousMenuClients.Controls.Add(this.menu_Clients_Consulter);
+			this.panelSousMenuClients.Dock = System.Windows.Forms.DockStyle.Top;
+			this.panelSousMenuClients.Location = new System.Drawing.Point(0, 350);
+			this.panelSousMenuClients.MaximumSize = new System.Drawing.Size(275, 210);
+			this.panelSousMenuClients.Name = "panelSousMenuClients";
+			this.panelSousMenuClients.Size = new System.Drawing.Size(258, 210);
+			this.panelSousMenuClients.TabIndex = 12;
 			// 
 			// menu_Clients_Ajouter
 			// 
@@ -328,6 +275,17 @@ namespace QMag.Fenetres
 			this.menu_Clients.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.menu_Clients.UseVisualStyleBackColor = false;
 			this.menu_Clients.Click += new System.EventHandler(this.Menu_Click);
+			// 
+			// panelSousMenuStock
+			// 
+			this.panelSousMenuStock.Controls.Add(this.menu_Stock_Consulter);
+			this.panelSousMenuStock.Controls.Add(this.menu_Stock_Ajouter);
+			this.panelSousMenuStock.Dock = System.Windows.Forms.DockStyle.Top;
+			this.panelSousMenuStock.Location = new System.Drawing.Point(0, 140);
+			this.panelSousMenuStock.MaximumSize = new System.Drawing.Size(275, 140);
+			this.panelSousMenuStock.Name = "panelSousMenuStock";
+			this.panelSousMenuStock.Size = new System.Drawing.Size(258, 140);
+			this.panelSousMenuStock.TabIndex = 8;
 			// 
 			// menu_Stock_Consulter
 			// 
@@ -403,6 +361,30 @@ namespace QMag.Fenetres
 			this.menu_Accueil.UseVisualStyleBackColor = false;
 			this.menu_Accueil.Click += new System.EventHandler(this.Menu_Click);
 			// 
+			// panelContainer
+			// 
+			this.panelContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.panelContainer.Location = new System.Drawing.Point(272, 93);
+			this.panelContainer.Name = "panelContainer";
+			this.panelContainer.Size = new System.Drawing.Size(800, 637);
+			this.panelContainer.TabIndex = 4;
+			// 
+			// panelHeader
+			// 
+			this.panelHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(101)))), ((int)(((byte)(193)))));
+			this.panelHeader.Controls.Add(this.pictureBoxReduce);
+			this.panelHeader.Controls.Add(this.pictureBoxClose);
+			this.panelHeader.Controls.Add(this.pictureBox1);
+			this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
+			this.panelHeader.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.panelHeader.Location = new System.Drawing.Point(0, 0);
+			this.panelHeader.Name = "panelHeader";
+			this.panelHeader.Size = new System.Drawing.Size(1072, 94);
+			this.panelHeader.TabIndex = 5;
+			this.panelHeader.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelHeader_MouseMove);
+			// 
 			// pictureBoxReduce
 			// 
 			this.pictureBoxReduce.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -441,6 +423,44 @@ namespace QMag.Fenetres
 			this.pictureBox1.TabIndex = 0;
 			this.pictureBox1.TabStop = false;
 			// 
+			// timerMenuDeroulant
+			// 
+			this.timerMenuDeroulant.Interval = 15;
+			this.timerMenuDeroulant.Tick += new System.EventHandler(this.timerMenuDeroulant_Tick);
+			// 
+			// pictureBoxResize
+			// 
+			this.pictureBoxResize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.pictureBoxResize.Cursor = System.Windows.Forms.Cursors.SizeNWSE;
+			this.pictureBoxResize.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxResize.Image")));
+			this.pictureBoxResize.Location = new System.Drawing.Point(1046, 704);
+			this.pictureBoxResize.Name = "pictureBoxResize";
+			this.pictureBoxResize.Size = new System.Drawing.Size(24, 24);
+			this.pictureBoxResize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.pictureBoxResize.TabIndex = 2;
+			this.pictureBoxResize.TabStop = false;
+			this.pictureBoxResize.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBoxResize_MouseDown);
+			this.pictureBoxResize.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBoxResize_MouseMove);
+			this.pictureBoxResize.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBoxResize_MouseUp);
+			// 
+			// menu_Clients_Commander
+			// 
+			this.menu_Clients_Commander.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(245)))));
+			this.menu_Clients_Commander.FlatAppearance.BorderSize = 0;
+			this.menu_Clients_Commander.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.menu_Clients_Commander.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.menu_Clients_Commander.ForeColor = System.Drawing.Color.White;
+			this.menu_Clients_Commander.Image = ((System.Drawing.Image)(resources.GetObject("menu_Clients_Commander.Image")));
+			this.menu_Clients_Commander.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.menu_Clients_Commander.Location = new System.Drawing.Point(0, 140);
+			this.menu_Clients_Commander.Name = "menu_Clients_Commander";
+			this.menu_Clients_Commander.Size = new System.Drawing.Size(275, 70);
+			this.menu_Clients_Commander.TabIndex = 11;
+			this.menu_Clients_Commander.Text = "   Commander";
+			this.menu_Clients_Commander.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+			this.menu_Clients_Commander.UseVisualStyleBackColor = false;
+			this.menu_Clients_Commander.Click += new System.EventHandler(this.Menu_Click);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -467,10 +487,10 @@ namespace QMag.Fenetres
 			this.panelSousMenuClients.ResumeLayout(false);
 			this.panelSousMenuStock.ResumeLayout(false);
 			this.panelHeader.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.pictureBoxResize)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxReduce)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBoxResize)).EndInit();
 			this.ResumeLayout(false);
 
         }
@@ -500,6 +520,7 @@ namespace QMag.Fenetres
 		private MenuFlatButton menu_Fournisseurs;
 		private MenuFlatButton menu_Fournisseurs_Commandes;
 		private MenuFlatButton menu_Fournisseurs_Reapprovisionner;
+		private MenuFlatButton menu_Clients_Commander;
 	}
 }
 

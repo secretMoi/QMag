@@ -3,6 +3,7 @@ using System.Drawing;
 using Controls;
 using Projet_magasin.Classes;
 using Projet_magasin.Gestion;
+using QMag.Core;
 
 namespace QMag.Pages.Stock
 {
@@ -41,8 +42,8 @@ namespace QMag.Pages.Stock
 			flatTextBoxNom.Text = stock.nom;
 			flatTextBoxQuantiteActuelle.Text = stock.quantiteActuelle.ToString();
 			flatTextBoxQuantiteMin.Text = stock.quentiteMin.ToString();
-			flatTextBoxPrixAchat.Text = stock.prix_achat.ToString();
-			flatTextBoxPrixVente.Text = stock.prix_vente.ToString();
+			flatTextBoxPrixAchat.Text = Money.Round(stock.prix_achat).ToString();
+			flatTextBoxPrixVente.Text = Money.Round(stock.prix_vente).ToString();
 		}
 
 		private void flatButtonAjouter_Click(object sender, EventArgs e)
