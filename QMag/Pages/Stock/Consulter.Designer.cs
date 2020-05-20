@@ -29,6 +29,7 @@
 		private void InitializeComponent()
 		{
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.flatButtonHtml = new QMag.Controls.Buttons.FlatButton();
 			this.flatLabelTitre = new QMag.Controls.FlatLabel();
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.flatDataGridView1 = new QMag.Controls.FlatDataGridView();
@@ -46,6 +47,22 @@
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(1856, 220);
 			this.panel1.TabIndex = 6;
+			// 
+			// flatButtonHtml
+			// 
+			this.flatButtonHtml.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.flatButtonHtml.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(245)))));
+			this.flatButtonHtml.FlatAppearance.BorderSize = 0;
+			this.flatButtonHtml.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.flatButtonHtml.Font = new System.Drawing.Font("Yu Gothic UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.flatButtonHtml.ForeColor = System.Drawing.Color.White;
+			this.flatButtonHtml.Location = new System.Drawing.Point(1593, 139);
+			this.flatButtonHtml.Name = "flatButtonHtml";
+			this.flatButtonHtml.Size = new System.Drawing.Size(239, 63);
+			this.flatButtonHtml.TabIndex = 3;
+			this.flatButtonHtml.Text = "Vue HTML";
+			this.flatButtonHtml.UseVisualStyleBackColor = false;
+			this.flatButtonHtml.Click += new System.EventHandler(this.flatButtonHtml_Click);
 			// 
 			// flatLabelTitre
 			// 
@@ -83,6 +100,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+			this.Controls.Add(this.flatButtonHtml);
 			this.Controls.Add(this.panel2);
 			this.Controls.Add(this.panel1);
 			this.Name = "Consulter";
@@ -100,5 +118,6 @@
 		private Controls.FlatLabel flatLabelTitre;
 		private System.Windows.Forms.Panel panel2;
 		private Controls.FlatDataGridView flatDataGridView1;
+		private Controls.Buttons.FlatButton flatButtonHtml;
 	}
 }

@@ -87,5 +87,29 @@ namespace QMag.Pages.Stock
 
 			}
 		}
+
+		private void flatButtonHtml_Click(object sender, EventArgs e)
+		{
+			HtmlView html = new HtmlView("Stock", 5);
+
+			html.GenerateColumn(
+				"Nom",
+				"Quantité Actuelle",
+				"Quantité minimale",
+				"Prix d'achat",
+				"Prix de vente"
+			);
+
+			foreach (DataGridViewRow row in flatDataGridView1.Rows)
+			{
+				foreach (DataGridViewCell cell in row.Cells)
+				{
+					if(cell.ColumnIndex < 5)
+						html.GenerateBody(cell.Value.ToString());
+				}
+			}
+
+			html.SaveTo("test01");
+		}
 	}
 }

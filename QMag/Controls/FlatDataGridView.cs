@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Reflection;
 using System.Windows.Forms;
 using Controls;
 using Core;
@@ -43,6 +45,12 @@ namespace QMag.Controls
 			dataGridView.RowTemplate.Height = 38;
 
 			dataGridView.CellMouseEnter += Cliquable; // event lorsque le curseur entre dans une cellule
+
+			// active le double buffer pour rendre le redimensionnement plus fluide
+			Type dgvType = dataGridView.GetType();
+			PropertyInfo pi = dgvType.GetProperty("DoubleBuffered",
+				BindingFlags.Instance | BindingFlags.NonPublic);
+			pi.SetValue(dataGridView, true, null);
 		}
 
 		// permet de subscribe une méthode à l'event

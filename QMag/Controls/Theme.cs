@@ -15,6 +15,10 @@ namespace Controls
         public static readonly string TypeFace = "Yu Gothic UI";
         public static readonly Font Font = new Font(TypeFace, TextSize);
 
-
+        // converti la classe couleur en code couleur hexa
+        public static string ColorToHex(Color color)
+        {
+	        return "#" + color.R.ToString("X2") + color.G.ToString("X2") + color.B.ToString("X2");
+        }
     }
 }

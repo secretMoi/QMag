@@ -164,7 +164,6 @@ namespace QMag.Pages
 			this.BackColor = System.Drawing.Color.White;
 			this.Controls.Add(this.panel2);
 			this.Controls.Add(this.panel1);
-			this.DoubleBuffered = true;
 			this.Name = "Accueil";
 			this.Size = new System.Drawing.Size(1856, 893);
 			this.panel1.ResumeLayout(false);
