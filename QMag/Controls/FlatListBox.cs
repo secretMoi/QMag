@@ -81,7 +81,7 @@ namespace QMag.Controls
 				flatButton.Click += click; // abonne la fonction de retour à l'event click du bouton
 			flatButton.Click += Click; // abonne la fonction de cette classe, permettant d'ouvrir/fermer le menu
 
-			if (_elements.Count == 1)
+			if (_elements.Count == 1) // si c'est le premier élément, on rajoute l'espace pour les 2 flèches
 			{
 				_vitesse += 2 * _vitesseOrigine; // augmente la vitesse à chaque création de bouton pour que le temps d'ouverture/fermeture reste le même
 
@@ -173,7 +173,7 @@ namespace QMag.Controls
 		[Description("Text"), Category("Data"), Browsable(true)]
 		public new string Text
 		{
-			get => labelTitre.Text;
+			get => labelTitre.Text.Trim();
 			set => labelTitre.Text = value;
 		}
 
