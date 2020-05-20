@@ -20,7 +20,7 @@ namespace QMag.Controls
 		private const int _hauteurCase = 40; // hauteur d'une case
 
 		private readonly List<FlatButton> _elements; // liste des éléments
-		private int _nbElementsMax = 7; // nombre d'éléments max à afficher
+		private int _nbElementsMax = 6; // nombre d'éléments max à afficher
 		private int _idSelected; // contient l'id du dernier élément sélectionné
 
 		private readonly Dictionary<int, object> _donneMasquee;
@@ -81,7 +81,15 @@ namespace QMag.Controls
 				flatButton.Click += click; // abonne la fonction de retour à l'event click du bouton
 			flatButton.Click += Click; // abonne la fonction de cette classe, permettant d'ouvrir/fermer le menu
 
-			if (_elements.Count < _nbElementsMax) // évite que le menu n'aille trop bas
+			if (_elements.Count == 1)
+			{
+				_vitesse += 2 * _vitesseOrigine; // augmente la vitesse à chaque création de bouton pour que le temps d'ouverture/fermeture reste le même
+
+				panelCorps.MaximumSize = new Size(panelCorps.Width, panelCorps.MaximumSize.Height + _hauteurCase * 2);
+				MaximumSize = new Size(panelCorps.Width, MaximumSize.Height + _hauteurCase * 2);
+			}
+
+			if (_elements.Count <= _nbElementsMax - 2) // évite que le menu n'aille trop bas
 			{
 				_vitesse += _vitesseOrigine; // augmente la vitesse à chaque création de bouton pour que le temps d'ouverture/fermeture reste le même
 
@@ -90,7 +98,6 @@ namespace QMag.Controls
 			}
 
 			flatButtonDown.Location = new Point(0, (_elements.Count + 1) * _hauteurCase);
-
 
 			panelCorps.Controls.Add(flatButton);
 		}

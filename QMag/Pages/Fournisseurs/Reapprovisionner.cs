@@ -6,6 +6,7 @@ using Controls;
 using Core;
 using Projet_magasin.Classes;
 using Projet_magasin.Gestion;
+using QMag.Controls;
 using QMag.Core;
 using QMag.Fenetres;
 
@@ -28,7 +29,7 @@ namespace QMag.Pages.Fournisseurs
 
 			GetBdData();
 
-			flatLabelArticle.ForeColor = flatLabelQuantite.ForeColor = flatLabelTotal.ForeColor = flatLabelTotalMontant.ForeColor = Theme.BackDark;
+			flatLabelFournisseur.ForeColor = flatLabelArticle.ForeColor = flatLabelQuantite.ForeColor = flatLabelTotal.ForeColor = flatLabelTotalMontant.ForeColor = Theme.BackDark;
 		}
 
 		private void Reapprovisionner_Load(object sender, EventArgs e)
@@ -54,7 +55,6 @@ namespace QMag.Pages.Fournisseurs
 
 			if (colonne == flatDataGridView.Column["Editer"]?.DisplayIndex) // si la colonne cliquée correspond à l'édition
 			{
-				//flatListBoxArticle.Text = GetInDataGridView(ligne, colonneNom);
 				flatListBoxArticle.SelectId(_associeDbetDgv[ligne]);
 				flatTextBoxQuantite.Text = GetInDataGridView(ligne, colonneQuantite);
 				EnableEdit(true);
@@ -74,13 +74,12 @@ namespace QMag.Pages.Fournisseurs
 		// récupère les données de la bdd et les associe au formulaire
 		private void GetBdData()
 		{
-			List<C_Stock> liste = new G_Stock(Connexion).Lire("id");
+			List<C_Stock> listeArticles = new G_Stock(Connexion).Lire("id");
 
-			_articles = new List<ArticleEnregistrement>(liste.Count);
+			_articles = new List<ArticleEnregistrement>(listeArticles.Count);
 
-			int compteur = 0;
-
-			foreach (C_Stock article in liste)
+			// remplissage listbox articles
+			foreach (C_Stock article in listeArticles)
 			{
 				flatListBoxArticle.Add(article.nom); // ajout à la flatlist
 
@@ -91,12 +90,15 @@ namespace QMag.Pages.Fournisseurs
 						article.nom,
 						article.prix_achat
 					));
-
-				compteur++;
 			}
 
-			flatListBoxArticle.SelectId(0);
-			//flatListBoxArticle.Text = liste[0].nom; // mets en text de la listbox le premier article
+			flatListBoxArticle.SelectId(0); // mets en text de la listbox le premier article
+
+			// remplissage listbox fournisseurs
+			List<C_Fournisseurs> listeFournisseurs = new G_Fournisseurs(Connexion).Lire("id");
+			foreach (C_Fournisseurs fournisseur in listeFournisseurs)
+				flatListBoxFournisseur.Add(fournisseur.nom); // ajout à la flatlist
+
 		}
 
 		//COUCOU MON LOULOU, Ye te Nem!!! <3
@@ -110,7 +112,7 @@ namespace QMag.Pages.Fournisseurs
 		// initialise les colonnes
 		protected void SetColonnes()
 		{
-			_useGridView = new UseGridView("Article", "Quantité", "Coût unitaire");
+			_useGridView = new UseGridView("Article", "Quantité", "Coût unitaire", "Fournisseur");
 
 			flatDataGridView.SetColonnesCliquables(
 				_useGridView.CreateImageColumn("Editer", "Supprimer")
@@ -120,11 +122,8 @@ namespace QMag.Pages.Fournisseurs
 		// que faire lorsque l'on ajoute/modifie un item de la liste
 		private void Ajouter_Click(object sender, EventArgs e)
 		{
-			if (ChampsVides())
-			{
-				Dialog.Show("Veuillez remplir tous les champs !");
+			if (!ChampsValides())
 				return;
-			}
 
 			int id = flatListBoxArticle.IdSelected; // ne convient as à la modification (pas mis à jour vu que simple changement du texte)
 			int sommeQuantite = Convert.ToInt32(flatTextBoxQuantite.Text);
@@ -180,7 +179,6 @@ namespace QMag.Pages.Fournisseurs
 
 		private void ActualiseMontant()
 		{
-			// todo bug * nb articles
 			Money total = new Money(0);
 			int nombreArticles;
 			int id;
@@ -193,15 +191,25 @@ namespace QMag.Pages.Fournisseurs
 				total.Montant += Convert.ToDecimal(flatDataGridView.Get(new Couple(i, 2))) * nombreArticles;
 			}
 
-			int x = flatDataGridView.Rows.Count;
-
 			flatLabelTotalMontant.Text = total.ToString();
 		}
 
 		// action lors du click sur confirmer
 		private void flatButtonConfirmer_Click(object sender, EventArgs e)
 		{
-			//if() // todo compléter
+			if (flatDataGridView.Rows.Count < 1)
+			{
+				Dialog.Show("Aucun article à commander !");
+				return;
+			}
+
+			/*foreach (DataGridViewRowCollection ligne in flatDataGridView.Rows)
+			{
+				new G_Fournisseurs(Connexion).Modifier(
+					_idModification,
+					nom
+				);
+			}*/
 		}
 
 		// permet de passer ou quitter le mode édition
@@ -219,16 +227,24 @@ namespace QMag.Pages.Fournisseurs
 			}
 		}
 
-		private bool ChampsVides()
+		private bool ChampsValides()
 		{
-			//todo vérifier validité champ int
-			return flatListBoxArticle.Text == "" || flatTextBoxQuantite.Text == "";
-		}
+			bool resultat = true;
+			string messageErreur = "";
 
-		/*private void UpdateQuantite(int id, int quantite)
-		{
-			_articles[]
-		}*/
+			resultat &= flatListBoxArticle.Text != "" && flatTextBoxQuantite.Text != "";
+			if(!resultat)
+				messageErreur = "Veuillez remplir tous les champs !";
+
+			resultat &= int.TryParse(flatTextBoxQuantite.Text, out _);
+			if (!resultat)
+				messageErreur = "Le champs Quantité ne contient pas un nombre !";
+
+			if(!resultat)
+				Dialog.Show(messageErreur);
+
+			return resultat;
+		}
 
 		private class ArticleEnregistrement
 		{
