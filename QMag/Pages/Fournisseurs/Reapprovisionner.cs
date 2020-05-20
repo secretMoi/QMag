@@ -17,8 +17,8 @@ namespace QMag.Pages.Fournisseurs
 		private readonly Image _imageSupprimer = Image.FromFile("Ressources/Images/supprimer.png");
 		private readonly Image _imageEditer = Image.FromFile("Ressources/Images/editer.png");
 
-
-		private List<ArticleEnregistrement> _articles; // todo supprimer ?
+		private List<ArticleEnregistrement> _articles;
+		private readonly List<int> _associeDbetDgv = new List<int>(); // l'ordre de la liste sera le même que dans _articles
 
 		private bool _modeEdition = false;
 
@@ -54,7 +54,8 @@ namespace QMag.Pages.Fournisseurs
 
 			if (colonne == flatDataGridView.Column["Editer"]?.DisplayIndex) // si la colonne cliquée correspond à l'édition
 			{
-				flatListBoxArticle.Text = GetInDataGridView(ligne, colonneNom);
+				//flatListBoxArticle.Text = GetInDataGridView(ligne, colonneNom);
+				flatListBoxArticle.SelectId(_associeDbetDgv[ligne]);
 				flatTextBoxQuantite.Text = GetInDataGridView(ligne, colonneQuantite);
 				EnableEdit(true);
 			}
@@ -63,7 +64,10 @@ namespace QMag.Pages.Fournisseurs
 			{
 				DialogResult question = Dialog.ShowYesNo("Voulez-vous vraiment supprimer l'article " + GetInDataGridView(ligne, colonneNom) + " de la commande ?");
 				if (question == DialogResult.Yes)
+				{
 					flatDataGridView.RemoveRowAt(ligne);
+					ActualiseMontant();
+				}
 			}
 		}
 
@@ -80,6 +84,7 @@ namespace QMag.Pages.Fournisseurs
 			{
 				flatListBoxArticle.Add(article.nom); // ajout à la flatlist
 
+				// ajoute à notre liste arguments
 				_articles.Add(
 					new ArticleEnregistrement(
 						article.id,
@@ -87,11 +92,11 @@ namespace QMag.Pages.Fournisseurs
 						article.prix_achat
 					));
 
-				flatListBoxArticle.SetDataMasquee(compteur, _articles[_articles.Count - 1]);
 				compteur++;
 			}
 
-			flatListBoxArticle.Text = liste[0].nom; // mets en text de la listbox le premier article
+			flatListBoxArticle.SelectId(0);
+			//flatListBoxArticle.Text = liste[0].nom; // mets en text de la listbox le premier article
 		}
 
 		//COUCOU MON LOULOU, Ye te Nem!!! <3
@@ -121,14 +126,15 @@ namespace QMag.Pages.Fournisseurs
 				return;
 			}
 
-			int id = flatListBoxArticle.IdSelected;
+			int id = flatListBoxArticle.IdSelected; // ne convient as à la modification (pas mis à jour vu que simple changement du texte)
+			int sommeQuantite = Convert.ToInt32(flatTextBoxQuantite.Text);
 
-			if (_modeEdition)
+			if (_modeEdition) // mode Modifier
 			{
 				flatDataGridView.UpdateRowAt(
-					flatDataGridView.SelectedRow,
+					_associeDbetDgv.IndexOf(id),
 					flatListBoxArticle.Text,
-					flatTextBoxQuantite.Text,
+					sommeQuantite,
 					Money.Round(_articles[id].Prix),
 					_imageEditer,
 					_imageSupprimer
@@ -136,27 +142,36 @@ namespace QMag.Pages.Fournisseurs
 
 				EnableEdit(false);
 			}
-			else
+			else // mode Ajouter
 			{
-				_useGridView.Add(
-					flatListBoxArticle.Text,
-					flatTextBoxQuantite.Text,
-					Money.Round(_articles[id].Prix),
-					_imageEditer,
-					_imageSupprimer
-				);
+				if(!_associeDbetDgv.Contains(id)) // si la dgv ne contient pas déjà le même article
+				{
+					_useGridView.Add(
+						flatListBoxArticle.Text,
+						sommeQuantite,
+						Money.Round(_articles[id].Prix),
+						_imageEditer,
+						_imageSupprimer
+					);
 
-				//todo continuer
-				/*flatDataGridView.SetDataMasquee(
-					"id",
-					flatDataGridView.Rows.Count - 1,
-					_articles[flatListBoxArticle.IdSelected]
-				);
+					_associeDbetDgv.Add(id);
+				}
+				else // sinon on ajoute les quantités à celles déjà présentes
+				{
+					sommeQuantite += _articles[id].Quantite;
 
-				flatDataGridView.SetDataMasquee(
-					
-					);*/
+					flatDataGridView.UpdateRowAt(
+						_associeDbetDgv.IndexOf(id),
+						flatListBoxArticle.Text,
+						sommeQuantite,
+						Money.Round(_articles[id].Prix),
+						_imageEditer,
+						_imageSupprimer
+					);
+				}
 			}
+
+			_articles[id].Quantite = sommeQuantite; // mets à jour la classe arguments
 
 			// Actualisation du label montant
 			flatDataGridView.DataSource = _useGridView.Liens; // ajout(liage) des colonnes à la gridview
@@ -166,10 +181,19 @@ namespace QMag.Pages.Fournisseurs
 		private void ActualiseMontant()
 		{
 			// todo bug * nb articles
-			Money total = new Money();
+			Money total = new Money(0);
+			int nombreArticles;
+			int id;
 
 			for (int i = 0; i < flatDataGridView.Rows.Count; i++)
-				total.Montant += Convert.ToDecimal(flatDataGridView.Get(new Couple(i, 2)))/* * (decimal) flatDataGridView.GetDataMasquee("id", i)*/;
+			{
+				id = _associeDbetDgv[i];
+				nombreArticles = _articles[id].Quantite;
+
+				total.Montant += Convert.ToDecimal(flatDataGridView.Get(new Couple(i, 2))) * nombreArticles;
+			}
+
+			int x = flatDataGridView.Rows.Count;
 
 			flatLabelTotalMontant.Text = total.ToString();
 		}
@@ -197,8 +221,14 @@ namespace QMag.Pages.Fournisseurs
 
 		private bool ChampsVides()
 		{
+			//todo vérifier validité champ int
 			return flatListBoxArticle.Text == "" || flatTextBoxQuantite.Text == "";
 		}
+
+		/*private void UpdateQuantite(int id, int quantite)
+		{
+			_articles[]
+		}*/
 
 		private class ArticleEnregistrement
 		{
@@ -206,13 +236,12 @@ namespace QMag.Pages.Fournisseurs
 			{
 				Id = id;
 				Nom = nom;
-				//Quantite = quantite;
 				Prix = prix;
 			}
 
 			public int Id { get; set; }
 			public string Nom { get; set; }
-			//public int Quantite { get; set; }
+			public int Quantite { get; set; }
 			public decimal Prix { get; set; }
 		}
 	}

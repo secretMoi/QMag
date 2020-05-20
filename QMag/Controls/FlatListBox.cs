@@ -154,6 +154,15 @@ namespace QMag.Controls
 			timer.Start();
 		}
 
+		public void SelectId(int id)
+		{
+			if(id >= _elements.Count) return;
+
+			Text = _elements[id].Text; // change le texte
+
+			_idSelected = id; // trouve l'id
+		}
+
 		[Description("Text"), Category("Data"), Browsable(true)]
 		public new string Text
 		{

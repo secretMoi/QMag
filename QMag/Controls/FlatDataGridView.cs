@@ -102,7 +102,7 @@ namespace QMag.Controls
 		// code exécuté après le chargement de la dgv
 		private void dataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
 		{
-			if(dataGridView.Rows.Count > 0)
+			if(dataGridView.Rows.Count > 0) // vérifie qu'il y a bien des cellules pour ne pas provoquer de bug
 				dataGridView.FirstDisplayedCell.Selected = false; // désactive la sélection automatique
 		}
 
