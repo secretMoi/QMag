@@ -1,6 +1,6 @@
 ﻿namespace QMag.Pages.Fournisseurs
 {
-	partial class Commandes
+	partial class ConsulterDetailAchat
 	{
 		/// <summary> 
 		/// Variable nécessaire au concepteur.
@@ -56,9 +56,9 @@
 			this.flatLabelTitre.ForeColor = System.Drawing.Color.White;
 			this.flatLabelTitre.Location = new System.Drawing.Point(52, 99);
 			this.flatLabelTitre.Name = "flatLabelTitre";
-			this.flatLabelTitre.Size = new System.Drawing.Size(350, 37);
+			this.flatLabelTitre.Size = new System.Drawing.Size(394, 37);
 			this.flatLabelTitre.TabIndex = 0;
-			this.flatLabelTitre.Text = "Historique des commandes";
+			this.flatLabelTitre.Text = "Consultation d\'une commande";
 			this.flatLabelTitre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// panelCorps
@@ -79,14 +79,14 @@
 			this.flatDataGridView.Size = new System.Drawing.Size(1856, 673);
 			this.flatDataGridView.TabIndex = 0;
 			// 
-			// Commandes
+			// ConsulterDetailAchat
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
 			this.Controls.Add(this.panelCorps);
 			this.Controls.Add(this.panelTitre);
-			this.Name = "Commandes";
-			this.Load += new System.EventHandler(this.Commandes_Load);
+			this.Name = "ConsulterDetailAchat";
+			this.Load += new System.EventHandler(this.ConsulterDetailAchat_Load);
 			this.panelTitre.ResumeLayout(false);
 			this.panelTitre.PerformLayout();
 			this.panelCorps.ResumeLayout(false);

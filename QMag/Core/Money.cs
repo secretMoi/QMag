@@ -16,6 +16,11 @@ namespace QMag.Core
 			return _montant + " €";
 		}
 
+		public static string Display(decimal montant)
+		{
+			return Round(montant) + " €";
+		}
+
 		public static decimal Round(decimal montant)
 		{
 			return decimal.Round(montant, 2);

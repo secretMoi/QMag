@@ -44,7 +44,7 @@
 			this.panelTitre.Location = new System.Drawing.Point(0, 0);
 			this.panelTitre.MaximumSize = new System.Drawing.Size(0, 220);
 			this.panelTitre.Name = "panelTitre";
-			this.panelTitre.Size = new System.Drawing.Size(1039, 220);
+			this.panelTitre.Size = new System.Drawing.Size(1856, 220);
 			this.panelTitre.TabIndex = 10;
 			// 
 			// flatLabelTitre
@@ -67,7 +67,7 @@
 			this.panelCorps.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panelCorps.Location = new System.Drawing.Point(0, 220);
 			this.panelCorps.Name = "panelCorps";
-			this.panelCorps.Size = new System.Drawing.Size(1039, 673);
+			this.panelCorps.Size = new System.Drawing.Size(1856, 673);
 			this.panelCorps.TabIndex = 11;
 			// 
 			// flatDataGridView
@@ -76,7 +76,7 @@
 			this.flatDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.flatDataGridView.Location = new System.Drawing.Point(0, 0);
 			this.flatDataGridView.Name = "flatDataGridView";
-			this.flatDataGridView.Size = new System.Drawing.Size(1039, 673);
+			this.flatDataGridView.Size = new System.Drawing.Size(1856, 673);
 			this.flatDataGridView.TabIndex = 0;
 			// 
 			// Consulter
@@ -86,7 +86,6 @@
 			this.Controls.Add(this.panelCorps);
 			this.Controls.Add(this.panelTitre);
 			this.Name = "Consulter";
-			this.Size = new System.Drawing.Size(1039, 893);
 			this.Load += new System.EventHandler(this.Consulter_Load);
 			this.panelTitre.ResumeLayout(false);
 			this.panelTitre.PerformLayout();

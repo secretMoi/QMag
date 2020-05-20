@@ -15,9 +15,11 @@ namespace QMag.Core.Pages
 
 		protected Image _imageEditer;
 		protected Image _imageSupprimer;
+		protected Image _imageVoir;
 
 		private bool _editEnabled = false;
 		private bool _deleteEnabled = false;
+		private bool _seeEnabled = false;
 
 		public BaseConsulter()
 		{
@@ -46,6 +48,8 @@ namespace QMag.Core.Pages
 				_flatDataGridView.Column["Editer"].Width = 150;
 			if(_deleteEnabled)
 				_flatDataGridView.Column["Supprimer"].Width = 200;
+			if (_seeEnabled)
+				_flatDataGridView.Column["Voir"].Width = 150;
 		}
 
 		protected void SetColonnes(params string[] titres)
@@ -73,6 +77,12 @@ namespace QMag.Core.Pages
 				_deleteEnabled = true;
 				SetColonnesCliquables("Supprimer");
 				_imageSupprimer = Image.FromFile("Ressources/Images/supprimer.png");
+			}
+			if (colonnes.Contains("voir"))
+			{
+				_seeEnabled = true;
+				SetColonnesCliquables("Voir");
+				_imageVoir = Image.FromFile("Ressources/Images/loupe.png");
 			}
 		}
 

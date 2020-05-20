@@ -216,6 +216,12 @@
     <Compile Include="Pages\Fournisseurs\Consulter.Designer.cs">
       <DependentUpon>Consulter.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Fournisseurs\ConsulterDetailAchat.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\Fournisseurs\ConsulterDetailAchat.Designer.cs">
+      <DependentUpon>ConsulterDetailAchat.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Fournisseurs\Reapprovisionner.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -293,6 +299,9 @@
     <EmbeddedResource Include="Pages\Fournisseurs\Consulter.resx">
       <DependentUpon>Consulter.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Fournisseurs\ConsulterDetailAchat.resx">
+      <DependentUpon>ConsulterDetailAchat.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pages\Fournisseurs\Reapprovisionner.resx">
       <DependentUpon>Reapprovisionner.cs</DependentUpon>
     </EmbeddedResource>
@@ -355,6 +364,9 @@
     <Content Include="Ressources\Images\logo.ico" />
     <Content Include="Ressources\Images\logo.png" />
     <Content Include="Ressources\Images\logout.png" />
+    <EmbeddedResource Include="Ressources\Images\loupe.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <Content Include="Ressources\Images\minus.png" />
     <EmbeddedResource Include="Ressources\Images\pack.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
