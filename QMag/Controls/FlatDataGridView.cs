@@ -13,8 +13,8 @@ namespace QMag.Controls
 		private readonly List<int> _colonnesCliquables;
 		private readonly Dictionary<int, object> _colonnesMasquees;
 
-		private Dictionary<int, Color> _rowsBackground;
-		private Dictionary<int, Color> _rowsForeground;
+		private Dictionary<int, Color> _rowsBackground; // lignes dont on change la couleur d'arrière-plan
+		private Dictionary<int, Color> _rowsForeground; // lignes dont on change la couleur du texte
 
 		public FlatDataGridView()
 		{
@@ -98,7 +98,12 @@ namespace QMag.Controls
 
 		public BindingSource DataSource
 		{
-			set => dataGridView.DataSource = value;
+			set
+			{
+				dataGridView.SuspendLayout();
+				dataGridView.DataSource = value;
+				dataGridView.ResumeLayout();
+			} 
 		}
 
 		public DataGridViewColumnCollection Column => dataGridView.Columns;
@@ -143,6 +148,7 @@ namespace QMag.Controls
 		public DataGridViewRowCollection Rows => dataGridView.Rows;
 		public int SelectedRow => dataGridView.CurrentCell.RowIndex;
 
+		// permet de changer la couleur d'arrière-plan d'une ligne demandée
 		public void BackgroundColor(int idLigne, Color couleur)
 		{
 			if(_rowsBackground == null)
@@ -152,6 +158,7 @@ namespace QMag.Controls
 			dataGridView.InvalidateRow(idLigne);
 		}
 
+		// permet de changer la couleur du texte d'une ligne demandée
 		public void ForegroundColor(int idLigne, Color couleur)
 		{
 			if (_rowsForeground == null)
@@ -161,8 +168,11 @@ namespace QMag.Controls
 			dataGridView.InvalidateRow(idLigne);
 		}
 
-		private void dataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+		// permet de redessiner les lignes avec d'autres effets visuels
+		private void dataGridView_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
 		{
+			dataGridView.SuspendLayout();
+
 			if (_rowsBackground != null)
 				foreach (KeyValuePair<int, Color> ligne in _rowsBackground)
 					for (int colonne = 0; colonne < dataGridView.ColumnCount; colonne++)
@@ -172,6 +182,8 @@ namespace QMag.Controls
 				foreach (KeyValuePair<int, Color> ligne in _rowsForeground)
 					for (int colonne = 0; colonne < dataGridView.ColumnCount; colonne++)
 						dataGridView.Rows[ligne.Key].Cells[colonne].Style.ForeColor = ligne.Value;
+
+			dataGridView.ResumeLayout();
 		}
 	}
 }
