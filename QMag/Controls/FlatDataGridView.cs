@@ -55,6 +55,10 @@ namespace QMag.Controls
 			PropertyInfo pi = dgvType.GetProperty("DoubleBuffered",
 				BindingFlags.Instance | BindingFlags.NonPublic);
 			pi.SetValue(dataGridView, true, null);
+
+			// désactive les barres de scroll mais rend le panel scrollable
+			dataGridView.ScrollBars = ScrollBars.None;
+			this.dataGridView.MouseWheel += new MouseEventHandler(Mouse_Wheel);
 		}
 
 		// permet de subscribe une méthode à l'event
@@ -169,6 +173,7 @@ namespace QMag.Controls
 		}
 
 		// permet de redessiner les lignes avec d'autres effets visuels
+		// cet event ne rafraichit que les lignes qui en ont besoin, efficace
 		private void dataGridView_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
 		{
 			dataGridView.SuspendLayout();
@@ -184,6 +189,16 @@ namespace QMag.Controls
 						dataGridView.Rows[ligne.Key].Cells[colonne].Style.ForeColor = ligne.Value;
 
 			dataGridView.ResumeLayout();
+		}
+
+		// refait le scroll
+		private void Mouse_Wheel(object sender, MouseEventArgs e)
+		{
+			// si on veut remonter
+			if (e.Delta > 0 && dataGridView.FirstDisplayedScrollingRowIndex > 0)
+				dataGridView.FirstDisplayedScrollingRowIndex--;
+			else if (e.Delta < 0) // descendre
+				dataGridView.FirstDisplayedScrollingRowIndex++;
 		}
 	}
 }
