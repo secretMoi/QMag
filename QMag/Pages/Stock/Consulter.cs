@@ -7,6 +7,7 @@ using Projet_magasin.Gestion;
 using Projet_magasin.Classes;
 using QMag.Core;
 using QMag.Core.Pages;
+using QMag.Fenetres;
 
 namespace QMag.Pages.Stock
 {
@@ -99,6 +100,11 @@ namespace QMag.Pages.Stock
 
 			}*/
 		}
+
+		/*private bool PeutSupprimer(int idStock)
+		{
+
+		}*/
 
 		private void flatButtonHtml_Click(object sender, EventArgs e)
 		{

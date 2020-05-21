@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using Controls;
 using Projet_magasin.Classes;
@@ -37,9 +38,10 @@ namespace QMag.Pages
 	        {
 		        panelAlerte.BackColor = Color.Tomato;
 		        flatLabelAlerte.ForeColor = Theme.Texte;
+				timer.Start();
 	        }
-	        else
-		        panelAlerte.Size = new Size(panelAlerte.Width, 0);
+
+			panelAlerte.Size = new Size(panelAlerte.Width, 0);
         }
 
 		private void panelAlerte_MouseClick(object sender, System.Windows.Forms.MouseEventArgs e)
@@ -50,6 +52,15 @@ namespace QMag.Pages
 		private void flatLabelAlerte_Click(object sender, System.EventArgs e)
 		{
 			panelAlerte_MouseClick(null, null);
+		}
+
+		private void timer_Tick(object sender, EventArgs e)
+		{
+			if(panelAlerte.Size.Height <= panelAlerte.MaximumSize.Height)
+				panelAlerte.Size = new Size(panelAlerte.Size.Width, panelAlerte.Size.Height + 1);
+
+			else
+				timer.Stop();
 		}
 	}
 }
