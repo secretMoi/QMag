@@ -33,18 +33,18 @@ namespace QMag.Pages
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Accueil));
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.panelAlerte = new System.Windows.Forms.Panel();
+			this.flatLabelAlerte = new QMag.Controls.FlatLabel();
 			this.buttonConnexion = new QMag.Controls.Buttons.FlatButton();
 			this.labelConnexion = new System.Windows.Forms.Label();
 			this.button1 = new System.Windows.Forms.Button();
 			this.button2 = new System.Windows.Forms.Button();
 			this.button3 = new System.Windows.Forms.Button();
 			this.panel2 = new System.Windows.Forms.Panel();
-			this.panelAlerte = new System.Windows.Forms.Panel();
-			this.flatLabelAlerte = new QMag.Controls.FlatLabel();
 			this.timer = new System.Windows.Forms.Timer(this.components);
 			this.panel1.SuspendLayout();
-			this.panel2.SuspendLayout();
 			this.panelAlerte.SuspendLayout();
+			this.panel2.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// panel1
@@ -58,6 +58,32 @@ namespace QMag.Pages
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(1856, 220);
 			this.panel1.TabIndex = 0;
+			// 
+			// panelAlerte
+			// 
+			this.panelAlerte.BackColor = System.Drawing.Color.White;
+			this.panelAlerte.Controls.Add(this.flatLabelAlerte);
+			this.panelAlerte.Dock = System.Windows.Forms.DockStyle.Top;
+			this.panelAlerte.Location = new System.Drawing.Point(0, 0);
+			this.panelAlerte.Margin = new System.Windows.Forms.Padding(0);
+			this.panelAlerte.MaximumSize = new System.Drawing.Size(0, 45);
+			this.panelAlerte.Name = "panelAlerte";
+			this.panelAlerte.Size = new System.Drawing.Size(1856, 45);
+			this.panelAlerte.TabIndex = 4;
+			this.panelAlerte.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panelAlerte_MouseClick);
+			// 
+			// flatLabelAlerte
+			// 
+			this.flatLabelAlerte.AutoSize = true;
+			this.flatLabelAlerte.Font = new System.Drawing.Font("Yu Gothic UI", 12.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.flatLabelAlerte.ForeColor = System.Drawing.Color.Black;
+			this.flatLabelAlerte.Location = new System.Drawing.Point(20, 10);
+			this.flatLabelAlerte.Name = "flatLabelAlerte";
+			this.flatLabelAlerte.Size = new System.Drawing.Size(769, 23);
+			this.flatLabelAlerte.TabIndex = 0;
+			this.flatLabelAlerte.Text = "Il existe des articles en quantité insuffisante ! Cliquez sur ce message pour con" +
+    "sulter l\'état du stock.";
+			this.flatLabelAlerte.Click += new System.EventHandler(this.flatLabelAlerte_Click);
 			// 
 			// buttonConnexion
 			// 
@@ -151,32 +177,6 @@ namespace QMag.Pages
 			this.panel2.Size = new System.Drawing.Size(1856, 590);
 			this.panel2.TabIndex = 4;
 			// 
-			// panelAlerte
-			// 
-			this.panelAlerte.BackColor = System.Drawing.Color.White;
-			this.panelAlerte.Controls.Add(this.flatLabelAlerte);
-			this.panelAlerte.Dock = System.Windows.Forms.DockStyle.Top;
-			this.panelAlerte.Location = new System.Drawing.Point(0, 0);
-			this.panelAlerte.Margin = new System.Windows.Forms.Padding(0);
-			this.panelAlerte.MaximumSize = new System.Drawing.Size(0, 45);
-			this.panelAlerte.Name = "panelAlerte";
-			this.panelAlerte.Size = new System.Drawing.Size(1856, 45);
-			this.panelAlerte.TabIndex = 4;
-			this.panelAlerte.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panelAlerte_MouseClick);
-			// 
-			// flatLabelAlerte
-			// 
-			this.flatLabelAlerte.AutoSize = true;
-			this.flatLabelAlerte.Font = new System.Drawing.Font("Yu Gothic UI", 12.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.flatLabelAlerte.ForeColor = System.Drawing.Color.Black;
-			this.flatLabelAlerte.Location = new System.Drawing.Point(20, 10);
-			this.flatLabelAlerte.Name = "flatLabelAlerte";
-			this.flatLabelAlerte.Size = new System.Drawing.Size(769, 23);
-			this.flatLabelAlerte.TabIndex = 0;
-			this.flatLabelAlerte.Text = "Il existe des articles en quantité insuffisante ! Cliquez sur ce message pour con" +
-    "sulter l\'état du stock.";
-			this.flatLabelAlerte.Click += new System.EventHandler(this.flatLabelAlerte_Click);
-			// 
 			// timer
 			// 
 			this.timer.Interval = 15;
@@ -193,9 +193,9 @@ namespace QMag.Pages
 			this.Size = new System.Drawing.Size(1856, 810);
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
-			this.panel2.ResumeLayout(false);
 			this.panelAlerte.ResumeLayout(false);
 			this.panelAlerte.PerformLayout();
+			this.panel2.ResumeLayout(false);
 			this.ResumeLayout(false);
 
         }

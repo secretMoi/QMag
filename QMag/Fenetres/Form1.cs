@@ -15,7 +15,7 @@ namespace QMag.Fenetres
 		private Size _ancienneTailleFenetre;
 
 		//private Panel _subMenuPanelToHide;
-		private List<Panel> _subMenuPanelToHide = new List<Panel>();
+		private readonly List<Panel> _subMenuPanelToHide = new List<Panel>();
 		private Panel _subMenuPanelToShow;
 		public Form1()
 		{

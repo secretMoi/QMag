@@ -238,6 +238,34 @@ namespace QMag.Pages.Fournisseurs
 			Dialog.Show("Commande passée au fournisseur " + flatListBoxFournisseur.Text);
 		}
 
+		//todo continuer articles insuffisants
+		private void buttonArticlesInsuffisants_Click(object sender, EventArgs e)
+		{
+			List<C_Stock> stocks = new G_Stock(Connexion).Lire("id");
+
+			foreach (C_Stock stock in stocks)
+			{
+				if (stock.quantiteActuelle < stock.quentiteMin)
+				{
+					_useGridView.Add(
+						stock.nom,
+						stock.quentiteMin - stock.quantiteActuelle,
+						Money.Round(stock.prix_achat),
+						_imageEditer,
+						_imageSupprimer
+					);
+
+					_associeArticleDbetDgv.Add(stock.id);
+
+					_articles[stock.id].Quantite = stock.quentiteMin - stock.quantiteActuelle; // mets à jour la classe arguments
+				}
+			}
+
+			// Actualisation du label montant
+			flatDataGridView.DataSource = _useGridView.Liens; // ajout(liage) des colonnes à la gridview
+			ActualiseMontant();
+		}
+
 		// permet de passer ou quitter le mode édition
 		private void EnableEdit(bool state)
 		{
