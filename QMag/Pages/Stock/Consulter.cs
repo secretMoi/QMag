@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Windows.Forms;
 using Projet_magasin.Gestion;
 using Projet_magasin.Classes;
 using QMag.Core;
 using QMag.Core.Pages;
 using QMag.Fenetres;
-
+//todo webview
 namespace QMag.Pages.Stock
 {
 	public partial class Consulter : BaseConsulter
@@ -90,26 +91,39 @@ namespace QMag.Pages.Stock
 
 		private void flatButtonHtml_Click(object sender, EventArgs e)
 		{
-			HtmlView html = new HtmlView("Stock", 5);
+			int nombreColonnes = 5;
 
-			html.GenerateColumn(
-				"Nom",
-				"Quantité Actuelle",
-				"Quantité minimale",
-				"Prix d'achat",
-				"Prix de vente"
-			);
+			object[] pageHtml = new string[
+			2 + // nom & nb colonnes
+			nombreColonnes + // les colonnes
+			flatDataGridView1.Rows.Count * nombreColonnes // ligne * colonnes pour les données
+			];
 
-			foreach (DataGridViewRow row in flatDataGridView1.Rows)
+			pageHtml[0] = "Stock"; // titre
+			pageHtml[1] = nombreColonnes.ToString(); // indique le nb de colonnes
+
+			int position = 2;
+
+			// rempli les colonnes
+			for (int i = 0; i < nombreColonnes; i++)
 			{
-				foreach (DataGridViewCell cell in row.Cells)
+				pageHtml[position] = flatDataGridView1.Column[i].Name;
+				position++;
+			}
+
+			// rempli les données
+			for (int ligne = 0; ligne < flatDataGridView1.Rows.Count; ligne++)
+			{
+				for (int colonne = 0; colonne < nombreColonnes; colonne++)
 				{
-					if(cell.ColumnIndex < 5)
-						html.GenerateBody(cell.Value.ToString());
+					pageHtml[position] = flatDataGridView1.Get(ligne, colonne);
+					position++;
 				}
 			}
 
-			html.SaveTo("test01");
+			// récupère le nom de la classe
+			Reflection reflection = new Reflection(GetType());
+			LoadPage(reflection.LastItemNamespace + ".VueHtml", pageHtml); // envoie les données à la page de visualisation
 		}
 	}
 }

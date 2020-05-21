@@ -119,12 +119,14 @@ namespace QMag.Controls
 				dataGridView.FirstDisplayedCell.Selected = false; // désactive la sélection automatique
 		}
 
+		// supprime une ligne à une position donnée
 		public void RemoveRowAt(int ligne)
 		{
 			DataGridViewRow dgvDelRow = dataGridView.Rows[ligne];
 			dataGridView.Rows.Remove(dgvDelRow);
 		}
 
+		// modifie une ligne à une position donnée
 		public void UpdateRowAt(int ligne, params object[] newData)
 		{
 			DataGridViewRow nouvelleLigne = dataGridView.Rows[ligne];
@@ -133,6 +135,7 @@ namespace QMag.Controls
 				nouvelleLigne.Cells[colonne].Value = newData[colonne];
 		}
 
+		// retourne une collection des lignes
 		public DataGridViewRowCollection Rows => dataGridView.Rows;
 		public int SelectedRow => dataGridView.CurrentCell.RowIndex;
 	}

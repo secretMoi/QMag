@@ -28,15 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // ThemePanel
-            // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackColor = System.Drawing.Color.White;
-            this.Name = "ThemePanel";
-            this.Size = new System.Drawing.Size(800, 600);
-            this.ResumeLayout(false);
+			this.SuspendLayout();
+			// 
+			// ThemePanel
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+			this.BackColor = System.Drawing.Color.White;
+			this.Name = "ThemePanel";
+			this.Size = new System.Drawing.Size(800, 600);
+			this.ResumeLayout(false);
 
         }
 

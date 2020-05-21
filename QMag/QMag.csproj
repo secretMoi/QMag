@@ -259,6 +259,12 @@
     <Compile Include="Pages\Stock\Consulter.Designer.cs">
       <DependentUpon>Consulter.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Stock\VueHtml.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\Stock\VueHtml.Designer.cs">
+      <DependentUpon>VueHtml.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Controls\Checkbox\RoundedCheckbox.resx">
@@ -338,6 +344,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\Stock\Consulter.resx">
       <DependentUpon>Consulter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Stock\VueHtml.resx">
+      <DependentUpon>VueHtml.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

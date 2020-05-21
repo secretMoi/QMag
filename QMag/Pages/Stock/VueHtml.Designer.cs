@@ -1,6 +1,6 @@
 ﻿namespace QMag.Pages.Stock
 {
-	partial class Consulter
+	partial class VueHtml
 	{
 		/// <summary> 
 		/// Variable nécessaire au concepteur.
@@ -32,7 +32,7 @@
 			this.flatLabelTitre = new QMag.Controls.FlatLabel();
 			this.flatButtonHtml = new QMag.Controls.Buttons.FlatButton();
 			this.panel2 = new System.Windows.Forms.Panel();
-			this.flatDataGridView1 = new QMag.Controls.FlatDataGridView();
+			this.webBrowser = new System.Windows.Forms.WebBrowser();
 			this.panel1.SuspendLayout();
 			this.panel2.SuspendLayout();
 			this.SuspendLayout();
@@ -46,7 +46,7 @@
 			this.panel1.MaximumSize = new System.Drawing.Size(0, 220);
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(1650, 220);
-			this.panel1.TabIndex = 6;
+			this.panel1.TabIndex = 9;
 			// 
 			// flatLabelTitre
 			// 
@@ -70,42 +70,42 @@
 			this.flatButtonHtml.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.flatButtonHtml.Font = new System.Drawing.Font("Yu Gothic UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.flatButtonHtml.ForeColor = System.Drawing.Color.White;
-			this.flatButtonHtml.Location = new System.Drawing.Point(1384, 130);
+			this.flatButtonHtml.Location = new System.Drawing.Point(1382, 138);
 			this.flatButtonHtml.Name = "flatButtonHtml";
 			this.flatButtonHtml.Size = new System.Drawing.Size(239, 63);
-			this.flatButtonHtml.TabIndex = 3;
-			this.flatButtonHtml.Text = "Vue HTML";
+			this.flatButtonHtml.TabIndex = 8;
+			this.flatButtonHtml.Text = "Exporter";
 			this.flatButtonHtml.UseVisualStyleBackColor = false;
 			this.flatButtonHtml.Click += new System.EventHandler(this.flatButtonHtml_Click);
 			// 
 			// panel2
 			// 
-			this.panel2.Controls.Add(this.flatDataGridView1);
+			this.panel2.Controls.Add(this.webBrowser);
 			this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panel2.Location = new System.Drawing.Point(0, 220);
 			this.panel2.Name = "panel2";
 			this.panel2.Size = new System.Drawing.Size(1650, 673);
-			this.panel2.TabIndex = 7;
+			this.panel2.TabIndex = 10;
 			// 
-			// flatDataGridView1
+			// webBrowser
 			// 
-			this.flatDataGridView1.BackColor = System.Drawing.Color.White;
-			this.flatDataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.flatDataGridView1.Location = new System.Drawing.Point(0, 0);
-			this.flatDataGridView1.Name = "flatDataGridView1";
-			this.flatDataGridView1.Size = new System.Drawing.Size(1650, 673);
-			this.flatDataGridView1.TabIndex = 0;
+			this.webBrowser.AllowNavigation = false;
+			this.webBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.webBrowser.Location = new System.Drawing.Point(0, 0);
+			this.webBrowser.MinimumSize = new System.Drawing.Size(20, 20);
+			this.webBrowser.Name = "webBrowser";
+			this.webBrowser.Size = new System.Drawing.Size(1650, 673);
+			this.webBrowser.TabIndex = 0;
 			// 
-			// Consulter
+			// VueHtml
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
 			this.Controls.Add(this.flatButtonHtml);
 			this.Controls.Add(this.panel2);
 			this.Controls.Add(this.panel1);
-			this.Name = "Consulter";
+			this.Name = "VueHtml";
 			this.Size = new System.Drawing.Size(1650, 893);
-			this.Load += new System.EventHandler(this.Consulter_Load);
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
 			this.panel2.ResumeLayout(false);
@@ -117,8 +117,8 @@
 
 		private System.Windows.Forms.Panel panel1;
 		private Controls.FlatLabel flatLabelTitre;
-		private System.Windows.Forms.Panel panel2;
-		private Controls.FlatDataGridView flatDataGridView1;
 		private Controls.Buttons.FlatButton flatButtonHtml;
+		private System.Windows.Forms.Panel panel2;
+		private System.Windows.Forms.WebBrowser webBrowser;
 	}
 }

@@ -104,6 +104,8 @@ namespace QMag.Core
 			File.WriteAllText(file + ".html", _htmlCode.ToString());
 		}
 
+		public string SourceCode => _htmlCode.ToString();
+
 		public int NombreColonnes
 		{
 			get => _nombreColonnes;
