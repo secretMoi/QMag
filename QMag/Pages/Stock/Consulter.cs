@@ -61,6 +61,9 @@ namespace QMag.Pages.Stock
 		{
 			foreach (C_Stock stock in _stocks)
 			{
+				if (stock.quantiteActuelle < stock.quentiteMin)
+					_ligneStockInsuffisant.Add(_useGridView.Count);
+
 				_useGridView.Add(
 					stock.nom,
 					stock.quantiteActuelle,
@@ -70,9 +73,6 @@ namespace QMag.Pages.Stock
 					_imageEditer/*,
 					_imageSupprimer*/
 				);
-
-				if(stock.quantiteActuelle < stock.quentiteMin)
-					_ligneStockInsuffisant.Add(_useGridView.Count);
 			}
 		}
 
