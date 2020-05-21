@@ -243,22 +243,51 @@ namespace QMag.Pages.Fournisseurs
 		{
 			List<C_Stock> stocks = new G_Stock(Connexion).Lire("id");
 
+			int compteurId = 0;
+			int quantite = 0;
+
 			foreach (C_Stock stock in stocks)
 			{
 				if (stock.quantiteActuelle < stock.quentiteMin)
 				{
-					_useGridView.Add(
-						stock.nom,
-						stock.quentiteMin - stock.quantiteActuelle,
-						Money.Round(stock.prix_achat),
-						_imageEditer,
-						_imageSupprimer
-					);
+					if (!_associeArticleDbetDgv.Contains(compteurId)) // si la dgv ne contient pas déjà le même article
+					{
+						quantite = stock.quentiteMin - stock.quantiteActuelle;
+						_useGridView.Add(
+							stock.nom,
+							quantite,
+							Money.Round(stock.prix_achat),
+							_imageEditer,
+							_imageSupprimer
+						);
 
-					_associeArticleDbetDgv.Add(stock.id);
+						_associeArticleDbetDgv.Add(compteurId);
+					}
+					else // sinon on ajoute les quantités à celles déjà présentes
+					{
+						//quantite = _articles[compteurId].Quantite;
 
-					_articles[stock.id].Quantite = stock.quentiteMin - stock.quantiteActuelle; // mets à jour la classe arguments
+						if (_articles[compteurId].Quantite + stock.quantiteActuelle < stock.quentiteMin) // si il faut encore des stocks supplémentaire
+						{
+							quantite = stock.quentiteMin - stock.quantiteActuelle;
+
+							flatDataGridView.UpdateRowAt(
+								_associeArticleDbetDgv.IndexOf(compteurId),
+								flatListBoxArticle.Text,
+								quantite,
+								Money.Round(stock.prix_achat),
+								_imageEditer,
+								_imageSupprimer
+							);
+						}
+					}
+					
+					if(quantite != 0)
+						_articles[compteurId].Quantite = quantite; // mets à jour la classe arguments
 				}
+
+				compteurId++;
+				quantite = 0;
 			}
 
 			// Actualisation du label montant
