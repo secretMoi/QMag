@@ -1,45 +1,55 @@
-﻿using Controls;
+﻿using System.Collections.Generic;
+using System.Drawing;
+using Controls;
+using Projet_magasin.Classes;
+using Projet_magasin.Gestion;
+using QMag.Core;
 
 namespace QMag.Pages
 {
     public partial class Accueil : ThemePanel
     {
+	    private readonly List<C_Stock> _stocks;
+
         public Accueil()
         {
             InitializeComponent();
 
-            /*ChangeEtatConnection(null, null);
+            _stocks = new G_Stock(Connexion).Lire("id");
 
-            Ssh.ConnectEvent += ChangeEtatConnection;
-            Ssh.DisconnectEvent += ChangeEtatConnection;*/
+            VerifieAlerte();
+		}
+
+        private void VerifieAlerte()
+        {
+	        bool alerte = false;
+
+	        foreach (C_Stock stock in _stocks)
+	        {
+		        if (stock.quantiteActuelle < stock.quentiteMin)
+		        {
+			        alerte = true;
+                    break;
+		        }
+	        }
+
+	        if (alerte) // si il y a au moins un article en quantité insuffisante
+	        {
+		        panelAlerte.BackColor = Color.Tomato;
+		        flatLabelAlerte.ForeColor = Theme.Texte;
+	        }
+	        else
+		        panelAlerte.Size = new Size(panelAlerte.Width, 0);
         }
 
-        /*public void ChangeEtatConnection(object sender, CommandEventArgs e)
-        {
-            if (InvokeRequired) // permet de lancer cette méthode via un autre thread
-            {
-                Invoque(ChangeEtatConnection, sender, e);
-                return;
-            }
+		private void panelAlerte_MouseClick(object sender, System.Windows.Forms.MouseEventArgs e)
+		{
+			LoadPage("Stock.Consulter"); // charge la page Consulter
+		}
 
-            if (Ssh.IsConnected)
-            {
-                labelConnexion.Text = @"Connexion établie";
-                buttonConnexion.Text = @"Se déconnecter";
-            }
-            else
-            {
-                labelConnexion.Text = @"Non connecté";
-                buttonConnexion.Text = @"Se connecter";
-            }
-        }
-
-        private void buttonConnexion_Click(object sender, System.EventArgs e)
-        {
-            if (Ssh.IsConnected)
-                Ssh.Disconnect();
-            else
-                Ssh.Connect();
-        }*/
-    }
+		private void flatLabelAlerte_Click(object sender, System.EventArgs e)
+		{
+			panelAlerte_MouseClick(null, null);
+		}
+	}
 }

@@ -39,9 +39,12 @@ namespace QMag.Pages
 			this.button2 = new System.Windows.Forms.Button();
 			this.button3 = new System.Windows.Forms.Button();
 			this.panel2 = new System.Windows.Forms.Panel();
+			this.panelAlerte = new System.Windows.Forms.Panel();
+			this.flatLabelAlerte = new QMag.Controls.FlatLabel();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.panel2.SuspendLayout();
+			this.panelAlerte.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// panel1
@@ -53,7 +56,7 @@ namespace QMag.Pages
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
 			this.panel1.Location = new System.Drawing.Point(0, 0);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(1650, 220);
+			this.panel1.Size = new System.Drawing.Size(1856, 220);
 			this.panel1.TabIndex = 0;
 			// 
 			// buttonConnexion
@@ -64,7 +67,7 @@ namespace QMag.Pages
 			this.buttonConnexion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.buttonConnexion.Font = new System.Drawing.Font("Yu Gothic UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.buttonConnexion.ForeColor = System.Drawing.Color.White;
-			this.buttonConnexion.Location = new System.Drawing.Point(1364, 127);
+			this.buttonConnexion.Location = new System.Drawing.Point(1570, 127);
 			this.buttonConnexion.Name = "buttonConnexion";
 			this.buttonConnexion.Size = new System.Drawing.Size(239, 63);
 			this.buttonConnexion.TabIndex = 2;
@@ -120,7 +123,7 @@ namespace QMag.Pages
 			this.button2.ForeColor = System.Drawing.Color.White;
 			this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
 			this.button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-			this.button2.Location = new System.Drawing.Point(741, 249);
+			this.button2.Location = new System.Drawing.Point(844, 249);
 			this.button2.Name = "button2";
 			this.button2.Size = new System.Drawing.Size(175, 175);
 			this.button2.TabIndex = 2;
@@ -138,7 +141,7 @@ namespace QMag.Pages
 			this.button3.ForeColor = System.Drawing.Color.White;
 			this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
 			this.button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-			this.button3.Location = new System.Drawing.Point(1428, 249);
+			this.button3.Location = new System.Drawing.Point(1634, 249);
 			this.button3.Name = "button3";
 			this.button3.Size = new System.Drawing.Size(175, 175);
 			this.button3.TabIndex = 3;
@@ -148,14 +151,39 @@ namespace QMag.Pages
 			// 
 			// panel2
 			// 
+			this.panel2.Controls.Add(this.panelAlerte);
 			this.panel2.Controls.Add(this.button3);
 			this.panel2.Controls.Add(this.button1);
 			this.panel2.Controls.Add(this.button2);
 			this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panel2.Location = new System.Drawing.Point(0, 220);
 			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(1650, 673);
+			this.panel2.Size = new System.Drawing.Size(1856, 673);
 			this.panel2.TabIndex = 4;
+			// 
+			// panelAlerte
+			// 
+			this.panelAlerte.BackColor = System.Drawing.Color.White;
+			this.panelAlerte.Controls.Add(this.flatLabelAlerte);
+			this.panelAlerte.Dock = System.Windows.Forms.DockStyle.Top;
+			this.panelAlerte.Location = new System.Drawing.Point(0, 0);
+			this.panelAlerte.Name = "panelAlerte";
+			this.panelAlerte.Size = new System.Drawing.Size(1856, 43);
+			this.panelAlerte.TabIndex = 4;
+			this.panelAlerte.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panelAlerte_MouseClick);
+			// 
+			// flatLabelAlerte
+			// 
+			this.flatLabelAlerte.AutoSize = true;
+			this.flatLabelAlerte.Font = new System.Drawing.Font("Yu Gothic UI", 12.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.flatLabelAlerte.ForeColor = System.Drawing.Color.Black;
+			this.flatLabelAlerte.Location = new System.Drawing.Point(20, 8);
+			this.flatLabelAlerte.Name = "flatLabelAlerte";
+			this.flatLabelAlerte.Size = new System.Drawing.Size(769, 23);
+			this.flatLabelAlerte.TabIndex = 0;
+			this.flatLabelAlerte.Text = "Il existe des articles en quantité insuffisante ! Cliquez sur ce message pour con" +
+    "sulter l\'état du stock.";
+			this.flatLabelAlerte.Click += new System.EventHandler(this.flatLabelAlerte_Click);
 			// 
 			// Accueil
 			// 
@@ -165,11 +193,13 @@ namespace QMag.Pages
 			this.Controls.Add(this.panel2);
 			this.Controls.Add(this.panel1);
 			this.Name = "Accueil";
-			this.Size = new System.Drawing.Size(1650, 893);
+			this.Size = new System.Drawing.Size(1856, 893);
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.panel2.ResumeLayout(false);
+			this.panelAlerte.ResumeLayout(false);
+			this.panelAlerte.PerformLayout();
 			this.ResumeLayout(false);
 
         }
@@ -184,5 +214,7 @@ namespace QMag.Pages
         private System.Windows.Forms.Button button3;
         private FlatButton buttonConnexion;
         private System.Windows.Forms.Panel panel2;
-    }
+		private System.Windows.Forms.Panel panelAlerte;
+		private Controls.FlatLabel flatLabelAlerte;
+	}
 }
