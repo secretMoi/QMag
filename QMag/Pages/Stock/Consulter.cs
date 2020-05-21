@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using Controls;
 using Projet_magasin.Gestion;
 using Projet_magasin.Classes;
 using QMag.Core;
@@ -38,11 +39,11 @@ namespace QMag.Pages.Stock
 
 			AfterLoad();
 
-			for (int idLigne = 0; idLigne < _ligneStockInsuffisant.Count; idLigne++)
+			foreach (int idLigne in _ligneStockInsuffisant)
 			{
 				flatDataGridView1.BackgroundColor(idLigne, Color.Tomato);
+				flatDataGridView1.ForegroundColor(idLigne, Theme.Texte);
 			}
-
 		}
 
 		/*public override void Hydrate(params object[] args)
@@ -71,7 +72,7 @@ namespace QMag.Pages.Stock
 				);
 
 				if(stock.quantiteActuelle < stock.quentiteMin)
-					_ligneStockInsuffisant.Add(flatDataGridView1.Rows.Count);
+					_ligneStockInsuffisant.Add(_useGridView.Count);
 			}
 		}
 

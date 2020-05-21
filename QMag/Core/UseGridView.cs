@@ -10,6 +10,7 @@ namespace QMag.Core
 		private readonly DataTable _table;
 		private readonly BindingSource _liens;
 		private FlatDataGridView _flatDataGridView;
+		private int _nombreElements;
 
 		public UseGridView()
 		{
@@ -47,15 +48,10 @@ namespace QMag.Core
 		{
 			_table.Rows.Add(records);
 			_liens.DataSource = _table;
+			_nombreElements++;
 		}
 
+		public int Count => _nombreElements;
 		public BindingSource Liens => _liens;
-
-		public FlatDataGridView SetFlatDataGridView
-		{
-			set => _flatDataGridView = value;
-		}
-
-		public int ColumnCount => _flatDataGridView.Column.Count;
 	}
 }
