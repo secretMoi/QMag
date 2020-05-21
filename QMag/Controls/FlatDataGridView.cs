@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Reflection;
 using System.Windows.Forms;
 using Controls;
@@ -11,6 +12,10 @@ namespace QMag.Controls
 	{
 		private readonly List<int> _colonnesCliquables;
 		private readonly Dictionary<int, object> _colonnesMasquees;
+
+		private Dictionary<int, Color> _rowsBackground;
+		/*private int _ligneIdBack = -1;
+		private Color _ligneCouleurBack = default;*/
 
 		public FlatDataGridView()
 		{
@@ -47,10 +52,10 @@ namespace QMag.Controls
 			dataGridView.CellMouseEnter += Cliquable; // event lorsque le curseur entre dans une cellule
 
 			// active le double buffer pour rendre le redimensionnement plus fluide
-			Type dgvType = dataGridView.GetType();
+			/*Type dgvType = dataGridView.GetType();
 			PropertyInfo pi = dgvType.GetProperty("DoubleBuffered",
 				BindingFlags.Instance | BindingFlags.NonPublic);
-			pi.SetValue(dataGridView, true, null);
+			pi.SetValue(dataGridView, true, null);*/
 		}
 
 		// permet de subscribe une méthode à l'event
@@ -138,5 +143,37 @@ namespace QMag.Controls
 		// retourne une collection des lignes
 		public DataGridViewRowCollection Rows => dataGridView.Rows;
 		public int SelectedRow => dataGridView.CurrentCell.RowIndex;
+
+		public void BackgroundColor(int idLigne, Color couleur)
+		{
+			if(_rowsBackground == null)
+				_rowsBackground = new Dictionary<int, Color>();
+			_rowsBackground.Add(idLigne, couleur);
+
+			/*_ligneIdBack = idLigne;
+			_ligneCouleurBack = couleur;*/
+
+
+			dataGridView.InvalidateRow(idLigne);
+
+		}
+
+		private void dataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+		{
+			if (_rowsBackground != null)
+			{
+				//DataGridViewRow ligne = dataGridView.Rows[_ligneIdBack];
+
+				foreach (KeyValuePair<int, Color> ligne in _rowsBackground)
+					for (int colonne = 0; colonne < dataGridView.ColumnCount; colonne++)
+						dataGridView.Rows[ligne.Key].Cells[colonne].Style.BackColor = ligne.Value;
+
+
+				//ligne.DefaultCellStyle.BackColor = _ligneCouleurBack;
+
+				/*_ligneIdBack = -1;
+				_ligneCouleurBack = default;*/
+			}
+		}
 	}
 }

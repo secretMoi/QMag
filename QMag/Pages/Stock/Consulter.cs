@@ -1,27 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Drawing;
 using System.Windows.Forms;
 using Projet_magasin.Gestion;
 using Projet_magasin.Classes;
 using QMag.Core;
 using QMag.Core.Pages;
-using QMag.Fenetres;
-//todo webview
+
 namespace QMag.Pages.Stock
 {
 	public partial class Consulter : BaseConsulter
 	{
 		private readonly List<C_Stock> _stocks;
+		private readonly List<int> _ligneStockInsuffisant;
 
 		public Consulter()
 		{
 			InitializeComponent();
 
 			_stocks = new G_Stock(Connexion).Lire("id");
+			_ligneStockInsuffisant = new List<int>();
 		}
 
-		private void Consulter_Load(object sender, System.EventArgs e)
+		private void Consulter_Load(object sender, EventArgs e)
 		{
 			_flatDataGridView = flatDataGridView1;
 
@@ -32,13 +33,19 @@ namespace QMag.Pages.Stock
 				"Prix d'achat",
 				"Prix de vente"
 				);
-			EnableColumn("editer", "supprimer");
+			EnableColumn("editer");
 			RempliColonnes();
 
 			AfterLoad();
+
+			for (int idLigne = 0; idLigne < _ligneStockInsuffisant.Count; idLigne++)
+			{
+				flatDataGridView1.BackgroundColor(idLigne, Color.Tomato);
+			}
+
 		}
 
-		public override void Hydrate(params object[] args)
+		/*public override void Hydrate(params object[] args)
 		{
 			base.Hydrate(args);
 
@@ -47,7 +54,7 @@ namespace QMag.Pages.Stock
 				return;
 
 			Dialog.Show("L'article " + stock.nom + " a bien été supprimé.");
-		}
+		}*/
 
 		private void RempliColonnes()
 		{
@@ -59,9 +66,12 @@ namespace QMag.Pages.Stock
 					stock.quentiteMin,
 					Money.Display(stock.prix_achat),
 					Money.Display(stock.prix_vente),
-					_imageEditer,
-					_imageSupprimer
+					_imageEditer/*,
+					_imageSupprimer*/
 				);
+
+				if(stock.quantiteActuelle < stock.quentiteMin)
+					_ligneStockInsuffisant.Add(flatDataGridView1.Rows.Count);
 			}
 		}
 
@@ -76,7 +86,7 @@ namespace QMag.Pages.Stock
 			if (colonne == flatDataGridView1.Column["Editer"]?.DisplayIndex) // si la colonne cliquée correspond à l'édition
 				LoadPage(reflection.LastItemNamespace + ".Ajouter",  _stocks[ligne]); // charge la page Ajouter
 
-			else if (colonne == flatDataGridView1.Column["Supprimer"]?.DisplayIndex) // si la colonne cliquée correspond à la suppression
+			/*else if (colonne == flatDataGridView1.Column["Supprimer"]?.DisplayIndex) // si la colonne cliquée correspond à la suppression
 			{
 				string question = "l'article " + _stocks[ligne].nom + " ?";
 				if (DialogDelete(question) == DialogResult.Yes)
@@ -86,7 +96,7 @@ namespace QMag.Pages.Stock
 					LoadPage(reflection.LastItemNamespace + ".Consulter", _stocks[ligne]); // rafraichit la page
 				}
 
-			}
+			}*/
 		}
 
 		private void flatButtonHtml_Click(object sender, EventArgs e)

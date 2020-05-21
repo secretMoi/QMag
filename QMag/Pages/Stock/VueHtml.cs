@@ -39,7 +39,8 @@ namespace QMag.Pages.Stock
 
 		private void flatButtonHtml_Click(object sender, EventArgs e)
 		{
-			string date = DateTime.Now.ToString().Replace(' ', '_');
+			string date = DateTime.Now.ToString().Replace(':', '_');
+			date = date.Replace('/', '_');
 			_html.SaveTo(_titre + "_" + date);
 		}
 	}
