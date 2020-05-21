@@ -35,14 +35,6 @@ namespace Controls
 			lastOpenedForm?.LoadPage("QMag.Pages." + page, arguments); // charge la page Ajouter
 		}
 
-		protected void Invoque(/*EventHandler<CommandEventArgs> listePartitions, object sender, CommandEventArgs e*/)
-		{
-			/*BeginInvoke((MethodInvoker)delegate
-			{
-				listePartitions(sender, e);
-			});*/
-		}
-
 		public static void SetConnection(string connexion)
 		{
 			Connexion = connexion;

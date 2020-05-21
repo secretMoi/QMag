@@ -7,7 +7,6 @@ using Projet_magasin.Gestion;
 using Projet_magasin.Classes;
 using QMag.Core;
 using QMag.Core.Pages;
-using QMag.Fenetres;
 
 namespace QMag.Pages.Stock
 {
@@ -47,17 +46,6 @@ namespace QMag.Pages.Stock
 			}
 		}
 
-		/*public override void Hydrate(params object[] args)
-		{
-			base.Hydrate(args);
-
-			C_Stock stock = ArgumentsValides(typeof(C_Stock), args) as C_Stock;
-			if (stock == null)
-				return;
-
-			Dialog.Show("L'article " + stock.nom + " a bien été supprimé.");
-		}*/
-
 		private void RempliColonnes()
 		{
 			foreach (C_Stock stock in _stocks)
@@ -71,8 +59,7 @@ namespace QMag.Pages.Stock
 					stock.quentiteMin,
 					Money.Display(stock.prix_achat),
 					Money.Display(stock.prix_vente),
-					_imageEditer/*,
-					_imageSupprimer*/
+					_imageEditer
 				);
 			}
 		}
@@ -87,24 +74,7 @@ namespace QMag.Pages.Stock
 
 			if (colonne == flatDataGridView1.Column["Editer"]?.DisplayIndex) // si la colonne cliquée correspond à l'édition
 				LoadPage(reflection.LastItemNamespace + ".Ajouter",  _stocks[ligne]); // charge la page Ajouter
-
-			/*else if (colonne == flatDataGridView1.Column["Supprimer"]?.DisplayIndex) // si la colonne cliquée correspond à la suppression
-			{
-				string question = "l'article " + _stocks[ligne].nom + " ?";
-				if (DialogDelete(question) == DialogResult.Yes)
-				{
-					new G_Stock(Connexion).Supprimer(_stocks[ligne].id); // supprime l'enregistrement
-
-					LoadPage(reflection.LastItemNamespace + ".Consulter", _stocks[ligne]); // rafraichit la page
-				}
-
-			}*/
 		}
-
-		/*private bool PeutSupprimer(int idStock)
-		{
-
-		}*/
 
 		private void flatButtonHtml_Click(object sender, EventArgs e)
 		{

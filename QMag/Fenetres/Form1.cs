@@ -1,11 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using Controls;
 using QMag.Core;
 using QMag.Pages;
 
-//todo bug menu quand animation non terminée
 namespace QMag.Fenetres
 {
 	public partial class Form1 : FormBdd
@@ -14,7 +14,8 @@ namespace QMag.Fenetres
 		private Point _anciennePositionCurseur;
 		private Size _ancienneTailleFenetre;
 
-		private Panel _subMenuPanelToHide;
+		//private Panel _subMenuPanelToHide;
+		private List<Panel> _subMenuPanelToHide = new List<Panel>();
 		private Panel _subMenuPanelToShow;
 		public Form1()
 		{
@@ -39,14 +40,16 @@ namespace QMag.Fenetres
 
 		private void HideSubMenu()
 		{
-			if (panelSousMenuStock.Size.Height == panelSousMenuStock.MaximumSize.Height && panelSousMenuStock != _subMenuPanelToShow)
-				_subMenuPanelToHide = panelSousMenuStock;
+			if (panelSousMenuStock.Size.Height >= panelSousMenuStock.MinimumSize.Height && panelSousMenuStock != _subMenuPanelToShow)
+				_subMenuPanelToHide.Add(panelSousMenuStock);
 
-			else if (panelSousMenuClients.Size.Height == panelSousMenuClients.MaximumSize.Height && panelSousMenuClients != _subMenuPanelToShow)
-				_subMenuPanelToHide = panelSousMenuClients;
+			if (panelSousMenuClients.Size.Height >= panelSousMenuClients.MinimumSize.Height &&
+			         panelSousMenuClients != _subMenuPanelToShow)
+				_subMenuPanelToHide.Add(panelSousMenuClients);
 
-			else if (panelSousMenuFournisseurs.Size.Height == panelSousMenuFournisseurs.MaximumSize.Height && panelSousMenuFournisseurs != _subMenuPanelToShow)
-				_subMenuPanelToHide = panelSousMenuFournisseurs;
+			if (panelSousMenuFournisseurs.Size.Height >= panelSousMenuFournisseurs.MinimumSize.Height &&
+			         panelSousMenuFournisseurs != _subMenuPanelToShow)
+				_subMenuPanelToHide.Add(panelSousMenuFournisseurs);
 		}
 
 		private void ShowSubMenu(Panel subMenu)
@@ -70,7 +73,7 @@ namespace QMag.Fenetres
 
 			}
 			else
-				_subMenuPanelToHide = subMenu;
+				_subMenuPanelToHide.Add(subMenu);
 
 			timerMenuDeroulant.Start();
 		}
@@ -178,13 +181,16 @@ namespace QMag.Fenetres
 
 		private void timerMenuDeroulant_Tick(object sender, EventArgs e)
 		{
-			if (_subMenuPanelToHide != null)
+			foreach (Panel panelToHide in _subMenuPanelToHide.ToArray())
 			{
-				_subMenuPanelToHide.Height -= 7;
+					panelToHide.Height -= 7;
 
-				if (_subMenuPanelToHide.Size.Height == _subMenuPanelToHide.MinimumSize.Height)
-					_subMenuPanelToHide = null;
+					if (panelToHide.Size.Height == panelToHide.MinimumSize.Height)
+						_subMenuPanelToHide.Remove(panelToHide);
 			}
+
+			bool hideDone = !(_subMenuPanelToHide.Count > 0);
+
 			if (_subMenuPanelToShow != null)
 			{
 				_subMenuPanelToShow.Height += 7;
@@ -194,7 +200,7 @@ namespace QMag.Fenetres
 			}
 
 			// si tous les panels ont atteint leur position finale
-			if(_subMenuPanelToShow == null && _subMenuPanelToHide == null)
+			if(_subMenuPanelToShow == null && hideDone)
 				timerMenuDeroulant.Stop();
 		}
 
