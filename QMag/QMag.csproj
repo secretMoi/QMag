@@ -412,6 +412,9 @@
     <EmbeddedResource Include="Ressources\Images\editer.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ressources\Images\euro.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <Content Include="Ressources\Images\hard-disk-drive.png" />
     <Content Include="Ressources\Images\home.png" />
     <EmbeddedResource Include="Ressources\Images\jobs.png">

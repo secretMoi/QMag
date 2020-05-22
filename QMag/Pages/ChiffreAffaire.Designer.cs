@@ -28,13 +28,11 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.components = new System.ComponentModel.Container();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.buttonConnexion = new QMag.Controls.Buttons.FlatButton();
 			this.labelConnexion = new System.Windows.Forms.Label();
 			this.panelCorps = new System.Windows.Forms.Panel();
 			this.graphic1 = new QMag.Controls.Graphic();
-			this.timer = new System.Windows.Forms.Timer(this.components);
 			this.panel1.SuspendLayout();
 			this.panelCorps.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.graphic1)).BeginInit();
@@ -84,7 +82,7 @@
 			this.panelCorps.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panelCorps.Location = new System.Drawing.Point(0, 220);
 			this.panelCorps.Name = "panelCorps";
-			this.panelCorps.Size = new System.Drawing.Size(1856, 590);
+			this.panelCorps.Size = new System.Drawing.Size(1856, 673);
 			this.panelCorps.TabIndex = 6;
 			// 
 			// graphic1
@@ -92,13 +90,9 @@
 			this.graphic1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.graphic1.Location = new System.Drawing.Point(0, 0);
 			this.graphic1.Name = "graphic1";
-			this.graphic1.Size = new System.Drawing.Size(1856, 590);
+			this.graphic1.Size = new System.Drawing.Size(1856, 673);
 			this.graphic1.TabIndex = 0;
 			this.graphic1.TabStop = false;
-			// 
-			// timer
-			// 
-			this.timer.Interval = 15;
 			// 
 			// ChiffreAffaire
 			// 
@@ -107,7 +101,7 @@
 			this.Controls.Add(this.panelCorps);
 			this.Controls.Add(this.panel1);
 			this.Name = "ChiffreAffaire";
-			this.Size = new System.Drawing.Size(1856, 810);
+			this.Size = new System.Drawing.Size(1856, 893);
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
 			this.panelCorps.ResumeLayout(false);
@@ -122,7 +116,6 @@
 		private Controls.Buttons.FlatButton buttonConnexion;
 		private System.Windows.Forms.Label labelConnexion;
 		private System.Windows.Forms.Panel panelCorps;
-		private System.Windows.Forms.Timer timer;
 		private Controls.Graphic graphic1;
 	}
 }

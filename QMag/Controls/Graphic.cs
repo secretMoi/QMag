@@ -69,12 +69,12 @@ namespace QMag.Controls
 		{
 			base.OnSizeChanged(e);
 
-			_spirographe.Add(0, 0);
+			/*_spirographe.Add(0, 0);
 			_spirographe.Add(50, -50);
 			_spirographe.Add(60, -50);
 			_spirographe.Add(75, -75);
 			_spirographe.Add(100, 100);
-			_spirographe.Add(110, 100);
+			_spirographe.Add(110, 100);*/
 
 			Rafraichir();
 		}

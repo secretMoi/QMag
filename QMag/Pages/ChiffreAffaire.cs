@@ -8,9 +8,6 @@ namespace QMag.Pages
 {
 	public partial class ChiffreAffaire : ThemePanel
 	{
-		private Graphique _graphique;
-		private Spirographe _spirographe;
-
 		public ChiffreAffaire()
 		{
 			InitializeComponent();
@@ -19,19 +16,11 @@ namespace QMag.Pages
 
 		private void ChargeGraphique()
 		{
-			// parcourt la liste de points
-			/*foreach (Couple point in _spirographe.Points.Liste())
-			{
-				colonnes[0] = "Point " + compteur; // colonne Nom
-				colonnes[1] = point.X.ToString(CultureInfo.CurrentCulture); // colonne X
-				colonnes[2] = point.Y.ToString(CultureInfo.CurrentCulture); // colonne Y
+			Couple couple = new Couple(5,5);
 
-				listViewPoints.Items.Add(new ListViewItem(colonnes)); // Ajoute l'item
+			graphic1.AjoutPoint(couple);
 
-				compteur++;
-			}
-
-			userControl11.Rafraichir();*/
+			graphic1.Rafraichir();
 		}
 	}
 }

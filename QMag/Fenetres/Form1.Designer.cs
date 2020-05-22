@@ -50,6 +50,7 @@ namespace QMag.Fenetres
 			this.menu_Stock_Consulter = new QMag.Controls.Buttons.MenuFlatButton();
 			this.menu_Stock_Ajouter = new QMag.Controls.Buttons.MenuFlatButton();
 			this.menu_Stock = new QMag.Controls.Buttons.MenuFlatButton();
+			this.menu_ChiffreAffaire = new QMag.Controls.Buttons.MenuFlatButton();
 			this.menu_Accueil = new QMag.Controls.Buttons.MenuFlatButton();
 			this.panelContainer = new System.Windows.Forms.Panel();
 			this.panelHeader = new System.Windows.Forms.Panel();
@@ -58,7 +59,6 @@ namespace QMag.Fenetres
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.timerMenuDeroulant = new System.Windows.Forms.Timer(this.components);
 			this.pictureBoxResize = new System.Windows.Forms.PictureBox();
-			this.menu_ChiffreAffaire = new QMag.Controls.Buttons.MenuFlatButton();
 			this.panelMenu.SuspendLayout();
 			this.panelSousMenuFournisseurs.SuspendLayout();
 			this.panelSousMenuClients.SuspendLayout();
@@ -84,9 +84,9 @@ namespace QMag.Fenetres
 			this.panelMenu.Controls.Add(this.menu_ChiffreAffaire);
 			this.panelMenu.Controls.Add(this.menu_Accueil);
 			this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
-			this.panelMenu.Location = new System.Drawing.Point(0, 94);
+			this.panelMenu.Location = new System.Drawing.Point(0, 90);
 			this.panelMenu.Name = "panelMenu";
-			this.panelMenu.Size = new System.Drawing.Size(275, 636);
+			this.panelMenu.Size = new System.Drawing.Size(275, 700);
 			this.panelMenu.TabIndex = 3;
 			// 
 			// menuFlatButtonClose
@@ -382,6 +382,25 @@ namespace QMag.Fenetres
 			this.menu_Stock.UseVisualStyleBackColor = false;
 			this.menu_Stock.Click += new System.EventHandler(this.Menu_Click);
 			// 
+			// menu_ChiffreAffaire
+			// 
+			this.menu_ChiffreAffaire.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(211)))));
+			this.menu_ChiffreAffaire.Dock = System.Windows.Forms.DockStyle.Top;
+			this.menu_ChiffreAffaire.FlatAppearance.BorderSize = 0;
+			this.menu_ChiffreAffaire.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.menu_ChiffreAffaire.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.menu_ChiffreAffaire.ForeColor = System.Drawing.Color.White;
+			this.menu_ChiffreAffaire.Image = ((System.Drawing.Image)(resources.GetObject("menu_ChiffreAffaire.Image")));
+			this.menu_ChiffreAffaire.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.menu_ChiffreAffaire.Location = new System.Drawing.Point(0, 70);
+			this.menu_ChiffreAffaire.Name = "menu_ChiffreAffaire";
+			this.menu_ChiffreAffaire.Size = new System.Drawing.Size(258, 70);
+			this.menu_ChiffreAffaire.TabIndex = 14;
+			this.menu_ChiffreAffaire.Text = "   Chiffre d\'affaire";
+			this.menu_ChiffreAffaire.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+			this.menu_ChiffreAffaire.UseVisualStyleBackColor = false;
+			this.menu_ChiffreAffaire.Click += new System.EventHandler(this.Menu_Click);
+			// 
 			// menu_Accueil
 			// 
 			this.menu_Accueil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(211)))));
@@ -406,9 +425,9 @@ namespace QMag.Fenetres
 			this.panelContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.panelContainer.Location = new System.Drawing.Point(272, 93);
+			this.panelContainer.Location = new System.Drawing.Point(272, 90);
 			this.panelContainer.Name = "panelContainer";
-			this.panelContainer.Size = new System.Drawing.Size(800, 637);
+			this.panelContainer.Size = new System.Drawing.Size(800, 700);
 			this.panelContainer.TabIndex = 4;
 			// 
 			// panelHeader
@@ -421,7 +440,7 @@ namespace QMag.Fenetres
 			this.panelHeader.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.panelHeader.Location = new System.Drawing.Point(0, 0);
 			this.panelHeader.Name = "panelHeader";
-			this.panelHeader.Size = new System.Drawing.Size(1072, 94);
+			this.panelHeader.Size = new System.Drawing.Size(1072, 90);
 			this.panelHeader.TabIndex = 5;
 			this.panelHeader.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelHeader_MouseMove);
 			// 
@@ -429,7 +448,7 @@ namespace QMag.Fenetres
 			// 
 			this.pictureBoxReduce.Anchor = System.Windows.Forms.AnchorStyles.Right;
 			this.pictureBoxReduce.Image = global::QMag.Properties.Resources.minus;
-			this.pictureBoxReduce.Location = new System.Drawing.Point(949, 30);
+			this.pictureBoxReduce.Location = new System.Drawing.Point(949, 28);
 			this.pictureBoxReduce.Name = "pictureBoxReduce";
 			this.pictureBoxReduce.Size = new System.Drawing.Size(32, 32);
 			this.pictureBoxReduce.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -443,7 +462,7 @@ namespace QMag.Fenetres
 			// 
 			this.pictureBoxClose.Anchor = System.Windows.Forms.AnchorStyles.Right;
 			this.pictureBoxClose.Image = global::QMag.Properties.Resources.close;
-			this.pictureBoxClose.Location = new System.Drawing.Point(1011, 30);
+			this.pictureBoxClose.Location = new System.Drawing.Point(1011, 28);
 			this.pictureBoxClose.Name = "pictureBoxClose";
 			this.pictureBoxClose.Size = new System.Drawing.Size(32, 32);
 			this.pictureBoxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -473,7 +492,7 @@ namespace QMag.Fenetres
 			this.pictureBoxResize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.pictureBoxResize.Cursor = System.Windows.Forms.Cursors.SizeNWSE;
 			this.pictureBoxResize.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxResize.Image")));
-			this.pictureBoxResize.Location = new System.Drawing.Point(1046, 704);
+			this.pictureBoxResize.Location = new System.Drawing.Point(1046, 764);
 			this.pictureBoxResize.Name = "pictureBoxResize";
 			this.pictureBoxResize.Size = new System.Drawing.Size(24, 24);
 			this.pictureBoxResize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -483,31 +502,12 @@ namespace QMag.Fenetres
 			this.pictureBoxResize.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBoxResize_MouseMove);
 			this.pictureBoxResize.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBoxResize_MouseUp);
 			// 
-			// menu_ChiffreAffaire
-			// 
-			this.menu_ChiffreAffaire.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(211)))));
-			this.menu_ChiffreAffaire.Dock = System.Windows.Forms.DockStyle.Top;
-			this.menu_ChiffreAffaire.FlatAppearance.BorderSize = 0;
-			this.menu_ChiffreAffaire.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.menu_ChiffreAffaire.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.menu_ChiffreAffaire.ForeColor = System.Drawing.Color.White;
-			this.menu_ChiffreAffaire.Image = ((System.Drawing.Image)(resources.GetObject("menu_ChiffreAffaire.Image")));
-			this.menu_ChiffreAffaire.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.menu_ChiffreAffaire.Location = new System.Drawing.Point(0, 70);
-			this.menu_ChiffreAffaire.Name = "menu_ChiffreAffaire";
-			this.menu_ChiffreAffaire.Size = new System.Drawing.Size(258, 70);
-			this.menu_ChiffreAffaire.TabIndex = 14;
-			this.menu_ChiffreAffaire.Text = "   Chiffre d\'affaire";
-			this.menu_ChiffreAffaire.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-			this.menu_ChiffreAffaire.UseVisualStyleBackColor = false;
-			this.menu_ChiffreAffaire.Click += new System.EventHandler(this.Menu_Click);
-			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
 			this.BackColor = System.Drawing.Color.White;
-			this.ClientSize = new System.Drawing.Size(1072, 730);
+			this.ClientSize = new System.Drawing.Size(1072, 790);
 			this.Controls.Add(this.pictureBoxResize);
 			this.Controls.Add(this.panelMenu);
 			this.Controls.Add(this.panelHeader);
@@ -517,7 +517,7 @@ namespace QMag.Fenetres
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.KeyPreview = true;
-			this.MinimumSize = new System.Drawing.Size(1072, 730);
+			this.MinimumSize = new System.Drawing.Size(1072, 790);
 			this.Name = "Form1";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "MySyno";
