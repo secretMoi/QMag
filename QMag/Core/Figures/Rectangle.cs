@@ -1,6 +1,8 @@
 ﻿using System.Drawing;
+using Core;
+using Core.Figures;
 
-namespace Core.Figures
+namespace QMag.Core.Figures
 {
     public class Rectangle : Figure
     {

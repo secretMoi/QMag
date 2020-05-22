@@ -9,7 +9,7 @@ namespace QMag.Core
 	{
 		private readonly DataTable _table;
 		private readonly BindingSource _liens;
-		private FlatDataGridView _flatDataGridView;
+		//private FlatDataGridView _flatDataGridView;
 		private int _nombreElements;
 
 		public UseGridView()

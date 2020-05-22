@@ -5,10 +5,10 @@ using System.Reflection;
 using System.Windows.Forms;
 using Core;
 using Core.Figures;
-using Rectangle = Core.Figures.Rectangle;
+using Rectangle = QMag.Core.Figures.Rectangle;
 
 // todo juste garder la classe et retirer les designers
-namespace Controls
+namespace QMag.Controls
 {
     public partial class ElementGraphic
     {

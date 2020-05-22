@@ -2,12 +2,14 @@
 using System.Drawing;
 using System.Windows.Forms;
 using Core;
+using QMag.Controls;
+using QMag.Core;
 
 namespace Controls.Checkbox
 {
     public partial class RoundedCheckbox : UserControl
     {
-        private readonly ElementGraphic _element;
+        private readonly Element _element;
 
         private bool _state;
 
@@ -25,7 +27,7 @@ namespace Controls.Checkbox
         {
             InitializeComponent();
 
-            _element = new ElementGraphic(pictureBox);
+            _element = new Element(pictureBox);
 
             InitialiseCadre();
             InitialiseCercle();
