@@ -58,6 +58,7 @@ namespace QMag.Fenetres
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.timerMenuDeroulant = new System.Windows.Forms.Timer(this.components);
 			this.pictureBoxResize = new System.Windows.Forms.PictureBox();
+			this.menu_ChiffreAffaire = new QMag.Controls.Buttons.MenuFlatButton();
 			this.panelMenu.SuspendLayout();
 			this.panelSousMenuFournisseurs.SuspendLayout();
 			this.panelSousMenuClients.SuspendLayout();
@@ -80,6 +81,7 @@ namespace QMag.Fenetres
 			this.panelMenu.Controls.Add(this.menu_Clients);
 			this.panelMenu.Controls.Add(this.panelSousMenuStock);
 			this.panelMenu.Controls.Add(this.menu_Stock);
+			this.panelMenu.Controls.Add(this.menu_ChiffreAffaire);
 			this.panelMenu.Controls.Add(this.menu_Accueil);
 			this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
 			this.panelMenu.Location = new System.Drawing.Point(0, 94);
@@ -97,7 +99,7 @@ namespace QMag.Fenetres
 			this.menuFlatButtonClose.ForeColor = System.Drawing.Color.White;
 			this.menuFlatButtonClose.Image = ((System.Drawing.Image)(resources.GetObject("menuFlatButtonClose.Image")));
 			this.menuFlatButtonClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.menuFlatButtonClose.Location = new System.Drawing.Point(0, 980);
+			this.menuFlatButtonClose.Location = new System.Drawing.Point(0, 1050);
 			this.menuFlatButtonClose.Name = "menuFlatButtonClose";
 			this.menuFlatButtonClose.Size = new System.Drawing.Size(258, 70);
 			this.menuFlatButtonClose.TabIndex = 7;
@@ -113,7 +115,7 @@ namespace QMag.Fenetres
 			this.panelSousMenuFournisseurs.Controls.Add(this.menu_Fournisseurs_Ajouter);
 			this.panelSousMenuFournisseurs.Controls.Add(this.menu_Fournisseurs_Consulter);
 			this.panelSousMenuFournisseurs.Dock = System.Windows.Forms.DockStyle.Top;
-			this.panelSousMenuFournisseurs.Location = new System.Drawing.Point(0, 700);
+			this.panelSousMenuFournisseurs.Location = new System.Drawing.Point(0, 770);
 			this.panelSousMenuFournisseurs.MaximumSize = new System.Drawing.Size(275, 280);
 			this.panelSousMenuFournisseurs.Name = "panelSousMenuFournisseurs";
 			this.panelSousMenuFournisseurs.Size = new System.Drawing.Size(258, 280);
@@ -201,7 +203,7 @@ namespace QMag.Fenetres
 			this.menu_Fournisseurs.ForeColor = System.Drawing.Color.White;
 			this.menu_Fournisseurs.Image = ((System.Drawing.Image)(resources.GetObject("menu_Fournisseurs.Image")));
 			this.menu_Fournisseurs.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.menu_Fournisseurs.Location = new System.Drawing.Point(0, 630);
+			this.menu_Fournisseurs.Location = new System.Drawing.Point(0, 700);
 			this.menu_Fournisseurs.Name = "menu_Fournisseurs";
 			this.menu_Fournisseurs.Size = new System.Drawing.Size(258, 70);
 			this.menu_Fournisseurs.TabIndex = 12;
@@ -217,7 +219,7 @@ namespace QMag.Fenetres
 			this.panelSousMenuClients.Controls.Add(this.menu_Clients_Ajouter);
 			this.panelSousMenuClients.Controls.Add(this.menu_Clients_Consulter);
 			this.panelSousMenuClients.Dock = System.Windows.Forms.DockStyle.Top;
-			this.panelSousMenuClients.Location = new System.Drawing.Point(0, 350);
+			this.panelSousMenuClients.Location = new System.Drawing.Point(0, 420);
 			this.panelSousMenuClients.MaximumSize = new System.Drawing.Size(275, 280);
 			this.panelSousMenuClients.Name = "panelSousMenuClients";
 			this.panelSousMenuClients.Size = new System.Drawing.Size(258, 280);
@@ -305,7 +307,7 @@ namespace QMag.Fenetres
 			this.menu_Clients.ForeColor = System.Drawing.Color.White;
 			this.menu_Clients.Image = ((System.Drawing.Image)(resources.GetObject("menu_Clients.Image")));
 			this.menu_Clients.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.menu_Clients.Location = new System.Drawing.Point(0, 280);
+			this.menu_Clients.Location = new System.Drawing.Point(0, 350);
 			this.menu_Clients.Name = "menu_Clients";
 			this.menu_Clients.Size = new System.Drawing.Size(258, 70);
 			this.menu_Clients.TabIndex = 11;
@@ -319,7 +321,7 @@ namespace QMag.Fenetres
 			this.panelSousMenuStock.Controls.Add(this.menu_Stock_Consulter);
 			this.panelSousMenuStock.Controls.Add(this.menu_Stock_Ajouter);
 			this.panelSousMenuStock.Dock = System.Windows.Forms.DockStyle.Top;
-			this.panelSousMenuStock.Location = new System.Drawing.Point(0, 140);
+			this.panelSousMenuStock.Location = new System.Drawing.Point(0, 210);
 			this.panelSousMenuStock.MaximumSize = new System.Drawing.Size(275, 140);
 			this.panelSousMenuStock.Name = "panelSousMenuStock";
 			this.panelSousMenuStock.Size = new System.Drawing.Size(258, 140);
@@ -371,7 +373,7 @@ namespace QMag.Fenetres
 			this.menu_Stock.ForeColor = System.Drawing.Color.White;
 			this.menu_Stock.Image = ((System.Drawing.Image)(resources.GetObject("menu_Stock.Image")));
 			this.menu_Stock.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.menu_Stock.Location = new System.Drawing.Point(0, 70);
+			this.menu_Stock.Location = new System.Drawing.Point(0, 140);
 			this.menu_Stock.Name = "menu_Stock";
 			this.menu_Stock.Size = new System.Drawing.Size(258, 70);
 			this.menu_Stock.TabIndex = 6;
@@ -481,6 +483,25 @@ namespace QMag.Fenetres
 			this.pictureBoxResize.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBoxResize_MouseMove);
 			this.pictureBoxResize.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBoxResize_MouseUp);
 			// 
+			// menu_ChiffreAffaire
+			// 
+			this.menu_ChiffreAffaire.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(211)))));
+			this.menu_ChiffreAffaire.Dock = System.Windows.Forms.DockStyle.Top;
+			this.menu_ChiffreAffaire.FlatAppearance.BorderSize = 0;
+			this.menu_ChiffreAffaire.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.menu_ChiffreAffaire.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.menu_ChiffreAffaire.ForeColor = System.Drawing.Color.White;
+			this.menu_ChiffreAffaire.Image = ((System.Drawing.Image)(resources.GetObject("menu_ChiffreAffaire.Image")));
+			this.menu_ChiffreAffaire.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.menu_ChiffreAffaire.Location = new System.Drawing.Point(0, 70);
+			this.menu_ChiffreAffaire.Name = "menu_ChiffreAffaire";
+			this.menu_ChiffreAffaire.Size = new System.Drawing.Size(258, 70);
+			this.menu_ChiffreAffaire.TabIndex = 14;
+			this.menu_ChiffreAffaire.Text = "   Chiffre d\'affaire";
+			this.menu_ChiffreAffaire.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+			this.menu_ChiffreAffaire.UseVisualStyleBackColor = false;
+			this.menu_ChiffreAffaire.Click += new System.EventHandler(this.Menu_Click);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -542,6 +563,7 @@ namespace QMag.Fenetres
 		private MenuFlatButton menu_Fournisseurs_Reapprovisionner;
 		private MenuFlatButton menu_Clients_Commander;
 		private MenuFlatButton menu_Clients_Historique;
+		private MenuFlatButton menu_ChiffreAffaire;
 	}
 }
 

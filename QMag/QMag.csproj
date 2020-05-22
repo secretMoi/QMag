@@ -107,6 +107,12 @@
     <Compile Include="Controls\FlatTextBox.Designer.cs">
       <DependentUpon>FlatTextBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Graphic.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\Graphic.Designer.cs">
+      <DependentUpon>Graphic.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\GraphicRepartition.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -188,6 +194,12 @@
     </Compile>
     <Compile Include="Pages\Accueil.Designer.cs">
       <DependentUpon>Accueil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ChiffreAffaire.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\ChiffreAffaire.Designer.cs">
+      <DependentUpon>ChiffreAffaire.cs</DependentUpon>
     </Compile>
     <Compile Include="Pages\Clients\Ajouter.cs">
       <SubType>UserControl</SubType>
@@ -310,6 +322,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\Accueil.resx">
       <DependentUpon>Accueil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\ChiffreAffaire.resx">
+      <DependentUpon>ChiffreAffaire.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\Clients\Ajouter.resx">
       <DependentUpon>Ajouter.cs</DependentUpon>

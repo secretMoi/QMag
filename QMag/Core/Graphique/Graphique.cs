@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Windows.Forms;
 using Core;
 using Core.Figures;
+using QMag.Controls;
 
 namespace QMag.Core.Graphique
 {
@@ -14,14 +16,14 @@ namespace QMag.Core.Graphique
         private readonly Dictionary<int, double> _maximum;
         private readonly Couple _dimensionsFenetre;
         private readonly Couple _ajustementZoom;
-        private readonly Element _element;
+        private readonly ElementGraphic _element;
 
         private const int Gauche = 0, Haut = 1, Droite = 2, Bas = 3;
         private const string AxeX = "Abscisse", Point = "Point", Cadre = "Cadre", Ligne = "Ligne";
 
-        public Graphique(Graphics graphics, Couple position, Couple dimensionsFenetre)// : base(position)
+        public Graphique(PictureBox pictureBox, Couple position, Couple dimensionsFenetre)// : base(position)
         {
-	        _element = new Element(graphics);
+	        _element = new ElementGraphic(Graphics.FromHwnd(pictureBox.Handle));
             _element.Positionne(position);
 
             this._dimensionsFenetre = dimensionsFenetre.Copie();
@@ -100,14 +102,14 @@ namespace QMag.Core.Graphique
         }
 
         // supprime les points précédents
-        /*public void EncadreNettoie()
+        public void EncadreNettoie()
         {
             for (int i = 0; i < _element.ListeFigures().Count; i++)
             {
-                if (_element.ElementAt(i).Key.Contains(Cadre))
-                    elements.Remove(elements.ElementAt(i).Key);
+                if (_element.ListeFigures().ElementAt(i).Key.Contains(Cadre))
+	                _element.ListeFigures().Remove(_element.ListeFigures().ElementAt(i).Key);
             }
-        }*/
+        }
 
         private Couple Positionne(Couple point, double decalage = 0)
         {
@@ -181,6 +183,11 @@ namespace QMag.Core.Graphique
                 _ajustementZoom.X = 1;
             if (Math.Abs(deltaMaximum.Y) < 0.001)
                 _ajustementZoom.Y = 1;
+        }
+
+        public void Affiche(Graphics graphics)
+        {
+            _element.Affiche(graphics);
         }
     }
 }

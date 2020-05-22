@@ -5,18 +5,18 @@ namespace QMag.Core.Graphique
 {
     public class Spirographe
     {
-        private readonly SortedList<double, double> listePoints;
+        private readonly SortedList<double, double> _listePoints;
 
         public Spirographe()
         {
-            listePoints = new SortedList<double, double>();
+            _listePoints = new SortedList<double, double>();
         }
 
         public bool Add(Couple point)
         {
             if (!EstValide(point)) return false; // vérifie que le point est valide
 
-            listePoints.Add(point.X, point.Y);
+            _listePoints.Add(point.X, point.Y);
 
             return true;
         }
@@ -39,17 +39,17 @@ namespace QMag.Core.Graphique
 
         public void RemoveAt(int position)
         {
-            listePoints.RemoveAt(position);
+            _listePoints.RemoveAt(position);
         }
 
         public Couple GetAt(int position)
         {
-            return new Couple(listePoints.Keys[position], listePoints.Values[position]);
+            return new Couple(_listePoints.Keys[position], _listePoints.Values[position]);
         }
 
         public bool EstValide(Couple point)
         {
-            if (listePoints.ContainsKey(point.X)) return false;
+            if (_listePoints.ContainsKey(point.X)) return false;
 
             return true;
         }
@@ -58,7 +58,7 @@ namespace QMag.Core.Graphique
         {
             List<Couple> pointsRetour = new List<Couple>();
 
-            for (int i = 0; i < listePoints.Count; i++)
+            for (int i = 0; i < _listePoints.Count; i++)
                 pointsRetour.Add(GetAt(i));
 
             return pointsRetour;
@@ -69,14 +69,14 @@ namespace QMag.Core.Graphique
             // crée une copie par valeur de la liste points
             List<Couple> pointsInverse = new List<Couple>();
 
-            for (int i = 0; i < listePoints.Count; i++)
-                pointsInverse.Add(new Couple(listePoints.Keys[i], -listePoints.Values[i]));
+            for (int i = 0; i < _listePoints.Count; i++)
+                pointsInverse.Add(new Couple(_listePoints.Keys[i], -_listePoints.Values[i]));
 
             return pointsInverse;
         }
 
-        public int Count => listePoints.Count;
+        public int Count => _listePoints.Count;
 
-        public Couple this[int position] => new Couple(listePoints.Keys[position], listePoints.Values[position]);
+        public Couple this[int position] => new Couple(_listePoints.Keys[position], _listePoints.Values[position]);
     }
 }
