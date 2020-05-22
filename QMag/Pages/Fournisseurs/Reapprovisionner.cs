@@ -238,7 +238,6 @@ namespace QMag.Pages.Fournisseurs
 			Dialog.Show("Commande passée au fournisseur " + flatListBoxFournisseur.Text);
 		}
 
-		//todo continuer articles insuffisants
 		private void buttonArticlesInsuffisants_Click(object sender, EventArgs e)
 		{
 			List<C_Stock> stocks = new G_Stock(Connexion).Lire("id");

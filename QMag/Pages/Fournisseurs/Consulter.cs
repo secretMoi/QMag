@@ -25,22 +25,11 @@ namespace QMag.Pages.Fournisseurs
 			_flatDataGridView = flatDataGridView;
 
 			SetColonnes("Nom");
-			EnableColumn("editer", "supprimer");
+			EnableColumn("editer");
 
 			RempliColonnes();
 
 			AfterLoad();
-		}
-
-		public override void Hydrate(params object[] args)
-		{
-			base.Hydrate(args);
-
-			C_Fournisseurs fournisseur = ArgumentsValides(typeof(C_Fournisseurs), args) as C_Fournisseurs;
-			if (fournisseur == null)
-				return;
-
-			Dialog.Show("Le fournisseur " + fournisseur.nom + " a bien été supprimé.");
 		}
 
 		private void RempliColonnes()
@@ -48,8 +37,7 @@ namespace QMag.Pages.Fournisseurs
 			foreach (C_Fournisseurs founisseur in _founisseurs)
 				_useGridView.Add(
 					founisseur.nom,
-					_imageEditer,
-					_imageSupprimer
+					_imageEditer
 				);
 		}
 
@@ -63,18 +51,6 @@ namespace QMag.Pages.Fournisseurs
 
 			if (colonne == flatDataGridView.Column["Editer"]?.DisplayIndex) // si la colonne cliquée correspond à l'édition
 				LoadPage(reflection.LastItemNamespace + ".Ajouter", _founisseurs[ligne]); // charge la page Ajouter
-
-			else if (colonne == flatDataGridView.Column["Supprimer"]?.DisplayIndex) // si la colonne cliquée correspond à la suppression
-			{
-				string question = "le fournisseur " + _founisseurs[ligne].nom + " ?";
-				if (DialogDelete(question) == DialogResult.Yes)
-				{
-					new G_Fournisseurs(Connexion).Supprimer(_founisseurs[ligne].id); // supprime l'enregistrement
-
-					LoadPage(reflection.LastItemNamespace + ".Consulter", _founisseurs[ligne]); // rafraichit la page
-				}
-
-			}
 		}
 	}
 }

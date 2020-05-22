@@ -48,14 +48,14 @@
 			// 
 			// flatLabel1
 			// 
-			this.flatLabel1.AutoSize = true;
 			this.flatLabel1.Font = new System.Drawing.Font("Yu Gothic UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.flatLabel1.ForeColor = System.Drawing.Color.White;
-			this.flatLabel1.Location = new System.Drawing.Point(12, 32);
+			this.flatLabel1.Location = new System.Drawing.Point(12, 9);
 			this.flatLabel1.Name = "flatLabel1";
-			this.flatLabel1.Size = new System.Drawing.Size(104, 30);
+			this.flatLabel1.Size = new System.Drawing.Size(576, 72);
 			this.flatLabel1.TabIndex = 8;
 			this.flatLabel1.Text = "flatLabel1";
+			this.flatLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.flatLabel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelHeader_MouseMove);
 			// 
 			// Dialog
@@ -74,7 +74,6 @@
 			this.Text = "Dialog";
 			this.Paint += new System.Windows.Forms.PaintEventHandler(this.Dialog_Paint);
 			this.panelHeader.ResumeLayout(false);
-			this.panelHeader.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
