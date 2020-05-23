@@ -7,7 +7,6 @@ using Core;
 using Core.Figures;
 using Rectangle = QMag.Core.Figures.Rectangle;
 
-// todo juste garder la classe et retirer les designers
 namespace QMag.Controls
 {
     public partial class ElementGraphic

@@ -32,10 +32,10 @@
 			this.buttonConnexion = new QMag.Controls.Buttons.FlatButton();
 			this.labelConnexion = new System.Windows.Forms.Label();
 			this.panelCorps = new System.Windows.Forms.Panel();
-			this.graphic1 = new QMag.Controls.Graphic();
+			this.graphic = new QMag.Controls.Graphic();
 			this.panel1.SuspendLayout();
 			this.panelCorps.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.graphic1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.graphic)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// panel1
@@ -46,7 +46,7 @@
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
 			this.panel1.Location = new System.Drawing.Point(0, 0);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(1856, 220);
+			this.panel1.Size = new System.Drawing.Size(1650, 220);
 			this.panel1.TabIndex = 5;
 			// 
 			// buttonConnexion
@@ -57,7 +57,7 @@
 			this.buttonConnexion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.buttonConnexion.Font = new System.Drawing.Font("Yu Gothic UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.buttonConnexion.ForeColor = System.Drawing.Color.White;
-			this.buttonConnexion.Location = new System.Drawing.Point(1570, 127);
+			this.buttonConnexion.Location = new System.Drawing.Point(1364, 127);
 			this.buttonConnexion.Name = "buttonConnexion";
 			this.buttonConnexion.Size = new System.Drawing.Size(239, 63);
 			this.buttonConnexion.TabIndex = 2;
@@ -78,21 +78,22 @@
 			// 
 			// panelCorps
 			// 
-			this.panelCorps.Controls.Add(this.graphic1);
+			this.panelCorps.Controls.Add(this.graphic);
 			this.panelCorps.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panelCorps.Location = new System.Drawing.Point(0, 220);
 			this.panelCorps.Name = "panelCorps";
-			this.panelCorps.Size = new System.Drawing.Size(1856, 673);
+			this.panelCorps.Size = new System.Drawing.Size(1650, 673);
 			this.panelCorps.TabIndex = 6;
 			// 
-			// graphic1
+			// graphic
 			// 
-			this.graphic1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.graphic1.Location = new System.Drawing.Point(0, 0);
-			this.graphic1.Name = "graphic1";
-			this.graphic1.Size = new System.Drawing.Size(1856, 673);
-			this.graphic1.TabIndex = 0;
-			this.graphic1.TabStop = false;
+			this.graphic.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.graphic.Location = new System.Drawing.Point(0, 0);
+			this.graphic.Margin = new System.Windows.Forms.Padding(0);
+			this.graphic.Name = "graphic";
+			this.graphic.Size = new System.Drawing.Size(1650, 673);
+			this.graphic.TabIndex = 0;
+			this.graphic.TabStop = false;
 			// 
 			// ChiffreAffaire
 			// 
@@ -101,11 +102,11 @@
 			this.Controls.Add(this.panelCorps);
 			this.Controls.Add(this.panel1);
 			this.Name = "ChiffreAffaire";
-			this.Size = new System.Drawing.Size(1856, 893);
+			this.Size = new System.Drawing.Size(1650, 893);
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
 			this.panelCorps.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.graphic1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.graphic)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -116,6 +117,6 @@
 		private Controls.Buttons.FlatButton buttonConnexion;
 		private System.Windows.Forms.Label labelConnexion;
 		private System.Windows.Forms.Panel panelCorps;
-		private Controls.Graphic graphic1;
+		private Controls.Graphic graphic;
 	}
 }

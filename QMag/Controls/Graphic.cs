@@ -21,8 +21,6 @@ namespace QMag.Controls
 			_spirographe = new Spirographe();
 		}
 
-		
-
 		public void Rafraichir()
 		{
 			_graphique = new Graphique(
@@ -80,5 +78,5 @@ namespace QMag.Controls
 		}
 
 		public Spirographe Points => _spirographe;
-    }
+	}
 }

@@ -58,14 +58,7 @@ namespace QMag.Core.Graphique
             _element.Positionne(
 	            0,
 	            PositionneY(0, _element.GetDimension.Y / 2)
-                );
-
-            
-            /*position = new Couple
-            {
-                X = 0,
-                Y = PositionneY(0, dimensions.Y / 2)
-            };*/
+            );
 
             _element.AjouterRectangle(AxeX, Color.Red);
         }

@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using QMag.Fenetres;
 
+//todo border fenetre
 namespace Controls
 {
 	public partial class ThemePanel : UserControl
