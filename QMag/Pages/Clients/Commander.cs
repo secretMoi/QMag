@@ -94,7 +94,6 @@ namespace QMag.Pages.Clients
 			}
 
 			flatListBoxClient.SelectId(0); // mets en text de la listbox le premier article
-
 		}
 
 		// appelé lors du clic sur la dgv
@@ -225,24 +224,66 @@ namespace QMag.Pages.Clients
 				return;
 			}
 
+			C_Stock stock = StockSuffisant();
+			if (stock != null)
+			{
+				Dialog.Show(
+					"L'article " +
+					stock.nom +
+					" n'est plus disponible en telle quantité !"
+				);
+				return;
+			}
+
 			// crée la commande
 			int idCommande = new G_CommandesClients(Connexion).Ajouter(
 				_clients[flatListBoxClient.IdSelected].Id,
 				DateTime.Now
 			);
 
+			int quantite; // stocke la quantitée demandée
 			// ajotue le détail
 			for (int i = 0; i < flatDataGridView.Rows.Count; i++)
 			{
+				quantite = Convert.ToInt32(flatDataGridView.Get(i, 1));
+
+				// crée la commande
 				new G_DetailVente(Connexion).Ajouter(
 					_articles[_associeArticleDbetDgv[i]].Id,
 					_articles[_associeArticleDbetDgv[i]].Prix,
-					Convert.ToInt32(flatDataGridView.Get(i, 1)),
+					quantite,
 					idCommande
+				);
+
+				// met à jour le stock
+				stock = new G_Stock(Connexion).Lire_ID(_articles[_associeArticleDbetDgv[i]].Id);
+
+				new G_Stock(Connexion).Modifier(
+					stock.id,
+					stock.nom,
+					stock.quantiteActuelle - quantite,
+					stock.quentiteMin,
+					stock.prix_achat,
+					stock.prix_vente
 				);
 			}
 
 			Dialog.Show("Commande du client " + flatListBoxClient.Text + " effectuée !");
+		}
+
+		private C_Stock StockSuffisant()
+		{
+			C_Stock stock;
+
+			for (int i = 0; i < flatDataGridView.Rows.Count; i++) // parcours tous les enregistrements
+			{
+				stock = new G_Stock(Connexion).Lire_ID(_articles[_associeArticleDbetDgv[i]].Id); // trouve le stock demandé
+
+				if (stock.quantiteActuelle < _articles[_associeArticleDbetDgv[i]].Quantite) // vérifie qu'on a une quantité suffisante
+					return stock;
+			}
+			
+			return null;
 		}
 
 		private bool ChampsValides()
