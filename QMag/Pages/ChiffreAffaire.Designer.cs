@@ -29,71 +29,106 @@
 		private void InitializeComponent()
 		{
 			this.panel1 = new System.Windows.Forms.Panel();
-			this.buttonConnexion = new QMag.Controls.Buttons.FlatButton();
-			this.labelConnexion = new System.Windows.Forms.Label();
+			this.labelTitre = new System.Windows.Forms.Label();
 			this.panelCorps = new System.Windows.Forms.Panel();
 			this.graphic = new QMag.Controls.Graphic();
+			this.panelLabels = new System.Windows.Forms.Panel();
+			this.flatLabelDateFin = new QMag.Controls.FlatLabel();
+			this.flatLabelChiffreAffaires = new QMag.Controls.FlatLabel();
+			this.flatLabelDateDebut = new QMag.Controls.FlatLabel();
 			this.panel1.SuspendLayout();
 			this.panelCorps.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.graphic)).BeginInit();
+			this.panelLabels.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// panel1
 			// 
 			this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(245)))));
-			this.panel1.Controls.Add(this.buttonConnexion);
-			this.panel1.Controls.Add(this.labelConnexion);
+			this.panel1.Controls.Add(this.labelTitre);
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
 			this.panel1.Location = new System.Drawing.Point(0, 0);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(1650, 220);
+			this.panel1.Size = new System.Drawing.Size(1856, 220);
 			this.panel1.TabIndex = 5;
 			// 
-			// buttonConnexion
+			// labelTitre
 			// 
-			this.buttonConnexion.Anchor = System.Windows.Forms.AnchorStyles.Right;
-			this.buttonConnexion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(245)))));
-			this.buttonConnexion.FlatAppearance.BorderSize = 0;
-			this.buttonConnexion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.buttonConnexion.Font = new System.Drawing.Font("Yu Gothic UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.buttonConnexion.ForeColor = System.Drawing.Color.White;
-			this.buttonConnexion.Location = new System.Drawing.Point(1364, 127);
-			this.buttonConnexion.Name = "buttonConnexion";
-			this.buttonConnexion.Size = new System.Drawing.Size(239, 63);
-			this.buttonConnexion.TabIndex = 2;
-			this.buttonConnexion.Text = "flatButton1";
-			this.buttonConnexion.UseVisualStyleBackColor = false;
-			// 
-			// labelConnexion
-			// 
-			this.labelConnexion.AutoSize = true;
-			this.labelConnexion.Font = new System.Drawing.Font("Nirmala UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelConnexion.ForeColor = System.Drawing.Color.White;
-			this.labelConnexion.Location = new System.Drawing.Point(17, 85);
-			this.labelConnexion.Margin = new System.Windows.Forms.Padding(0);
-			this.labelConnexion.Name = "labelConnexion";
-			this.labelConnexion.Size = new System.Drawing.Size(250, 37);
-			this.labelConnexion.TabIndex = 1;
-			this.labelConnexion.Text = "Connexion établie";
+			this.labelTitre.AutoSize = true;
+			this.labelTitre.Font = new System.Drawing.Font("Nirmala UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelTitre.ForeColor = System.Drawing.Color.White;
+			this.labelTitre.Location = new System.Drawing.Point(17, 85);
+			this.labelTitre.Margin = new System.Windows.Forms.Padding(0);
+			this.labelTitre.Name = "labelTitre";
+			this.labelTitre.Size = new System.Drawing.Size(301, 37);
+			this.labelTitre.TabIndex = 1;
+			this.labelTitre.Text = "Chiffre d\'affaires total";
 			// 
 			// panelCorps
 			// 
 			this.panelCorps.Controls.Add(this.graphic);
+			this.panelCorps.Controls.Add(this.panelLabels);
 			this.panelCorps.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panelCorps.Location = new System.Drawing.Point(0, 220);
+			this.panelCorps.Margin = new System.Windows.Forms.Padding(0);
 			this.panelCorps.Name = "panelCorps";
-			this.panelCorps.Size = new System.Drawing.Size(1650, 673);
+			this.panelCorps.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+			this.panelCorps.Size = new System.Drawing.Size(1856, 673);
 			this.panelCorps.TabIndex = 6;
 			// 
 			// graphic
 			// 
 			this.graphic.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.graphic.Location = new System.Drawing.Point(0, 0);
+			this.graphic.Location = new System.Drawing.Point(244, 0);
 			this.graphic.Margin = new System.Windows.Forms.Padding(0);
 			this.graphic.Name = "graphic";
-			this.graphic.Size = new System.Drawing.Size(1650, 673);
+			this.graphic.Size = new System.Drawing.Size(1612, 673);
 			this.graphic.TabIndex = 0;
 			this.graphic.TabStop = false;
+			// 
+			// panelLabels
+			// 
+			this.panelLabels.Controls.Add(this.flatLabelDateFin);
+			this.panelLabels.Controls.Add(this.flatLabelChiffreAffaires);
+			this.panelLabels.Controls.Add(this.flatLabelDateDebut);
+			this.panelLabels.Dock = System.Windows.Forms.DockStyle.Left;
+			this.panelLabels.Location = new System.Drawing.Point(5, 0);
+			this.panelLabels.Name = "panelLabels";
+			this.panelLabels.Size = new System.Drawing.Size(239, 673);
+			this.panelLabels.TabIndex = 1;
+			// 
+			// flatLabelDateFin
+			// 
+			this.flatLabelDateFin.AutoSize = true;
+			this.flatLabelDateFin.Font = new System.Drawing.Font("Yu Gothic UI", 12.5F);
+			this.flatLabelDateFin.ForeColor = System.Drawing.Color.Black;
+			this.flatLabelDateFin.Location = new System.Drawing.Point(15, 85);
+			this.flatLabelDateFin.Name = "flatLabelDateFin";
+			this.flatLabelDateFin.Size = new System.Drawing.Size(81, 23);
+			this.flatLabelDateFin.TabIndex = 2;
+			this.flatLabelDateFin.Text = "Jusqu\'au ";
+			// 
+			// flatLabelChiffreAffaires
+			// 
+			this.flatLabelChiffreAffaires.AutoSize = true;
+			this.flatLabelChiffreAffaires.Font = new System.Drawing.Font("Yu Gothic UI", 12.5F);
+			this.flatLabelChiffreAffaires.ForeColor = System.Drawing.Color.Black;
+			this.flatLabelChiffreAffaires.Location = new System.Drawing.Point(15, 137);
+			this.flatLabelChiffreAffaires.Name = "flatLabelChiffreAffaires";
+			this.flatLabelChiffreAffaires.Size = new System.Drawing.Size(129, 23);
+			this.flatLabelChiffreAffaires.TabIndex = 1;
+			this.flatLabelChiffreAffaires.Text = "Argent gagné : ";
+			// 
+			// flatLabelDateDebut
+			// 
+			this.flatLabelDateDebut.AutoSize = true;
+			this.flatLabelDateDebut.Font = new System.Drawing.Font("Yu Gothic UI", 12.5F);
+			this.flatLabelDateDebut.ForeColor = System.Drawing.Color.Black;
+			this.flatLabelDateDebut.Location = new System.Drawing.Point(15, 33);
+			this.flatLabelDateDebut.Name = "flatLabelDateDebut";
+			this.flatLabelDateDebut.Size = new System.Drawing.Size(85, 23);
+			this.flatLabelDateDebut.TabIndex = 0;
+			this.flatLabelDateDebut.Text = "Depuis le ";
 			// 
 			// ChiffreAffaire
 			// 
@@ -102,11 +137,13 @@
 			this.Controls.Add(this.panelCorps);
 			this.Controls.Add(this.panel1);
 			this.Name = "ChiffreAffaire";
-			this.Size = new System.Drawing.Size(1650, 893);
+			this.Size = new System.Drawing.Size(1856, 893);
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
 			this.panelCorps.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.graphic)).EndInit();
+			this.panelLabels.ResumeLayout(false);
+			this.panelLabels.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -114,9 +151,12 @@
 		#endregion
 
 		private System.Windows.Forms.Panel panel1;
-		private Controls.Buttons.FlatButton buttonConnexion;
-		private System.Windows.Forms.Label labelConnexion;
+		private System.Windows.Forms.Label labelTitre;
 		private System.Windows.Forms.Panel panelCorps;
 		private Controls.Graphic graphic;
+		private System.Windows.Forms.Panel panelLabels;
+		private Controls.FlatLabel flatLabelDateDebut;
+		private Controls.FlatLabel flatLabelChiffreAffaires;
+		private Controls.FlatLabel flatLabelDateFin;
 	}
 }
