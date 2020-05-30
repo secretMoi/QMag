@@ -17,12 +17,10 @@ namespace QMag.Core
 	{
 		private readonly Document _document;
 
-		private Image _logo;
-		private Paragraph _rightColumn;
-		private Paragraph _title;
-
 		private Table _table;
 		private List<Cell> _cells;
+
+		private readonly List<object> _elements = new List<object>();
 
 		public Pdf(string path)
 		{
@@ -41,29 +39,40 @@ namespace QMag.Core
 
 			if (!File.Exists(path)) return false;
 
-			_logo = new Image(ImageDataFactory.Create(path))
+			Image logo = new Image(ImageDataFactory.Create(path))
 				.SetHeight(100)
 				.SetWidth(100)
 				.SetTextAlignment(TextAlignment.LEFT);
+
+			_elements.Add(logo);
 
 			return true;
 		}
 
 		public void RightColumn(StringBuilder text)
 		{
-			_rightColumn = new Paragraph(text.ToString())
+			RightColumn(text.ToString());
+		}
+
+		public void RightColumn(string text)
+		{
+			Paragraph paragraph = new Paragraph(text)
 				.SetMarginLeft(400)
 				.SetMarginBottom(10)
 				.SetTextAlignment(TextAlignment.LEFT)
 				.SetFontSize(12);
+
+			_elements.Add(paragraph);
 		}
 
 		public void Title(string title)
 		{
-			_title = new Paragraph(title)
+			Paragraph paragraph = new Paragraph(title)
 				.SetMarginBottom(10)
 				.SetTextAlignment(TextAlignment.CENTER)
 				.SetFontSize(16);
+
+			_elements.Add(paragraph);
 		}
 
 		public bool MakeTable(int columnNumber)
@@ -71,6 +80,8 @@ namespace QMag.Core
 			if (columnNumber < 1) return false;
 
 			_table = new Table(columnNumber, false).UseAllAvailableWidth();
+
+			_elements.Add(_table);
 
 			return true;
 		}
@@ -106,11 +117,8 @@ namespace QMag.Core
 
 		public void Close()
 		{
-			//todo list elemnt (object ?)
-			if (_logo != null) _document.Add(_logo);
-			if (_rightColumn != null) _document.Add(_rightColumn);
-			if (_title != null) _document.Add(_title);
-			if (_table != null) _document.Add(_table);
+			foreach (object element in _elements)
+				_document.Add((dynamic) element); // ligne magique pour convertir l'objet en son premier type
 
 			_document.Close();
 		}

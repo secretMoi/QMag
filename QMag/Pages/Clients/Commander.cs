@@ -358,6 +358,9 @@ namespace QMag.Pages.Clients
 				for (int colonne = 0; colonne < 3; colonne++) // parcours les colonnes
 					pdf.MakeTableData(flatDataGridView.Get(ligne.Index, colonne));
 
+			// montant
+			pdf.RightColumn("Montant : " + flatLabelTotalMontant.Text);
+
 			pdf.Close();
 		}
 

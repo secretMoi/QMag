@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Text;
 using System.Windows.Forms;
 using Controls;
 using Core;
@@ -236,6 +237,55 @@ namespace QMag.Pages.Fournisseurs
 			}
 
 			Dialog.Show("Commande passée au fournisseur " + flatListBoxFournisseur.Text);
+		}
+
+		private void flatButtonFacture_Click(object sender, EventArgs e)
+		{
+			if (flatDataGridView.Rows.Count < 1)
+			{
+				Dialog.Show("Aucun article à facturer !");
+				return;
+			}
+
+			// fichier
+			string dossierFactures = "facturesFournisseur";
+
+			Pdf.DirectoryAvailable(dossierFactures);
+
+			string fichier = dossierFactures + "/fournisseur-" +
+			                 _fournisseurs[flatListBoxFournisseur.IdSelected].Id + "-" +
+			                 Pdf.SetDate();
+
+			Pdf pdf = new Pdf(fichier);
+
+			// logo
+			pdf.Logo("logo");
+
+			// infos clients
+			StringBuilder clientText = new StringBuilder();
+			clientText.Append("Fournisseur : ");
+			clientText.Append(_fournisseurs[flatListBoxFournisseur.IdSelected].Nom + "\n");
+			pdf.RightColumn(clientText);
+
+			// titre
+			pdf.Title("Facture Fournisseur");
+
+			//tableau
+			pdf.MakeTable(3);
+
+			// header tableau
+			for (int colonne = 0; colonne < 3; colonne++) // parcours les colonnes
+				pdf.MakeTableHeader(flatDataGridView.Column[colonne].Name);
+
+			// données tableau
+			foreach (DataGridViewRow ligne in flatDataGridView.Rows)
+				for (int colonne = 0; colonne < 3; colonne++) // parcours les colonnes
+					pdf.MakeTableData(flatDataGridView.Get(ligne.Index, colonne));
+
+			// montant
+			pdf.RightColumn("Montant : " + flatLabelTotalMontant.Text);
+
+			pdf.Close();
 		}
 
 		private void buttonArticlesInsuffisants_Click(object sender, EventArgs e)
