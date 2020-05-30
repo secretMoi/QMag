@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Text;
 using Controls;
 using iText.IO.Image;
@@ -34,14 +35,18 @@ namespace QMag.Core
 			_document = new Document(pdf); // permet de s'abstraire aux limites pdf
 		}
 
-		public void Logo(string name)
+		public bool Logo(string name)
 		{
-			_logo = new Image(ImageDataFactory.Create(
-					@"Ressources/Images/" + name + ".png"
-				))
+			string path = @"Ressources/Images/" + name + ".png";
+
+			if (!File.Exists(path)) return false;
+
+			_logo = new Image(ImageDataFactory.Create(path))
 				.SetHeight(100)
 				.SetWidth(100)
 				.SetTextAlignment(TextAlignment.LEFT);
+
+			return true;
 		}
 
 		public void RightColumn(StringBuilder text)
@@ -61,13 +66,19 @@ namespace QMag.Core
 				.SetFontSize(16);
 		}
 
-		public void MakeTable(int columnNumber)
+		public bool MakeTable(int columnNumber)
 		{
+			if (columnNumber < 1) return false;
+
 			_table = new Table(columnNumber, false).UseAllAvailableWidth();
+
+			return true;
 		}
 
-		public void MakeTableHeader(string header)
+		public bool MakeTableHeader(string header)
 		{
+			if (_table == null) return false;
+
 			if(_cells == null) _cells = new List<Cell>();
 
 			Cell cell = new Cell(1, 1)
@@ -76,15 +87,21 @@ namespace QMag.Core
 				.Add(new Paragraph(header)); // texte
 
 			_table.AddCell(cell);
+
+			return true;
 		}
 
-		public void MakeTableData(string data)
+		public bool MakeTableData(string data)
 		{
+			if (_table == null) return false;
+
 			Cell cell = new Cell(1, 1)
 				.SetFontColor(new DeviceRgb(Theme.BackDark)) // couleur texte
 				.Add(new Paragraph(data)); // texte
 
 			_table.AddCell(cell);
+
+			return true;
 		}
 
 		public void Close()
@@ -100,8 +117,8 @@ namespace QMag.Core
 
 		public static void DirectoryAvailable(string directory)
 		{
-			if (!System.IO.Directory.Exists(directory))
-				System.IO.Directory.CreateDirectory(directory);
+			if (!Directory.Exists(directory))
+				Directory.CreateDirectory(directory);
 		}
 
 		public static string SetDate()
