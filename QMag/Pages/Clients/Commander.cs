@@ -321,77 +321,44 @@ namespace QMag.Pages.Clients
 				return;
 			}
 
+			// fichier
 			string dossierFactures = "facturesClient";
 
-			if (!System.IO.Directory.Exists(dossierFactures))
-				System.IO.Directory.CreateDirectory(dossierFactures);
+			Pdf.DirectoryAvailable(dossierFactures);
 
+			string fichier = dossierFactures + "/client-" +
+			                 _clients[flatListBoxClient.IdSelected].Id + "-" +
+			                 Pdf.SetDate();
+
+			Pdf pdf = new Pdf(fichier);
+
+			// logo
+			pdf.Logo("logo");
+
+			// infos clients
 			StringBuilder clientText = new StringBuilder();
 			clientText.Append("Nom : ");
 			clientText.Append(_clients[flatListBoxClient.IdSelected].Nom + "\n");
 			clientText.Append("Prénom : ");
 			clientText.Append(_clients[flatListBoxClient.IdSelected].Prenom + "\n");
+			pdf.RightColumn(clientText);
 
-			// création date
-			string date = DateTime.Now.ToString(CultureInfo.InvariantCulture).Replace(':', '_');
-			date = date.Replace('/', '_');
-			PdfWriter writer = new PdfWriter( // création du fichier pdf
-				dossierFactures  + "/client-" +
-				_clients[flatListBoxClient.IdSelected].Id + "-" +
-				date + ".pdf"
-			);
-			PdfDocument pdf = new PdfDocument(writer); // permet de manipuler un document pdf
-			Document document = new Document(pdf); // permet de s'abstraire aux limites pdf
+			// titre
+			pdf.Title("Facture Client");
 
-			//le pdf en lui-même
-			// logo
-			iText.Layout.Element.Image logo = new iText.Layout.Element.Image(ImageDataFactory.Create(
-				@"Ressources/Images/logo.png"
-			))
-				.SetHeight(100)
-				.SetWidth(100)
-				.SetTextAlignment(TextAlignment.LEFT);
-
-			// client
-			Paragraph client = new Paragraph(clientText.ToString())
-				.SetMarginLeft(400)
-				.SetMarginBottom(10)
-				.SetTextAlignment(TextAlignment.LEFT)
-				.SetFontSize(12);
-
-			// données commande
-			Table commande = new Table(3, false).UseAllAvailableWidth();
+			//tableau
+			pdf.MakeTable(3);
 
 			// header tableau
-			Cell cellule;
-			for(int colonne = 0; colonne < 3; colonne++) // parcours les colonnes
-			{
-				cellule = new Cell(1, 1)
-					.SetBackgroundColor(new DeviceRgb(Theme.BackDark)) // couleur arrière-plan
-					.SetFontColor(new DeviceRgb(Theme.Texte)) // couleur texte
-					.Add(new Paragraph(flatDataGridView.Column[colonne].Name)); // texte
+			for (int colonne = 0; colonne < 3; colonne++) // parcours les colonnes
+				pdf.MakeTableHeader(flatDataGridView.Column[colonne].Name);
 
-				commande.AddCell(cellule);
-			}
-
-			// data tableau
+			// données tableau
 			foreach (DataGridViewRow ligne in flatDataGridView.Rows)
-			{
 				for (int colonne = 0; colonne < 3; colonne++) // parcours les colonnes
-				{
-					cellule = new Cell(1, 1)
-						.SetFontColor(new DeviceRgb(Theme.BackDark)) // couleur texte
-						.Add(new Paragraph(flatDataGridView.Get(ligne.Index, colonne))); // texte
+					pdf.MakeTableData(flatDataGridView.Get(ligne.Index, colonne));
 
-					commande.AddCell(cellule);
-				}
-			}
-
-			document.Add(logo);
-			document.Add(client);
-			document.Add(commande);
-
-			document.Close(); // libère le flux
+			pdf.Close();
 		}
 
 		private class ArticleEnregistrement

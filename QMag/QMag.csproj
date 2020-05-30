@@ -205,6 +205,7 @@
       <DependentUpon>BaseConsulter.cs</DependentUpon>
     </Compile>
     <Compile Include="Core\Pages\Formulaire.cs" />
+    <Compile Include="Core\Pdf.cs" />
     <Compile Include="Core\Reflection.cs" />
     <Compile Include="Core\UseGridView.cs" />
     <Compile Include="Fenetres\Dialog.cs">
