@@ -44,6 +44,7 @@
 			this.flatTextBoxQuantite = new QMag.Controls.FlatTextBox();
 			this.flatLabelQuantite = new QMag.Controls.FlatLabel();
 			this.flatLabelArticle = new QMag.Controls.FlatLabel();
+			this.flatButtonFacture = new QMag.Controls.Buttons.FlatButton();
 			this.panelTitre.SuspendLayout();
 			this.panelCorps.SuspendLayout();
 			this.panelDgv.SuspendLayout();
@@ -245,10 +246,27 @@
 			this.flatLabelArticle.TabIndex = 1;
 			this.flatLabelArticle.Text = "Article";
 			// 
+			// flatButtonFacture
+			// 
+			this.flatButtonFacture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.flatButtonFacture.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(245)))));
+			this.flatButtonFacture.FlatAppearance.BorderSize = 0;
+			this.flatButtonFacture.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.flatButtonFacture.Font = new System.Drawing.Font("Yu Gothic UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.flatButtonFacture.ForeColor = System.Drawing.Color.White;
+			this.flatButtonFacture.Location = new System.Drawing.Point(1587, 131);
+			this.flatButtonFacture.Name = "flatButtonFacture";
+			this.flatButtonFacture.Size = new System.Drawing.Size(239, 63);
+			this.flatButtonFacture.TabIndex = 9;
+			this.flatButtonFacture.Text = "Facture";
+			this.flatButtonFacture.UseVisualStyleBackColor = false;
+			this.flatButtonFacture.Click += new System.EventHandler(this.flatButtonFacture_Click);
+			// 
 			// Commander
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+			this.Controls.Add(this.flatButtonFacture);
 			this.Controls.Add(this.panelCorps);
 			this.Controls.Add(this.panelTitre);
 			this.Name = "Commander";
@@ -282,5 +300,6 @@
 		private Controls.FlatTextBox flatTextBoxQuantite;
 		private Controls.FlatLabel flatLabelQuantite;
 		private Controls.FlatLabel flatLabelArticle;
+		private Controls.Buttons.FlatButton flatButtonFacture;
 	}
 }

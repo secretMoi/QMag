@@ -1,13 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
+using System.Globalization;
+using System.Text;
 using System.Windows.Forms;
 using Controls;
 using Core;
+using iText.IO.Image;
+using iText.Kernel.Colors;
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
+using iText.Layout.Properties;
 using Projet_magasin.Classes;
 using Projet_magasin.Gestion;
 using QMag.Core;
 using QMag.Fenetres;
+using Image = System.Drawing.Image;
 
 namespace QMag.Pages.Clients
 {
@@ -32,7 +40,7 @@ namespace QMag.Pages.Clients
 			flatLabelClient.ForeColor = flatLabelArticle.ForeColor = flatLabelQuantite.ForeColor = flatLabelTotal.ForeColor = flatLabelTotalMontant.ForeColor = Theme.BackDark;
 		}
 
-		private void Commander_Load(object sender, System.EventArgs e)
+		private void Commander_Load(object sender, EventArgs e)
 		{
 			SetColonnes();
 
@@ -303,6 +311,87 @@ namespace QMag.Pages.Clients
 				Dialog.Show(messageErreur);
 
 			return resultat;
+		}
+
+		private void flatButtonFacture_Click(object sender, EventArgs e)
+		{
+			if (flatDataGridView.Rows.Count < 1)
+			{
+				Dialog.Show("Aucun article à facturer !");
+				return;
+			}
+
+			string dossierFactures = "facturesClient";
+
+			if (!System.IO.Directory.Exists(dossierFactures))
+				System.IO.Directory.CreateDirectory(dossierFactures);
+
+			StringBuilder clientText = new StringBuilder();
+			clientText.Append("Nom : ");
+			clientText.Append(_clients[flatListBoxClient.IdSelected].Nom + "\n");
+			clientText.Append("Prénom : ");
+			clientText.Append(_clients[flatListBoxClient.IdSelected].Prenom + "\n");
+
+			// création date
+			string date = DateTime.Now.ToString(CultureInfo.InvariantCulture).Replace(':', '_');
+			date = date.Replace('/', '_');
+			PdfWriter writer = new PdfWriter( // création du fichier pdf
+				dossierFactures  + "/client-" +
+				_clients[flatListBoxClient.IdSelected].Id + "-" +
+				date + ".pdf"
+			);
+			PdfDocument pdf = new PdfDocument(writer); // permet de manipuler un document pdf
+			Document document = new Document(pdf); // permet de s'abstraire aux limites pdf
+
+			//le pdf en lui-même
+			// logo
+			iText.Layout.Element.Image logo = new iText.Layout.Element.Image(ImageDataFactory.Create(
+				@"Ressources/Images/logo.png"
+			))
+				.SetHeight(100)
+				.SetWidth(100)
+				.SetTextAlignment(TextAlignment.LEFT);
+
+			// client
+			Paragraph client = new Paragraph(clientText.ToString())
+				.SetMarginLeft(400)
+				.SetMarginBottom(10)
+				.SetTextAlignment(TextAlignment.LEFT)
+				.SetFontSize(12);
+
+			// données commande
+			Table commande = new Table(3, false).UseAllAvailableWidth();
+
+			// header tableau
+			Cell cellule;
+			for(int colonne = 0; colonne < 3; colonne++) // parcours les colonnes
+			{
+				cellule = new Cell(1, 1)
+					.SetBackgroundColor(new DeviceRgb(Theme.BackDark)) // couleur arrière-plan
+					.SetFontColor(new DeviceRgb(Theme.Texte)) // couleur texte
+					.Add(new Paragraph(flatDataGridView.Column[colonne].Name)); // texte
+
+				commande.AddCell(cellule);
+			}
+
+			// data tableau
+			foreach (DataGridViewRow ligne in flatDataGridView.Rows)
+			{
+				for (int colonne = 0; colonne < 3; colonne++) // parcours les colonnes
+				{
+					cellule = new Cell(1, 1)
+						.SetFontColor(new DeviceRgb(Theme.BackDark)) // couleur texte
+						.Add(new Paragraph(flatDataGridView.Get(ligne.Index, colonne))); // texte
+
+					commande.AddCell(cellule);
+				}
+			}
+
+			document.Add(logo);
+			document.Add(client);
+			document.Add(commande);
+
+			document.Close(); // libère le flux
 		}
 
 		private class ArticleEnregistrement

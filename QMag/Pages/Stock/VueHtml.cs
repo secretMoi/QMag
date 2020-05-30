@@ -34,6 +34,8 @@ namespace QMag.Pages.Stock
 			for (int i = decalage; i < data.Length; i++)
 				_html.GenerateBody(data[i] as string);
 
+			_html.GenerateFooter();
+
 			webBrowser.DocumentText = _html.SourceCode; // envoie le code html
 		}
 

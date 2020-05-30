@@ -88,7 +88,7 @@ namespace QMag.Core
 			_colonneActuelle++;
 		}
 
-		private void GenerateFooter()
+		public void GenerateFooter()
 		{
 			_htmlCode.Append(
 				"</tr>\r\n\r\n" +

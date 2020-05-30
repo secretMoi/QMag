@@ -20,5 +20,15 @@ namespace Controls
         {
 	        return "#" + color.R.ToString("X2") + color.G.ToString("X2") + color.B.ToString("X2");
         }
+
+        public static (int, int, int) ColorToRgb(Color color)
+        {
+	        int red = color.R;
+	        int green = color.G;
+	        int blue = color.B;
+	        //int alpha = color.A;
+
+	        return (red, green, blue/*, alpha*/);
+        }
     }
 }
