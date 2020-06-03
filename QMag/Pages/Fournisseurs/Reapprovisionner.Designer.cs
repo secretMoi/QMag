@@ -73,7 +73,7 @@
 			this.panelCorps.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panelCorps.Location = new System.Drawing.Point(0, 220);
 			this.panelCorps.Name = "panelCorps";
-			this.panelCorps.Size = new System.Drawing.Size(1006, 673);
+			this.panelCorps.Size = new System.Drawing.Size(1856, 673);
 			this.panelCorps.TabIndex = 11;
 			// 
 			// panelDgv
@@ -82,7 +82,7 @@
 			this.panelDgv.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panelDgv.Location = new System.Drawing.Point(293, 0);
 			this.panelDgv.Name = "panelDgv";
-			this.panelDgv.Size = new System.Drawing.Size(713, 673);
+			this.panelDgv.Size = new System.Drawing.Size(1563, 673);
 			this.panelDgv.TabIndex = 0;
 			// 
 			// flatDataGridView
@@ -91,7 +91,7 @@
 			this.flatDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.flatDataGridView.Location = new System.Drawing.Point(0, 0);
 			this.flatDataGridView.Name = "flatDataGridView";
-			this.flatDataGridView.Size = new System.Drawing.Size(713, 673);
+			this.flatDataGridView.Size = new System.Drawing.Size(1563, 673);
 			this.flatDataGridView.TabIndex = 0;
 			// 
 			// panelFormulaire
@@ -244,7 +244,7 @@
 			this.panelTitre.Location = new System.Drawing.Point(0, 0);
 			this.panelTitre.MaximumSize = new System.Drawing.Size(0, 220);
 			this.panelTitre.Name = "panelTitre";
-			this.panelTitre.Size = new System.Drawing.Size(1006, 220);
+			this.panelTitre.Size = new System.Drawing.Size(1856, 220);
 			this.panelTitre.TabIndex = 10;
 			// 
 			// buttonArticlesInsuffisants
@@ -255,7 +255,7 @@
 			this.buttonArticlesInsuffisants.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.buttonArticlesInsuffisants.Font = new System.Drawing.Font("Yu Gothic UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.buttonArticlesInsuffisants.ForeColor = System.Drawing.Color.White;
-			this.buttonArticlesInsuffisants.Location = new System.Drawing.Point(704, 28);
+			this.buttonArticlesInsuffisants.Location = new System.Drawing.Point(1554, 28);
 			this.buttonArticlesInsuffisants.Name = "buttonArticlesInsuffisants";
 			this.buttonArticlesInsuffisants.Size = new System.Drawing.Size(283, 63);
 			this.buttonArticlesInsuffisants.TabIndex = 3;
@@ -271,7 +271,7 @@
 			this.flatButtonFacture.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.flatButtonFacture.Font = new System.Drawing.Font("Yu Gothic UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.flatButtonFacture.ForeColor = System.Drawing.Color.White;
-			this.flatButtonFacture.Location = new System.Drawing.Point(704, 130);
+			this.flatButtonFacture.Location = new System.Drawing.Point(1554, 130);
 			this.flatButtonFacture.Name = "flatButtonFacture";
 			this.flatButtonFacture.Size = new System.Drawing.Size(283, 63);
 			this.flatButtonFacture.TabIndex = 12;
@@ -288,7 +288,7 @@
 			this.Controls.Add(this.panelCorps);
 			this.Controls.Add(this.panelTitre);
 			this.Name = "Reapprovisionner";
-			this.Size = new System.Drawing.Size(1006, 893);
+			this.Size = new System.Drawing.Size(1856, 893);
 			this.Load += new System.EventHandler(this.Reapprovisionner_Load);
 			this.panelCorps.ResumeLayout(false);
 			this.panelDgv.ResumeLayout(false);

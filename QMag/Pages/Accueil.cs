@@ -61,5 +61,20 @@ namespace QMag.Pages
 			else
 				timer.Stop();
 		}
+
+		private void buttonVendre_Click(object sender, EventArgs e)
+		{
+			LoadPage("Clients.Commander");
+		}
+
+		private void buttonAcheter_Click(object sender, EventArgs e)
+		{
+			LoadPage("Fournisseurs.Reapprovisionner");
+		}
+
+		private void buttonStock_Click(object sender, EventArgs e)
+		{
+			LoadPage("Stock.Consulter");
+		}
 	}
 }

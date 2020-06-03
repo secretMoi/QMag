@@ -6,7 +6,7 @@ using Core;
 using Projet_magasin.Classes;
 using Projet_magasin.Gestion;
 using QMag.Core;
-
+//todo dgv pour consulter les points
 namespace QMag.Pages
 {
 	public partial class ChiffreAffaire : ThemePanel

@@ -6,6 +6,7 @@ using Controls;
 using QMag.Core;
 using QMag.Pages;
 
+//todo séparer les pages header dans une classe
 namespace QMag.Fenetres
 {
 	public partial class Form1 : FormBdd

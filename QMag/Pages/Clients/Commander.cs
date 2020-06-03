@@ -1,16 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Text;
 using System.Windows.Forms;
 using Controls;
 using Core;
-using iText.IO.Image;
-using iText.Kernel.Colors;
-using iText.Kernel.Pdf;
-using iText.Layout;
-using iText.Layout.Element;
-using iText.Layout.Properties;
 using Projet_magasin.Classes;
 using Projet_magasin.Gestion;
 using QMag.Core;
@@ -362,6 +355,8 @@ namespace QMag.Pages.Clients
 			pdf.RightColumn("Montant : " + flatLabelTotalMontant.Text);
 
 			pdf.Close();
+
+			Dialog.Show("Facture correctement générée");
 		}
 
 		private class ArticleEnregistrement

@@ -43,7 +43,7 @@
 			this.dataGridView.Location = new System.Drawing.Point(0, 0);
 			this.dataGridView.Name = "dataGridView";
 			this.dataGridView.ReadOnly = true;
-			this.dataGridView.Size = new System.Drawing.Size(1650, 893);
+			this.dataGridView.Size = new System.Drawing.Size(1856, 893);
 			this.dataGridView.TabIndex = 0;
 			this.dataGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView_DataBindingComplete);
 			this.dataGridView.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dataGridView_RowPrePaint);
@@ -54,7 +54,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.Controls.Add(this.dataGridView);
 			this.Name = "FlatDataGridView";
-			this.Size = new System.Drawing.Size(1650, 893);
+			this.Size = new System.Drawing.Size(1856, 893);
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
 			this.ResumeLayout(false);
 

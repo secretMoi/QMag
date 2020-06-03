@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using Controls;
 using Core;
 
+//todo optimiser grosse liste de data, mettre toutes les données dans une liste en ram et n'afficher que celles visibles
 namespace QMag.Controls
 {
 	public partial class FlatDataGridView : ThemePanel

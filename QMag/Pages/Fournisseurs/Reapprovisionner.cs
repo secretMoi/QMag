@@ -286,6 +286,8 @@ namespace QMag.Pages.Fournisseurs
 			pdf.RightColumn("Montant : " + flatLabelTotalMontant.Text);
 
 			pdf.Close();
+
+			Dialog.Show("Facture correctement générée");
 		}
 
 		private void buttonArticlesInsuffisants_Click(object sender, EventArgs e)
