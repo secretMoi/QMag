@@ -7,6 +7,7 @@ using QMag.Core;
 using QMag.Pages;
 
 //todo séparer les pages header dans une classe
+//todo geler l'affichage durant le chargement d'une page pour éviter les "blancs"
 namespace QMag.Fenetres
 {
 	public partial class Form1 : FormBdd

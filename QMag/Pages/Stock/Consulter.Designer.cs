@@ -45,7 +45,7 @@
 			this.panel1.Location = new System.Drawing.Point(0, 0);
 			this.panel1.MaximumSize = new System.Drawing.Size(0, 220);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(1856, 220);
+			this.panel1.Size = new System.Drawing.Size(1006, 220);
 			this.panel1.TabIndex = 6;
 			// 
 			// flatLabelTitre
@@ -70,7 +70,7 @@
 			this.flatButtonHtml.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.flatButtonHtml.Font = new System.Drawing.Font("Yu Gothic UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.flatButtonHtml.ForeColor = System.Drawing.Color.White;
-			this.flatButtonHtml.Location = new System.Drawing.Point(1590, 130);
+			this.flatButtonHtml.Location = new System.Drawing.Point(2596, 130);
 			this.flatButtonHtml.Name = "flatButtonHtml";
 			this.flatButtonHtml.Size = new System.Drawing.Size(239, 63);
 			this.flatButtonHtml.TabIndex = 3;
@@ -84,7 +84,7 @@
 			this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panel2.Location = new System.Drawing.Point(0, 220);
 			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(1856, 673);
+			this.panel2.Size = new System.Drawing.Size(1006, 673);
 			this.panel2.TabIndex = 7;
 			// 
 			// flatDataGridView1
@@ -93,7 +93,7 @@
 			this.flatDataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.flatDataGridView1.Location = new System.Drawing.Point(0, 0);
 			this.flatDataGridView1.Name = "flatDataGridView1";
-			this.flatDataGridView1.Size = new System.Drawing.Size(1856, 673);
+			this.flatDataGridView1.Size = new System.Drawing.Size(1006, 673);
 			this.flatDataGridView1.TabIndex = 0;
 			// 
 			// Consulter
@@ -104,6 +104,7 @@
 			this.Controls.Add(this.panel2);
 			this.Controls.Add(this.panel1);
 			this.Name = "Consulter";
+			this.Size = new System.Drawing.Size(1006, 893);
 			this.Load += new System.EventHandler(this.Consulter_Load);
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();

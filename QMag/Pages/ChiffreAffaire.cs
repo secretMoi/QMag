@@ -15,6 +15,8 @@ namespace QMag.Pages
 		private DateTime _lastDate = DateTime.MinValue;
 		private DateTime _firstDate = DateTime.MaxValue;
 
+		private UseGridView _useGridView;
+
 		public ChiffreAffaire()
 		{
 			InitializeComponent();
@@ -25,6 +27,30 @@ namespace QMag.Pages
 			SetLabels();
 
 			ChargeGraphique();
+		}
+
+		private void ChiffreAffaire_Load(object sender, EventArgs e)
+		{
+			SetColonnes();
+
+			RempliPoints();
+
+			flatDataGridViewPoints.DataSource = _useGridView.Liens; // ajout(liage) des colonnes à la gridview
+		}
+
+		// initialise les colonnes
+		protected void SetColonnes()
+		{
+			_useGridView = new UseGridView("Date", "Montant");
+		}
+
+		private void RempliPoints()
+		{
+			foreach (KeyValuePair<DateTime, decimal> point in _points)
+				_useGridView.Add(
+					point.Key.ToString().Substring(0, 10),
+					Money.Display(point.Value)
+				);
 		}
 
 		private void SetLabels()

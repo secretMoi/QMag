@@ -32,14 +32,20 @@
 			this.labelTitre = new System.Windows.Forms.Label();
 			this.panelCorps = new System.Windows.Forms.Panel();
 			this.graphic = new QMag.Controls.Graphic();
+			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
 			this.panelLabels = new System.Windows.Forms.Panel();
 			this.flatLabelDateFin = new QMag.Controls.FlatLabel();
-			this.flatLabelChiffreAffaires = new QMag.Controls.FlatLabel();
 			this.flatLabelDateDebut = new QMag.Controls.FlatLabel();
+			this.flatLabelChiffreAffaires = new QMag.Controls.FlatLabel();
+			this.panelTexte = new System.Windows.Forms.Panel();
+			this.panelInfosPoints = new System.Windows.Forms.Panel();
+			this.flatDataGridViewPoints = new QMag.Controls.FlatDataGridView();
 			this.panel1.SuspendLayout();
 			this.panelCorps.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.graphic)).BeginInit();
 			this.panelLabels.SuspendLayout();
+			this.panelTexte.SuspendLayout();
+			this.panelInfosPoints.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// panel1
@@ -49,7 +55,7 @@
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
 			this.panel1.Location = new System.Drawing.Point(0, 0);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(1856, 220);
+			this.panel1.Size = new System.Drawing.Size(1006, 220);
 			this.panel1.TabIndex = 5;
 			// 
 			// labelTitre
@@ -67,13 +73,14 @@
 			// panelCorps
 			// 
 			this.panelCorps.Controls.Add(this.graphic);
-			this.panelCorps.Controls.Add(this.panelLabels);
+			this.panelCorps.Controls.Add(this.flowLayoutPanel1);
+			this.panelCorps.Controls.Add(this.panelTexte);
 			this.panelCorps.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panelCorps.Location = new System.Drawing.Point(0, 220);
 			this.panelCorps.Margin = new System.Windows.Forms.Padding(0);
 			this.panelCorps.Name = "panelCorps";
 			this.panelCorps.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-			this.panelCorps.Size = new System.Drawing.Size(1856, 673);
+			this.panelCorps.Size = new System.Drawing.Size(1006, 673);
 			this.panelCorps.TabIndex = 6;
 			// 
 			// graphic
@@ -82,53 +89,89 @@
 			this.graphic.Location = new System.Drawing.Point(244, 0);
 			this.graphic.Margin = new System.Windows.Forms.Padding(0);
 			this.graphic.Name = "graphic";
-			this.graphic.Size = new System.Drawing.Size(1612, 673);
+			this.graphic.Size = new System.Drawing.Size(762, 673);
 			this.graphic.TabIndex = 0;
 			this.graphic.TabStop = false;
 			// 
+			// flowLayoutPanel1
+			// 
+			this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.flowLayoutPanel1.Location = new System.Drawing.Point(244, 0);
+			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+			this.flowLayoutPanel1.Size = new System.Drawing.Size(762, 673);
+			this.flowLayoutPanel1.TabIndex = 4;
+			// 
 			// panelLabels
 			// 
-			this.panelLabels.Controls.Add(this.flatLabelDateFin);
 			this.panelLabels.Controls.Add(this.flatLabelChiffreAffaires);
 			this.panelLabels.Controls.Add(this.flatLabelDateDebut);
-			this.panelLabels.Dock = System.Windows.Forms.DockStyle.Left;
-			this.panelLabels.Location = new System.Drawing.Point(5, 0);
+			this.panelLabels.Controls.Add(this.flatLabelDateFin);
+			this.panelLabels.Dock = System.Windows.Forms.DockStyle.Top;
+			this.panelLabels.Location = new System.Drawing.Point(0, 0);
 			this.panelLabels.Name = "panelLabels";
-			this.panelLabels.Size = new System.Drawing.Size(239, 673);
-			this.panelLabels.TabIndex = 1;
+			this.panelLabels.Size = new System.Drawing.Size(239, 142);
+			this.panelLabels.TabIndex = 3;
 			// 
 			// flatLabelDateFin
 			// 
 			this.flatLabelDateFin.AutoSize = true;
 			this.flatLabelDateFin.Font = new System.Drawing.Font("Yu Gothic UI", 12.5F);
 			this.flatLabelDateFin.ForeColor = System.Drawing.Color.Black;
-			this.flatLabelDateFin.Location = new System.Drawing.Point(15, 85);
+			this.flatLabelDateFin.Location = new System.Drawing.Point(3, 58);
 			this.flatLabelDateFin.Name = "flatLabelDateFin";
 			this.flatLabelDateFin.Size = new System.Drawing.Size(81, 23);
 			this.flatLabelDateFin.TabIndex = 2;
 			this.flatLabelDateFin.Text = "Jusqu\'au ";
-			// 
-			// flatLabelChiffreAffaires
-			// 
-			this.flatLabelChiffreAffaires.AutoSize = true;
-			this.flatLabelChiffreAffaires.Font = new System.Drawing.Font("Yu Gothic UI", 12.5F);
-			this.flatLabelChiffreAffaires.ForeColor = System.Drawing.Color.Black;
-			this.flatLabelChiffreAffaires.Location = new System.Drawing.Point(15, 137);
-			this.flatLabelChiffreAffaires.Name = "flatLabelChiffreAffaires";
-			this.flatLabelChiffreAffaires.Size = new System.Drawing.Size(129, 23);
-			this.flatLabelChiffreAffaires.TabIndex = 1;
-			this.flatLabelChiffreAffaires.Text = "Argent gagné : ";
 			// 
 			// flatLabelDateDebut
 			// 
 			this.flatLabelDateDebut.AutoSize = true;
 			this.flatLabelDateDebut.Font = new System.Drawing.Font("Yu Gothic UI", 12.5F);
 			this.flatLabelDateDebut.ForeColor = System.Drawing.Color.Black;
-			this.flatLabelDateDebut.Location = new System.Drawing.Point(15, 33);
+			this.flatLabelDateDebut.Location = new System.Drawing.Point(3, 15);
 			this.flatLabelDateDebut.Name = "flatLabelDateDebut";
 			this.flatLabelDateDebut.Size = new System.Drawing.Size(85, 23);
 			this.flatLabelDateDebut.TabIndex = 0;
 			this.flatLabelDateDebut.Text = "Depuis le ";
+			// 
+			// flatLabelChiffreAffaires
+			// 
+			this.flatLabelChiffreAffaires.AutoSize = true;
+			this.flatLabelChiffreAffaires.Font = new System.Drawing.Font("Yu Gothic UI", 12.5F);
+			this.flatLabelChiffreAffaires.ForeColor = System.Drawing.Color.Black;
+			this.flatLabelChiffreAffaires.Location = new System.Drawing.Point(3, 101);
+			this.flatLabelChiffreAffaires.Name = "flatLabelChiffreAffaires";
+			this.flatLabelChiffreAffaires.Size = new System.Drawing.Size(129, 23);
+			this.flatLabelChiffreAffaires.TabIndex = 1;
+			this.flatLabelChiffreAffaires.Text = "Argent gagné : ";
+			// 
+			// panelTexte
+			// 
+			this.panelTexte.Controls.Add(this.panelInfosPoints);
+			this.panelTexte.Controls.Add(this.panelLabels);
+			this.panelTexte.Dock = System.Windows.Forms.DockStyle.Left;
+			this.panelTexte.Location = new System.Drawing.Point(5, 0);
+			this.panelTexte.Name = "panelTexte";
+			this.panelTexte.Size = new System.Drawing.Size(239, 673);
+			this.panelTexte.TabIndex = 1;
+			// 
+			// panelInfosPoints
+			// 
+			this.panelInfosPoints.Controls.Add(this.flatDataGridViewPoints);
+			this.panelInfosPoints.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.panelInfosPoints.Location = new System.Drawing.Point(0, 142);
+			this.panelInfosPoints.Name = "panelInfosPoints";
+			this.panelInfosPoints.Size = new System.Drawing.Size(239, 531);
+			this.panelInfosPoints.TabIndex = 4;
+			// 
+			// flatDataGridViewPoints
+			// 
+			this.flatDataGridViewPoints.BackColor = System.Drawing.Color.White;
+			this.flatDataGridViewPoints.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.flatDataGridViewPoints.Location = new System.Drawing.Point(0, 0);
+			this.flatDataGridViewPoints.Name = "flatDataGridViewPoints";
+			this.flatDataGridViewPoints.Size = new System.Drawing.Size(239, 531);
+			this.flatDataGridViewPoints.TabIndex = 0;
 			// 
 			// ChiffreAffaire
 			// 
@@ -137,13 +180,16 @@
 			this.Controls.Add(this.panelCorps);
 			this.Controls.Add(this.panel1);
 			this.Name = "ChiffreAffaire";
-			this.Size = new System.Drawing.Size(1856, 893);
+			this.Size = new System.Drawing.Size(1006, 893);
+			this.Load += new System.EventHandler(this.ChiffreAffaire_Load);
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
 			this.panelCorps.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.graphic)).EndInit();
 			this.panelLabels.ResumeLayout(false);
 			this.panelLabels.PerformLayout();
+			this.panelTexte.ResumeLayout(false);
+			this.panelInfosPoints.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
@@ -154,9 +200,13 @@
 		private System.Windows.Forms.Label labelTitre;
 		private System.Windows.Forms.Panel panelCorps;
 		private Controls.Graphic graphic;
+		private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+		private System.Windows.Forms.Panel panelTexte;
+		private System.Windows.Forms.Panel panelInfosPoints;
+		private Controls.FlatDataGridView flatDataGridViewPoints;
 		private System.Windows.Forms.Panel panelLabels;
-		private Controls.FlatLabel flatLabelDateDebut;
 		private Controls.FlatLabel flatLabelChiffreAffaires;
+		private Controls.FlatLabel flatLabelDateDebut;
 		private Controls.FlatLabel flatLabelDateFin;
 	}
 }
