@@ -16,7 +16,6 @@ namespace QMag.Fenetres
 		private Point _anciennePositionCurseur;
 		private Size _ancienneTailleFenetre;
 
-		//private Panel _subMenuPanelToHide;
 		private readonly List<Panel> _subMenuPanelToHide = new List<Panel>();
 		private Panel _subMenuPanelToShow;
 		public Form1()
@@ -115,6 +114,7 @@ namespace QMag.Fenetres
 			if (typeClasse == null) return; // quitte si la classe est introuvable
 
 			if (!(Activator.CreateInstance(typeClasse) is ThemePanel page)) return;
+
 			panelContainer.Controls.Clear();
 			panelContainer.Controls.Add(page);
 
