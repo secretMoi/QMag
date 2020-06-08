@@ -24,6 +24,8 @@ namespace QMag.Pages.Clients
 		private List<ClientEnregistrement> _clients;
 		private readonly List<int> _associeArticleDbetDgv = new List<int>(); // l'ordre de la liste sera le même que dans _articles
 
+
+
 		public Commander()
 		{
 			InitializeComponent();

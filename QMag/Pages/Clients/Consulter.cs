@@ -23,7 +23,7 @@ namespace QMag.Pages.Clients
 		{
 			_flatDataGridView = flatDataGridView;
 
-			SetColonnes("Nom", "Prénom");
+			SetColonnes("Nom", "Prénom", "Naissance");
 			EnableColumn("editer");
 
 			RempliColonnes();
@@ -37,8 +37,9 @@ namespace QMag.Pages.Clients
 				_useGridView.Add(
 					client.nom,
 					client.prenom,
+					client.naissance.ToString().Substring(0, 10),
 					_imageEditer
-					);
+				);
 		}
 
 		public override void EffetClic(object sender, DataGridViewCellMouseEventArgs e)

@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Globalization;
 using Core;
 using Projet_magasin.Classes;
 using Projet_magasin.Gestion;
 using QMag.Controls;
 using QMag.Controls.Buttons;
 using QMag.Core.Pages;
+using QMag.Fenetres;
 
 namespace QMag.Pages.Clients
 {
@@ -20,6 +22,8 @@ namespace QMag.Pages.Clients
 				"FlatTextBoxNom", "",
 				"FlatLabelPrenom", "Prénom",
 				"FlatTextBoxPrenom", "",
+				"FlatLabelNaissance", "Naissance",
+				"FlatTextBoxNaissance", "",
 				"FlatButtonAjouter", "Ajouter"
 			);
 
@@ -49,6 +53,7 @@ namespace QMag.Pages.Clients
 			_idModification = client.id;
 			_ajout.Get("FlatTextBoxNom").Text = client.nom;
 			_ajout.Get("FlatTextBoxPrenom").Text = client.prenom;
+			_ajout.Get("FlatTextBoxNaissance").Text = client.naissance.ToString().Substring(0, 10);
 		}
 
 		private void Ajouter_Click(object sender, EventArgs e)
@@ -58,12 +63,24 @@ namespace QMag.Pages.Clients
 
 			string nom = _ajout.Get("FlatTextBoxNom").Text;
 			string prenom = _ajout.Get("FlatTextBoxPrenom").Text;
+			string test = _ajout.Get("FlatTextBoxNaissance").Text;
+			DateTime naissance = default;
+			try
+			{
+				naissance = DateTime.ParseExact(_ajout.Get("FlatTextBoxNaissance").Text, "d/M/yyyy", CultureInfo.InvariantCulture);
+			}
+			catch
+			{
+				Dialog.Show("Date de naissance invalide");
+				return;
+			}
 
 			if (_ajout.Get("FlatButtonAjouter").Text == @"Ajouter")
 			{
 				new G_Clients(Connexion).Ajouter(
 					nom,
-					prenom
+					prenom,
+					naissance
 				);
 
 				flatLabelTitre.Text = @"Client ajouté";
@@ -73,7 +90,8 @@ namespace QMag.Pages.Clients
 				new G_Clients(Connexion).Modifier(
 					_idModification,
 					nom,
-					prenom
+					prenom,
+					naissance
 				);
 
 				flatLabelTitre.Text = @"Client modifié";

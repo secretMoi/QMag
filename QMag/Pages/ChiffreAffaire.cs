@@ -95,6 +95,9 @@ namespace QMag.Pages
 		private void AjoutPoint(DateTime date, decimal montant)
 		{
 			date = new DateTime(date.Year, date.Month, date.Day);
+			DateTime sevenDaysAgo = DateTime.Now.AddDays(-7);
+			if(date < sevenDaysAgo)
+				return;
 
 			if (!_points.ContainsKey(date)) // si c'est une nouvelel datte
 				_points.Add(date, montant); // on ajoute direct le point

@@ -69,11 +69,12 @@
     <Reference Include="itext.svg, Version=7.1.11.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <HintPath>..\packages\itext7.7.1.11\lib\net40\itext.svg.dll</HintPath>
     </Reference>
+    <Reference Include="Projet_magasin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Projet_magasin\Projet_magasin\bin\Debug\netstandard2.0\Projet_magasin.dll</HintPath>
+    </Reference>
     <Reference Include="Projet_magasin.Acces">
       <HintPath>..\..\Projet_magasin.Gestion\Projet_magasin.Gestion\bin\Debug\Projet_magasin.Acces.dll</HintPath>
-    </Reference>
-    <Reference Include="Projet_magasin.Classes">
-      <HintPath>..\..\Projet_magasin.Gestion\Projet_magasin.Gestion\bin\Debug\Projet_magasin.Classes.dll</HintPath>
     </Reference>
     <Reference Include="Projet_magasin.Gestion">
       <HintPath>..\..\Projet_magasin.Gestion\Projet_magasin.Gestion\bin\Debug\Projet_magasin.Gestion.dll</HintPath>
